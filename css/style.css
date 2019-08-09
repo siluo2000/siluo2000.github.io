@@ -256,9 +256,9 @@ code, pre {
   font-family: "Source Code Pro", Monaco, Menlo, Consolas, monospace; }
 
 code {
-  background: #eee;
+  background: #fff;
   color: #4d4d4c;
-  padding: 0 5px; }
+  padding: 0; }
 
 blockquote {
   margin: 1em 0;
@@ -270,7 +270,7 @@ blockquote {
 
 .highlight {
   margin: 1em 0;
-  background: #eee;
+  background: #fff;
   border-radius: 4px;
   overflow-x: auto;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
@@ -281,22 +281,24 @@ blockquote {
     width: 100%;
     border-collapse: collapse; }
   .highlight table {
-    position: relative; }
+    position: relative;
+    border-bottom-color: transparent; }
     .highlight table::after {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
+      right: -1px;
       padding: 2px 7px;
       font-size: 14px;
       content: 'Code';
-      background: #e9e9e9; }
+      background: #4271ae;
+      color: #fff; }
   .highlight figcaption {
     position: absolute;
     z-index: 1;
     top: 0;
     width: 100%;
-    background: #e9e9e9;
+    background: #fafafa;
     padding: 2px 7px;
     box-sizing: border-box;
     overflow-x: hidden; }
@@ -438,24 +440,24 @@ blockquote {
   .highlight .code .section,
   .highlight .code .selector-id,
   .highlight .code .selector-class {
-    color: #cdb314; }
+    color: #c82829; }
   .highlight .code .string,
   .highlight .code .number,
   .highlight .code .literal {
-    color: #62a05d; }
+    color: #718c00; }
   .highlight .code .keyword,
   .highlight .code .selector-tag,
   .highlight .code .addition {
-    color: #e28b12; }
+    color: #f5871f; }
   .highlight .code .variable {
-    color: #53a4d9; }
+    color: #3e999f; }
   .highlight .code .comment,
   .highlight .code .quote {
-    color: #999; }
+    color: #8e908c; }
   .highlight .code .built_in,
   .highlight .code .deletion,
   .highlight .code .meta {
-    color: #c92027; }
+    color: #eab700; }
 
 table {
   max-width: 100%;

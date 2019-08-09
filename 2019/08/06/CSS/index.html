@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>图难于其易</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">关于</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">CSS</h2>
+            <div class="post-meta">
+                <span class="post-time">2019-08-06</span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#offsetTop"><span class="toc-text">offsetTop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nth-child-amp-nth-of-type"><span class="toc-text">nth-child &amp; nth-of-type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手机屏幕分辨率-amp-手机浏览器分辨率"><span class="toc-text">手机屏幕分辨率 &amp; 手机浏览器分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负边距"><span class="toc-text">负边距</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清浮动"><span class="toc-text">清浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两端对齐"><span class="toc-text">两端对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式系统匹配规则"><span class="toc-text">样式系统匹配规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS选择器"><span class="toc-text">CSS选择器</span></a></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h3 id="offsetTop"><a href="#offsetTop" class="headerlink" title="offsetTop"></a>offsetTop</h3><ol>
+<li>父级边框不算</li>
+<li>offsetTop是相对 relative 的定位</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="nth-child-amp-nth-of-type"><a href="#nth-child-amp-nth-of-type" class="headerlink" title="nth-child &amp; nth-of-type"></a>nth-child &amp; nth-of-type</h3><iframe id="cp_embed_oKMRaR" src="//codepen.io/siluo2000/embed/oKMRaR?height=500&theme-id=dark&slug-hash=oKMRaR&default-tab=[html,result]&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+<h3 id="手机屏幕分辨率-amp-手机浏览器分辨率"><a href="#手机屏幕分辨率-amp-手机浏览器分辨率" class="headerlink" title="手机屏幕分辨率 &amp; 手机浏览器分辨率"></a>手机屏幕分辨率 &amp; 手机浏览器分辨率</h3><p>手机屏幕分辨率<br>做手机应用时：<br><code>@media screen and (min-device-width:640px) and (max-device-width:960px)</code><br>手机浏览器分辨率<br><code>@media screen and (min-width:320px) and (max-width:480px)</code></p>
+<pre class=" language-js"><code class="language-js">document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"浏览器分辨率是"</span><span class="token operator">+</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth<span class="token operator">+</span><span class="token string">"*"</span><span class="token operator">+</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight <span class="token punctuation">)</span><span class="token punctuation">;</span>  
+document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"屏幕分辨率是"</span><span class="token operator">+</span>window<span class="token punctuation">.</span>screen<span class="token punctuation">.</span>width<span class="token operator">+</span><span class="token string">"*"</span><span class="token operator">+</span>window<span class="token punctuation">.</span>screen<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="负边距"><a href="#负边距" class="headerlink" title="负边距"></a>负边距</h3><p>在文档流中，元素的最终边界是由margin决定的，margin为负的时候就相当于元素的边界向里收，文档流认的只是这个边界，不会管你实际的尺寸是多少。</p>
+<iframe id="cp_embed_eqKEqy" src="//codepen.io/siluo2000/embed/eqKEqy?height=500&theme-id=dark&slug-hash=eqKEqy&default-tab=[html,result]&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+<h3 id="清浮动"><a href="#清浮动" class="headerlink" title="清浮动"></a>清浮动</h3><p>1.给浮动元素父级加float — 不实用<br>2.空标签清浮动</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+  <span class="token selector"><span class="token class">.clear</span></span><span class="token punctuation">{</span> <span class="token property">clear</span><span class="token punctuation">:</span>both<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clear<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>3.在父级加<code>overflow: hidden</code>清浮动</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.clear</span></span><span class="token punctuation">{</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">zoom</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>4.after伪类清浮动</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.clear</span></span><span class="token punctuation">{</span>
+  <span class="token property">zoom</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.clear</span><span class="token pseudo-element">:after</span></span><span class="token punctuation">{</span>
+  <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* Firefox &lt; 3.5 */</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>Bootstrap3的清除是这样的：</li>
+</ul>
+<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/**
+ * 现代浏览器
+ * 1. content的空格内容是为了避免Opera浏览器bug，但是它会导致空格内容出现在元素顶部和底部。
+ * 2. 当使用 `before` 包含子元素的上边距时，必须使用 `table` 而不使用 `block`，可以防止上边距折叠。
+ */</span>
+<span class="token selector"><span class="token class">.cf</span><span class="token pseudo-element">:before</span>,
+<span class="token class">.cf</span><span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">" "</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 1 */</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 2 */</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.cf</span><span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
+  <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/**
+ * For IE 6/7 only
+ * 触发hasLayout并清除浮动
+ */</span>
+<span class="token selector"><span class="token class">.cf</span> </span><span class="token punctuation">{</span>
+  *<span class="token property">zoom</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>支持：Firefox 3.5 +，Safari 4 +，Chrome，Opera 9 +，IE 6+</strong><br>资料：<a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank" rel="noopener">clearfix hack</a></p>
+<ul>
+<li>Bootstrap4的清除是这样的：</li>
+</ul>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.clearfix</span><span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+  <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+  <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="两端对齐"><a href="#两端对齐" class="headerlink" title="两端对齐"></a>两端对齐</h3><p>参考资料：<a href="https://www.cnblogs.com/runhua/p/7106060.html" target="_blank" rel="noopener">css：text-align：justify的用法</a></p>
+<iframe id="cp_embed_OKEqWz" src="//codepen.io/siluo2000/embed/OKEqWz?height=500&theme-id=dark&slug-hash=OKEqWz&default-tab=[html,result]&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+<h3 id="样式系统匹配规则"><a href="#样式系统匹配规则" class="headerlink" title="样式系统匹配规则"></a>样式系统匹配规则</h3><p>样式系统匹配规则是从key selector开始的，然后往左移动（根据选择器寻找任何的祖先元素）。</p>
+<h3 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h3><p>比较难记的：</p>
+<iframe id="cp_embed_xvzvjp" src="//codepen.io/siluo2000/embed/xvzvjp?height=500&theme-id=dark&slug-hash=xvzvjp&default-tab=[html,result]&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2019/08/06/JavaScript/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">JavaScript</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/08/06/HTML/">
+                <span class="nav-default">HTML</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2019
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

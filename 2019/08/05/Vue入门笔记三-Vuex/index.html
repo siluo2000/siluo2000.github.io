@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>图难于其易</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">关于</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Vue入门笔记三(Vuex)</h2>
+            <div class="post-meta">
+                <span class="post-time">2019-08-05</span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex"><span class="toc-text">Vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#集中式的状态管理"><span class="toc-text">集中式的状态管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vuex-store"><span class="toc-text">Vuex store</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#state是唯一数据源"><span class="toc-text">state是唯一数据源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用mutation修改状态"><span class="toc-text">使用mutation修改状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用getter计算和返回数据"><span class="toc-text">使用getter计算和返回数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用action操作store"><span class="toc-text">使用action操作store</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#辅助函数"><span class="toc-text">辅助函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex模块"><span class="toc-text">Vuex模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#带命名空间的模块"><span class="toc-text">带命名空间的模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#访问全局元素"><span class="toc-text">访问全局元素</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <blockquote>
+<p>《Vue.js项目实战》</p>
+</blockquote>
+<h3 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h3><h4 id="集中式的状态管理"><a href="#集中式的状态管理" class="headerlink" title="集中式的状态管理"></a>集中式的状态管理</h4><ul>
+<li>Vuex从Flux（由Facebook开发）的概念中获取得灵感。Flux又一系列指导原则构成，阐明了如何使用集中式store来实现组件之间的单向数据流。</li>
+<li>Vuex的核心元素是store，是进行数据存储和数据处理的主要架构。</li>
+</ul>
+<a id="more"></a>
+<p>store包含如下信息：</p>
+<pre class=" language-js"><code class="language-js">state            <span class="token comment" spellcheck="true">// 存储应用状态的响应式数据对象</span>
+getter          <span class="token comment" spellcheck="true">// 等价于store的计算属性</span>
+mutation     <span class="token comment" spellcheck="true">// 用来改变应用状态的函数</span>
+action         <span class="token comment" spellcheck="true">// 通常用来调用异步API的函数，然后使用mutation改变数据</span></code></pre>
+<h4 id="Vuex-store"><a href="#Vuex-store" class="headerlink" title="Vuex store"></a>Vuex store</h4><p>1.安装vuex</p>
+<pre class=" language-powershell"><code class="language-powershell">npm i <span class="token operator">-</span>S vuex</code></pre>
+<p>然后新建store文件夹，并创建index.js来安装Vuex插件：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span></code></pre>
+<p>2.使用Vuex.Store构造函数创建store:</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// TODO 选项</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>3.导出store：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> store</code></pre>
+<p>4.在main.js文件中，导入store:</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'./store'</span></code></pre>
+<p>5.为了让store在应用中生效，我们还需要像注入路由器一样注入它：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    router<span class="token punctuation">,</span>
+    store<span class="token punctuation">,</span>
+    el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span>App<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h4 id="state是唯一数据源"><a href="#state是唯一数据源" class="headerlink" title="state是唯一数据源"></a>state是唯一数据源</h4><p>state是store的主要组成部分，它展示了应用中组件的所有共享数据。</p>
+<ul>
+<li>state是共享数据的唯一数据源</li>
+<li>state是只读的</li>
+</ul>
+<p>（1）在store选项中添加state函数，该函数返回一个对象：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  state <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      user<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>（2）在组件中读取状态：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>user</code></pre>
+<h4 id="使用mutation修改状态"><a href="#使用mutation修改状态" class="headerlink" title="使用mutation修改状态"></a>使用mutation修改状态</h4><ul>
+<li>mutation是修改state的唯一方式</li>
+<li>mutation接受state作为第一个参数，同时接受一个可选的载荷（payload）参数，以此来更新state</li>
+<li>不应该在mutation中使用异步操作</li>
+<li>严格模式：避免在mutation中使用异步函数<code>strict: true</code></li>
+<li>不要在生产环境下启用严格模式，以免影响性能<code>strict: process.env.NODE_ENV !== &#39;production&#39;</code></li>
+</ul>
+<p>（1）添加一个mutation：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    state <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        user<span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> user<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            state<span class="token punctuation">.</span>user <span class="token operator">=</span> user
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>（2）表明调用mutation的用词是submit，在组件中：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> userData<span class="token punctuation">)</span></code></pre>
+<h4 id="使用getter计算和返回数据"><a href="#使用getter计算和返回数据" class="headerlink" title="使用getter计算和返回数据"></a>使用getter计算和返回数据</h4><p>（1）创建一个getter：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+    getter<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        user<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>user<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>（2）在组件中，可以用这个getter代替之前直接获取状态的方法：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getter<span class="token punctuation">.</span>user <span class="token comment" spellcheck="true">// this.$store.state.user</span></code></pre>
+<h4 id="使用action操作store"><a href="#使用action操作store" class="headerlink" title="使用action操作store"></a>使用action操作store</h4><ul>
+<li>action不仅可以提交mutation，还能做异步操作</li>
+<li>action的声明由一个类型和一个处理函数构成<code>store.dispath(&#39;action-type&#39;, payloadObject)</code></li>
+<li>action的处理函数接收两个参数：<br>  1.context<br>  2.payload</li>
+</ul>
+<p>（1）创建action:</p>
+<pre class=" language-js"><code class="language-js">actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    login <span class="token punctuation">(</span><span class="token punctuation">{</span> commit <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> userData <span class="token operator">=</span> <span class="token punctuation">{</span>
+        profile<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          displayName<span class="token punctuation">:</span> <span class="token string">'Mr Cat'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+     <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> userData<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
+<p>（2）在组件中使用：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">)</span></code></pre>
+<h4 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h4><p><strong>Vuex提供了一系列辅助函数供添加state、getter、mutation以及action。出于将组建中的状态和逻辑分离的考虑，我们只应该在组件中使用getter和action，所以只会用到mapGetters和mapActions。</strong><br>辅助函数的参数可以是：<br>1.类型的数组，其中的每一个元素对应于组件中的同名数据<br>2.对象，其中的键是组件中数据的别名，值则是类型<br>数组语法例如：</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 等价于</span>
+<span class="token punctuation">{</span>
+    a <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>a <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    b <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>b <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>对象语法例如：</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token string">'a'</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token string">'b'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 等价于</span>
+<span class="token punctuation">{</span>
+    x <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>a <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    y <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>b <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（1）在组件中导入：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> mapGetters<span class="token punctuation">,</span> mapActions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span></code></pre>
+<p>（2）然后将组件修改为：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token string">'user'</span><span class="token punctuation">,</span>
+      <span class="token string">'userPicture'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        centerOnUser<span class="token punctuation">:</span> <span class="token string">'login'</span><span class="token punctuation">,</span>
+        logout<span class="token punctuation">:</span> <span class="token string">'logout'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="Vuex模块"><a href="#Vuex模块" class="headerlink" title="Vuex模块"></a>Vuex模块</h3><p>创建两个模块：</p>
+<ul>
+<li>maps</li>
+<li>posts<br>（1）在store文件夹中新建一个maps.js文件。它导出一个默认模块定义，其中包括地图的state：</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+    state <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            center<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                lat<span class="token punctuation">:</span> <span class="token number">48.8538302</span><span class="token punctuation">,</span>
+                lng<span class="token punctuation">:</span> <span class="token number">2.2982161</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>（2）将模块添加到store中，在store/index.js文件中添加modules选项：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> maps <span class="token keyword">from</span> <span class="token string">'./maps'</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+    modules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        maps<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>默认情况下，模块中getter、mutation、action的状态也会成为这个模块的状态。这里它是store.state.maps。</p>
+<h4 id="带命名空间的模块"><a href="#带命名空间的模块" class="headerlink" title="带命名空间的模块"></a>带命名空间的模块</h4><p>上面的namespaced选项告诉Vuex在该模块的所有getter、mutation、action前添加maps/命名空间，还会在这个模块内的commit和dispatch调用中添加它们。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// getter模块</span>
+getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    center<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>maps/center getter 会被添加到store中。使用时可以这么写：<br>1.getters</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'maps/center'</span><span class="token punctuation">]</span></code></pre>
+<p>2.使用getter辅助函数：</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    center<span class="token punctuation">:</span> <span class="token string">'maps/center'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>3.可以指定命名空间：</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token string">'maps'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+    <span class="token string">'center'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>4.使用createNamespacedHelpers方法生成基于某个命名空间的辅助函数：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createNamespacedHelpers <span class="token punctuation">}</span> <span class="token keyword">from</span> vuex
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mapGetters <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span><span class="token string">'maps'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    computed<span class="token punctuation">:</span> <span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token string">'center'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="访问全局元素"><a href="#访问全局元素" class="headerlink" title="访问全局元素"></a>访问全局元素</h4><p>1.在getter中<br>你可以在命名空间模块的getter中访问到根状态和根getter（即所有的getter）：</p>
+<pre class=" language-js"><code class="language-js">someGetter<span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> rootState<span class="token punctuation">,</span> rootGetters<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span><span class="token punctuation">}</span></code></pre>
+<p>2.在action中<br>你可以访问到上下文的rootGetters，还可以在commit和dispatch调用中使用<code>{ root: true }</code>选项：</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">myAction</span><span class="token punctuation">(</span><span class="token punctuation">{</span> dispatch<span class="token punctuation">,</span> commit<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> rootGetters <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    getters<span class="token punctuation">.</span>a <span class="token comment" spellcheck="true">// store.getters['maps/a']</span>
+    rootGetters<span class="token punctuation">.</span>a <span class="token comment" spellcheck="true">// store.getters['a']</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'someMutation'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 'maps/someMutation'</span>
+    <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'someMutation'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> root<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 'someMutation'</span>
+    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'someAction'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 'maps/someAction'</span>
+    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'someAction'</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> root<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 'someAction'</span>
+<span class="token punctuation">}</span></code></pre>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/Vue/" title="Vue">Vue</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2019/08/05/Vue入门笔记四-vue-router/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Vue入门笔记四(vue-router)</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/08/05/Vue入门笔记二/">
+                <span class="nav-default">Vue入门笔记二</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2019
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

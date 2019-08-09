@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>图难于其易</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">关于</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Vue入门笔记六(全局组件 过滤器 插件 变量)</h2>
+            <div class="post-meta">
+                <span class="post-time">2019-08-07</span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局组件"><span class="toc-text">全局组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局过滤器"><span class="toc-text">全局过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局插件"><span class="toc-text">全局插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建一个插件"><span class="toc-text">创建一个插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插件选项"><span class="toc-text">插件选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fetch方法"><span class="toc-text">$fetch方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#改进fetch插件"><span class="toc-text">改进fetch插件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fetch补充"><span class="toc-text">fetch补充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局变量-对象"><span class="toc-text">全局变量/对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将用户存储在一个集中式state里"><span class="toc-text">将用户存储在一个集中式state里</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#state原型对象"><span class="toc-text">$state原型对象</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <blockquote>
+<p>《Vue.js项目实战》</p>
+</blockquote>
+<h3 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h3><p>1.在components文件夹创建Loading.vue：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>loading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></code></pre>
+<p>2.在main.js旁边创建一个global-components.js，然后使用<code>Vue.component()</code>方法全局地注册Loading组件：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span>
+<span class="token keyword">import</span> Loading <span class="token keyword">from</span> <span class="token string">"./components/Loading"</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"Loading"</span><span class="token punctuation">,</span> Loading<span class="token punctuation">)</span></code></pre>
+<p>3.然后，在main.js中导入global-components.js：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'./global-components'</span></code></pre>
+<p>现在可以全局使用<code>&lt;Loading /&gt;</code>了！</p>
+<a id="more"></a>
+
+<h3 id="全局过滤器"><a href="#全局过滤器" class="headerlink" title="全局过滤器"></a>全局过滤器</h3><p>1.以momentjs为例，首先安装moment：</p>
+<pre class=" language-powershell"><code class="language-powershell">npm install <span class="token operator">-</span>S moment</code></pre>
+<p>2.在main.js文件旁边创建一个新的filters.js，它包含date过滤器：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> moment <span class="token keyword">from</span> <span class="token string">"moment"</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> date <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">moment</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'L'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>3.在main.js中导入filters.js并用一个循环注册它们：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> filters <span class="token keyword">from</span> <span class="token string">'./filters'</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> filters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Vue<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> filters<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<p>现在完成注册全局过滤器了！</p>
+<ul>
+<li>在组件中使用：</li>
+</ul>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  Created on <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span>{{ ticket.date | date }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<h3 id="全局插件"><a href="#全局插件" class="headerlink" title="全局插件"></a>全局插件</h3><p>用自己的插件扩展Vue：</p>
+<h4 id="创建一个插件"><a href="#创建一个插件" class="headerlink" title="创建一个插件"></a>创建一个插件</h4><p>（1）在src文件夹中创建一个plugins文件夹<br>（2）在plugins文件夹中创建一个fetch.js<br>（3）让我们通过导出一个带有install对象的方法创建一个插件：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  install <span class="token punctuation">(</span>Vue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Installed!'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（4）在main.js中导入这个插件，然后像我们为vue-router所做的那样调用Vue.use()方法：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> VueFetch <span class="token keyword">from</span> <span class="token string">'./plugins/fetch'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueFetch<span class="token punctuation">)</span></code></pre>
+<h4 id="插件选项"><a href="#插件选项" class="headerlink" title="插件选项"></a>插件选项</h4><p>我们可以使用options参数配置插件。<br>（1）编辑install方法，添加options参数：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  install <span class="token punctuation">(</span>Vue<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Installed!'</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（2）添加一个baseURL属性到配置中：</p>
+<pre class=" language-js"><code class="language-js">Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueFetch<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  baseURL<span class="token punctuation">:</span> <span class="token string">'http://localhost:3000/'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>（3）将baseURL存储到一个变量中，稍后使用：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> baseURL
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  install <span class="token punctuation">(</span>Vue<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Installed!'</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+
+    baseURL <span class="token operator">=</span> options<span class="token punctuation">.</span>baseURL
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="fetch方法"><a href="#fetch方法" class="headerlink" title="$fetch方法"></a>$fetch方法</h4><p>（1）在fetch.js中使用fetch方法实现$fetch方法：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> $fetch <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>baseURL<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">)</span>
+    <span class="token keyword">throw</span> error
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（2）添加到Vue的原型，使它在所有组件中都可用：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  install <span class="token punctuation">(</span>Vue<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Installed!'</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+
+    baseURL <span class="token operator">=</span> options<span class="token punctuation">.</span>baseURL
+
+    Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$fetch <span class="token operator">=</span> $fetch
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（3）然后在组件中使用$fetch方法，比如：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>question <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$fetch</span><span class="token punctuation">(</span><span class="token string">'question'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> e
+<span class="token punctuation">}</span></code></pre>
+<h5 id="改进fetch插件"><a href="#改进fetch插件" class="headerlink" title="改进fetch插件"></a>改进fetch插件</h5><p>目前，我们的$fetch方法只能对服务器发出GET请求。</p>
+<p>（1）在plugins/fetch.js文件中添加options参数：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">$fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span></code></pre>
+<p>options参数是fetch方法的可选参数，允许我们更改不同的参数，例如使用的HTTP方法、请求主体等。</p>
+<p>（2）在$fetch方法头部设置option参数的默认值：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> finalOptions <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span>  <span class="token comment" spellcheck="true">// 始终在请求主体中发送JSON</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  credentials<span class="token punctuation">:</span> <span class="token string">'include'</span>                <span class="token comment" spellcheck="true">// 包含用户登录所需的授权令牌</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span></code></pre>
+<p>（3）接下来，将新选项添加到浏览器fetch方法：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>baseURL<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span> finalOptions<span class="token punctuation">)</span></code></pre>
+<p>（4）另外，服务器总是将错误作为文本发送，所以可以捕获它们并显示给用户：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> data
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+  error<span class="token punctuation">.</span>response <span class="token operator">=</span> response
+  <span class="token keyword">throw</span> error
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>在组件中使用：</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">async</span> signup <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$fetch</span><span class="token punctuation">(</span><span class="token string">'signup'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    method<span class="token punctuation">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+    body<span class="token punctuation">:</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      username<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>username<span class="token punctuation">,</span>
+      password<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>password<span class="token punctuation">,</span>
+      email<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>email
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>mode <span class="token operator">=</span> <span class="token string">'login'</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（5）会话过期</p>
+<p>服务器始终返回403错误。</p>
+<p>1.在修改请求方法（<code>/plugin/fetch.js</code>）前，需要导入state和路由器：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> state <span class="token keyword">from</span> <span class="token string">"../state"</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">"../router"</span></code></pre>
+<p>2.在<code>fetch.js</code>响应处理中添加一个条件分支：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">403</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 如果会话不在有效</span>
+  <span class="token comment" spellcheck="true">// 我们登出</span>
+  state<span class="token punctuation">.</span>user <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token comment" spellcheck="true">// 如果这个路由是私有的</span>
+  <span class="token comment" spellcheck="true">// 我们跳转到登录页面</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span>currentRoute<span class="token punctuation">.</span>matched<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span>r <span class="token operator">=</span><span class="token operator">></span> r<span class="token punctuation">.</span>meta<span class="token punctuation">.</span><span class="token keyword">private</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    router<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'login'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      wantedRoute<span class="token punctuation">:</span> router<span class="token punctuation">.</span>currentRoute<span class="token punctuation">.</span>fullPath
+    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span></code></pre>
+<p>现在这个插件完成了！</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> state <span class="token keyword">from</span> <span class="token string">"../state"</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">"../router"</span>
+<span class="token keyword">let</span> baseUrl
+
+<span class="token keyword">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> $fetch <span class="token punctuation">(</span>url<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> finalOptions <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    credentials<span class="token punctuation">:</span> <span class="token string">'include'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>baseUrl<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span> finalOptions<span class="token punctuation">)</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>ok<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+  <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">403</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 如果会话不在有效</span>
+    <span class="token comment" spellcheck="true">// 我们登出</span>
+    state<span class="token punctuation">.</span>user <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token comment" spellcheck="true">// 如果这个路由是私有的</span>
+    <span class="token comment" spellcheck="true">// 我们跳转到登录页面</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>router<span class="token punctuation">.</span>currentRoute<span class="token punctuation">.</span>matched<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span>r <span class="token operator">=</span><span class="token operator">></span> r<span class="token punctuation">.</span>meta<span class="token punctuation">.</span><span class="token keyword">private</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      router<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'login'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        wantedRoute<span class="token punctuation">:</span> router<span class="token punctuation">.</span>currentRoute<span class="token punctuation">.</span>fullPath
+      <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+    error<span class="token punctuation">.</span>response <span class="token operator">=</span> response
+    <span class="token keyword">throw</span> error
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  install <span class="token punctuation">(</span>Vue<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    baseUrl <span class="token operator">=</span> options<span class="token punctuation">.</span>baseUrl
+
+    Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>$fetch <span class="token operator">=</span> $fetch
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="fetch补充"><a href="#fetch补充" class="headerlink" title="fetch补充"></a>fetch补充</h4><p>兼容性：</p>
+<p class="ciu_embed" data-feature="fetch" data-periods="[future_1,current,past_1,past_2,past_3]"><a href="http://caniuse.com/#feat=fetch" target="_blank" rel="noopener">Can I Use fetch?</a> Data on support for the fetch feature across the major browsers from caniuse.com.</p><script async src="//cdn.jsdelivr.net/caniuse-embed/1.1.0/caniuse-embed.min.js"></script>
+
+<h3 id="全局变量-对象"><a href="#全局变量-对象" class="headerlink" title="全局变量/对象"></a>全局变量/对象</h3><h4 id="将用户存储在一个集中式state里"><a href="#将用户存储在一个集中式state里" class="headerlink" title="将用户存储在一个集中式state里"></a>将用户存储在一个集中式state里</h4><p>（1）在main.js旁边创建state.js，用于导出state对象：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  user<span class="token punctuation">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（2）在main.js导入state：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> state <span class="token keyword">from</span> <span class="token string">"./state"</span></code></pre>
+<p>（3）然后，将其用作根实例的数据，以便使其成为响应式的：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> state<span class="token punctuation">,</span>
+  render<span class="token punctuation">:</span> h <span class="token operator">=</span><span class="token operator">></span> <span class="token function">h</span><span class="token punctuation">(</span>AppLayout<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  router
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="state原型对象"><a href="#state原型对象" class="headerlink" title="$state原型对象"></a>$state原型对象</h4><p>（1）在plugins文件夹中，创建一个导出插件state.js：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  install <span class="token punctuation">(</span>Vue<span class="token punctuation">,</span> state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token string">'$state'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> state<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>（2）在main.js中导入插件：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> VueState <span class="token keyword">from</span> <span class="token string">'./plugins/state'</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>VueState<span class="token punctuation">,</span> state<span class="token punctuation">)</span></code></pre>
+<p>现在可以在组件中使用$state来访问全局状态了！</p>
+<ul>
+<li>实例：</li>
+</ul>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$state.user<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token comment" spellcheck="true">&lt;!-- ... --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$state<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/Vue-components-filters-plugins-vars/" title="Vue components filters plugins vars">Vue components filters plugins vars</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2019/08/07/Vue入门笔记七-生产环境构建/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Vue入门笔记七(生产环境构建)</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/08/07/Vue入门笔记五-常用插件/">
+                <span class="nav-default">Vue入门笔记五(常用插件)</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2019
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

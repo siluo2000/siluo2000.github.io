@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/gitment.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-</head>
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
 <body>
 <header class="header">
     <div class="header-inner">
@@ -80,7 +80,7 @@
         </div>
         <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">Vue核心功能概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">兼容性要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">Vue开发者工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">高级项目设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">babel版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-text">创建应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">更新依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">渲染函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-text">虚拟DOM</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue核心功能概述"><span class="toc-text">Vue核心功能概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#兼容性要求"><span class="toc-text">兼容性要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue开发者工具"><span class="toc-text">Vue开发者工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级项目设置"><span class="toc-text">高级项目设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel版本"><span class="toc-text">babel版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建应用"><span class="toc-text">创建应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新依赖"><span class="toc-text">更新依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染函数"><span class="toc-text">渲染函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟DOM"><span class="toc-text">虚拟DOM</span></a></li></ol></li></ol>
     <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
@@ -89,43 +89,124 @@
             <blockquote>
 <p>《Vue.js项目实战》Guillaume Chau</p>
 </blockquote>
-<h3><span id="vue核心功能概述">Vue核心功能概述</span></h3><p>1.一个响应式的数据系统，能通过轻量级的虚拟DOM引擎和最少的优化工作来自动更新用户界面<br>2.灵活的视图声明，包括优雅友好的HTML模板、JSX（在JavaSript中编写HTML的技术）以及hyperscript（完全使用JavaScript）<br>3.由可维护、可复用组件构成的组件化用户界面<br>4.官方的组件库提供了路由、状态管理、脚手架以及更多高级功能，使Vue成为了一个灵活且功能完善的前端框架</p>
+<h3 id="Vue核心功能概述"><a href="#Vue核心功能概述" class="headerlink" title="Vue核心功能概述"></a>Vue核心功能概述</h3><p>1.一个响应式的数据系统，能通过轻量级的虚拟DOM引擎和最少的优化工作来自动更新用户界面<br>2.灵活的视图声明，包括优雅友好的HTML模板、JSX（在JavaSript中编写HTML的技术）以及hyperscript（完全使用JavaScript）<br>3.由可维护、可复用组件构成的组件化用户界面<br>4.官方的组件库提供了路由、状态管理、脚手架以及更多高级功能，使Vue成为了一个灵活且功能完善的前端框架</p>
 <a id="more"></a>
 
-<h3><span id="兼容性要求">兼容性要求</span></h3><ul>
+<h3 id="兼容性要求"><a href="#兼容性要求" class="headerlink" title="兼容性要求"></a>兼容性要求</h3><ul>
 <li>Vue没有任何第三方依赖</li>
 <li>可以在所有兼容ECMAScript 5 的浏览器中使用</li>
 <li>不支持Internet Explorer 8 及以下版本</li>
 <li>编写ES2015（ES6）需要编译器Babel，才能在老版本浏览器中运行</li>
 </ul>
-<h3><span id="vue开发者工具">Vue开发者工具</span></h3><ul>
+<h3 id="Vue开发者工具"><a href="#Vue开发者工具" class="headerlink" title="Vue开发者工具"></a>Vue开发者工具</h3><ul>
 <li>Chrome    Vue.js devtools【启用Allow access to file URLs，调试工具就能在从本地磁盘打开的Web页面上检测Vue】</li>
 </ul>
-<h3><span id="高级项目设置">高级项目设置</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g vue-cli                            <span class="comment">// 安装官方命令行工具vue-cli</span></span><br><span class="line">$ vue --version                                     <span class="comment">// 测试vue-cli运行，打印版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 项目脚手架</span></span><br><span class="line">$ vue list                                          <span class="comment">// 列出官方项目模板</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// vue init &lt;template&gt; &lt;dir&gt;使用模板创建新的应用项目</span></span><br><span class="line"><span class="comment">// 官方模板主要有以下3种主要类型</span></span><br><span class="line"><span class="comment">// simple                                            不使用构建工具</span></span><br><span class="line"><span class="comment">// webpack                                           使用非常流行的Webpack打包器</span></span><br><span class="line"><span class="comment">// browserify                                        使用Browserify构建工具</span></span><br><span class="line">$ vue init webpack-simple demo</span><br><span class="line"></span><br><span class="line">$ cd demo</span><br><span class="line">$ npm install                                       <span class="comment">// 安装依赖包</span></span><br><span class="line"></span><br><span class="line">$ npm run dev                                       <span class="comment">// 以开发模式启动应用</span></span><br><span class="line"></span><br><span class="line">$ npm run build                                     <span class="comment">// 为生产而构建</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置Babel</span></span><br><span class="line"><span class="comment">// 1.Babel Vue 预设</span></span><br><span class="line">$ npm i -D babel-preset-vue</span><br><span class="line"><span class="comment">// 打开.babelrc文件并将vue预设添加到相应的列表中 【babel 7和7以下的配置有很大区别】</span></span><br><span class="line"><span class="comment">// 看下文</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.polyfill</span></span><br><span class="line">$ npm i -D babel-polyfill</span><br><span class="line"><span class="comment">// 在src/main.js文件开头导入 </span></span><br><span class="line"><span class="comment">// import 'babel-polyfill'</span></span><br></pre></td></tr></table></figure>
+<h3 id="高级项目设置"><a href="#高级项目设置" class="headerlink" title="高级项目设置"></a>高级项目设置</h3><pre class=" language-js"><code class="language-js">npm install <span class="token operator">-</span>g vue<span class="token operator">-</span>cli                            <span class="token comment" spellcheck="true">// 安装官方命令行工具vue-cli</span>
+vue <span class="token operator">--</span>version                                     <span class="token comment" spellcheck="true">// 测试vue-cli运行，打印版本</span>
 
-<h3><span id="babel版本">babel版本</span></h3><p>在.babelrc文件中：<br>1.”babel-core”: “^6.26.0”</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"presets"</span>: [</span><br><span class="line">    [<span class="string">"env"</span>, &#123; <span class="attr">"modules"</span>: <span class="literal">false</span> &#125;],</span><br><span class="line">    <span class="string">"stage-3"</span>,</span><br><span class="line">    <span class="string">"vue"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span class="token comment" spellcheck="true">// 项目脚手架</span>
+vue list                                          <span class="token comment" spellcheck="true">// 列出官方项目模板</span>
 
+<span class="token comment" spellcheck="true">// vue init &lt;template> &lt;dir>使用模板创建新的应用项目</span>
+<span class="token comment" spellcheck="true">// 官方模板主要有以下3种主要类型</span>
+<span class="token comment" spellcheck="true">// simple                                            不使用构建工具</span>
+<span class="token comment" spellcheck="true">// webpack                                           使用非常流行的Webpack打包器</span>
+<span class="token comment" spellcheck="true">// browserify                                        使用Browserify构建工具</span>
+vue init webpack<span class="token operator">-</span>simple demo
+
+cd demo
+npm install                                       <span class="token comment" spellcheck="true">// 安装依赖包</span>
+
+npm run dev                                       <span class="token comment" spellcheck="true">// 以开发模式启动应用</span>
+
+npm run build                                     <span class="token comment" spellcheck="true">// 为生产而构建</span>
+
+<span class="token comment" spellcheck="true">// 配置Babel</span>
+<span class="token comment" spellcheck="true">// 1.Babel Vue 预设</span>
+npm i <span class="token operator">-</span>D babel<span class="token operator">-</span>preset<span class="token operator">-</span>vue
+<span class="token comment" spellcheck="true">// 打开.babelrc文件并将vue预设添加到相应的列表中 【babel 7和7以下的配置有很大区别】</span>
+<span class="token comment" spellcheck="true">// 看下文</span>
+
+<span class="token comment" spellcheck="true">// 2.polyfill</span>
+npm i <span class="token operator">-</span>D babel<span class="token operator">-</span>polyfill
+<span class="token comment" spellcheck="true">// 在src/main.js文件开头导入</span>
+<span class="token comment" spellcheck="true">// import 'babel-polyfill'</span>
+</code></pre>
+<h3 id="babel版本"><a href="#babel版本" class="headerlink" title="babel版本"></a>babel版本</h3><p>在.babelrc文件中：<br>1.”babel-core”: “^6.26.0”</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"presets"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token string">"env"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token property">"modules"</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"stage-3"</span><span class="token punctuation">,</span>
+    <span class="token string">"vue"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <p>2.”@babel/core”: “^7.5.5”</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"presets"</span>: [</span><br><span class="line">    <span class="string">"@babel/preset-env"</span>,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"plugins"</span>: [</span><br><span class="line">    // Stage <span class="number">2</span></span><br><span class="line">    [</span><br><span class="line">      <span class="string">"@babel/plugin-proposal-decorators"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"legacy"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"@babel/plugin-proposal-function-sent"</span>,</span><br><span class="line">    <span class="string">"@babel/plugin-proposal-export-namespace-from"</span>,</span><br><span class="line">    <span class="string">"@babel/plugin-proposal-numeric-separator"</span>,</span><br><span class="line">    <span class="string">"@babel/plugin-proposal-throw-expressions"</span>,</span><br><span class="line">    // Stage <span class="number">3</span></span><br><span class="line">    // <span class="string">"@babel/plugin-syntax-dynamic-import"</span>,</span><br><span class="line">    // <span class="string">"@babel/plugin-syntax-import-meta"</span>,</span><br><span class="line">    // [</span><br><span class="line">    //   <span class="string">"@babel/plugin-proposal-class-properties"</span>,</span><br><span class="line">    //   &#123;</span><br><span class="line">    //     "loose": false</span><br><span class="line">    //   &#125;</span><br><span class="line">    // ],</span><br><span class="line">    // "@babel/plugin-proposal-json-strings"</span><br><span class="line">  </span><br><span class="line">  ],</span><br><span class="line">  "env": &#123;</span><br><span class="line">    "test": &#123;</span><br><span class="line">      "plugins": [</span><br><span class="line">        "transform-es2015-modules-commonjs",</span><br><span class="line">        <span class="string">"dynamic-import-node"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token string">"presets"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"@babel/preset-env"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment" spellcheck="true">// Stage 2</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">"@babel/plugin-proposal-decorators"</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">"legacy"</span><span class="token punctuation">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">"@babel/plugin-proposal-function-sent"</span><span class="token punctuation">,</span>
+    <span class="token string">"@babel/plugin-proposal-export-namespace-from"</span><span class="token punctuation">,</span>
+    <span class="token string">"@babel/plugin-proposal-numeric-separator"</span><span class="token punctuation">,</span>
+    <span class="token string">"@babel/plugin-proposal-throw-expressions"</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// Stage 3</span>
+    <span class="token comment" spellcheck="true">// "@babel/plugin-syntax-dynamic-import",</span>
+    <span class="token comment" spellcheck="true">// "@babel/plugin-syntax-import-meta",</span>
+    <span class="token comment" spellcheck="true">// [</span>
+    <span class="token comment" spellcheck="true">//   "@babel/plugin-proposal-class-properties",</span>
+    <span class="token comment" spellcheck="true">//   {</span>
+    <span class="token comment" spellcheck="true">//     "loose": false</span>
+    <span class="token comment" spellcheck="true">//   }</span>
+    <span class="token comment" spellcheck="true">// ],</span>
+    <span class="token comment" spellcheck="true">// "@babel/plugin-proposal-json-strings"</span>
 
-<h4><span id="创建应用">创建应用</span></h4><p>1.移除src文件夹中的内容<br>2.使用以下内容创建一个新的JavaScript文件，名为main.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>,</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(<span class="string">"div"</span>, <span class="string">"hello world"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3><span id="更新依赖">更新依赖</span></h3><p>1.手动更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 1.检查项目中使用的包是否有新版本</span><br><span class="line">$ npm outdated     </span><br><span class="line">// 2.打开package.json改变对应版本范围，保存</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"env"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"plugins"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"transform-es2015-modules-commonjs"</span><span class="token punctuation">,</span>
+        <span class="token string">"dynamic-import-node"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>1.移除src文件夹中的内容<br>2.使用以下内容创建一个新的JavaScript文件，名为main.js</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span>
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    render<span class="token punctuation">:</span> h <span class="token operator">=</span><span class="token operator">></span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">,</span> <span class="token string">"hello world"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="更新依赖"><a href="#更新依赖" class="headerlink" title="更新依赖"></a>更新依赖</h3><p>1.手动更新</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 1.检查项目中使用的包是否有新版本</span>
+npm outdated
+<span class="token comment" spellcheck="true">// 2.打开package.json改变对应版本范围，保存</span>
+npm install
+</code></pre>
 <p>2.自动更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm update</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> update</code></pre>
 <p>3.更新Vue<br>vue包和vue-template-compiler包必须始终处于相同的版本</p>
-<h3><span id="渲染函数">渲染函数</span></h3><p>Vue使用了一个虚拟DOM的实现，用树状结构的JavaScript对象来构建虚拟DOM。然后，Vue将虚拟DOM应用到真实浏览器的DOM上，所用方法是计算两者之间的差异。这尽可能避免了DOM操作，因为DOM操作通常是主要的性能瓶颈。<br><strong>实际上，当你使用模板时，Vue会将其编译成渲染函数。如果你需要JavaScript的全部功能和灵活性，可以自己直接编写渲染函数或编写JSX。</strong><br>h是createElement的别名，得名于使用JavaScript描述HTML的技术——Hyperscript。<br>createElement（或称h）方法最多需要3个参数：<br>1.元素类型：可以是HTML标签名称（如div），在应用中注册过的组件名称，或者一个组件定义对象<br>2.可选参数：定义属性、prop、事件监听器等的数据对象<br>3.可选参数：简单纯文本、用h创建的其他元素的数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">render(h) &#123;</span><br><span class="line">      <span class="keyword">return</span> h(<span class="string">'ul'</span>, &#123; <span class="string">'class'</span>: <span class="string">'movies'</span>&#125;, [</span><br><span class="line">        h(<span class="string">'li'</span>, &#123; <span class="string">'class'</span>: <span class="string">'movie'</span> &#125;, <span class="string">'Star Wars'</span>),</span><br><span class="line">        h(<span class="string">'li'</span>, &#123; <span class="string">'class'</span>: <span class="string">'movie'</span> &#125;, <span class="string">'Blade Runner'</span>),</span><br><span class="line">      ])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h3 id="渲染函数"><a href="#渲染函数" class="headerlink" title="渲染函数"></a>渲染函数</h3><p>Vue使用了一个虚拟DOM的实现，用树状结构的JavaScript对象来构建虚拟DOM。然后，Vue将虚拟DOM应用到真实浏览器的DOM上，所用方法是计算两者之间的差异。这尽可能避免了DOM操作，因为DOM操作通常是主要的性能瓶颈。<br><strong>实际上，当你使用模板时，Vue会将其编译成渲染函数。如果你需要JavaScript的全部功能和灵活性，可以自己直接编写渲染函数或编写JSX。</strong><br>h是createElement的别名，得名于使用JavaScript描述HTML的技术——Hyperscript。<br>createElement（或称h）方法最多需要3个参数：<br>1.元素类型：可以是HTML标签名称（如div），在应用中注册过的组件名称，或者一个组件定义对象<br>2.可选参数：定义属性、prop、事件监听器等的数据对象<br>3.可选参数：简单纯文本、用h创建的其他元素的数组</p>
+<pre class=" language-js"><code class="language-js"><span class="token function">render</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">'class'</span><span class="token punctuation">:</span> <span class="token string">'movies'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>
+        <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">'class'</span><span class="token punctuation">:</span> <span class="token string">'movie'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'Star Wars'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">h</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token string">'class'</span><span class="token punctuation">:</span> <span class="token string">'movie'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'Blade Runner'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
 <p>它将在浏览器中输出以下DOM：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"movies"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"movie"</span>&gt;</span>Star Wars<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"movie"</span>&gt;</span>Blade Runner<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4><span id="虚拟dom">虚拟DOM</span></h4><ul>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movies<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Star Wars<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Blade Runner<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h4><ul>
 <li>render函数返回由createElement（或h）建立的一个节点树，这些节点在Vue中称为VNode。这棵节点树代表Vue承载的虚拟DOM中的一个组件视图。DOM中的每个元素都是一个节点——HTML元素、文本，甚至注释也是节点。</li>
 <li>Vue不直接将虚拟DOM转化为实际的DOM树，因为这样可能引发很多DOM操作（添加或删除节点），十分损耗性能。</li>
 <li>为了更加高效，Vue在两种DOM树之间创建一个差异表，只在必要时才会通过DOM操作将虚拟DOM同步到实际的DOM。</li>
@@ -143,6 +224,12 @@
 </div>
 <div class="paginator">
     
+        
+            <a class="prev" href="/2019/08/05/Vue入门笔记二/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Vue入门笔记二</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
         
         
     

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>图难于其易</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">关于</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Vue入门笔记七(生产环境构建)</h2>
+            <div class="post-meta">
+                <span class="post-time">2019-08-07</span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#将样式提取到CSS文件"><span class="toc-text">将样式提取到CSS文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新的npm脚本"><span class="toc-text">新的npm脚本</span></a></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <blockquote>
+<p>《Vue.js项目实战》</p>
+</blockquote>
+<h3 id="将样式提取到CSS文件"><a href="#将样式提取到CSS文件" class="headerlink" title="将样式提取到CSS文件"></a>将样式提取到CSS文件</h3><p>安装包：</p>
+<pre class=" language-powershell"><code class="language-powershell">npm i <span class="token operator">-</span>D extract<span class="token operator">-</span>text<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin</code></pre>
+<p>在webpack.config.js导入并配置：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> ExtractTextPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'extract-text-webpack-plugin'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+    <span class="token keyword">new</span> <span class="token class-name">ExtractTextPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      filename<span class="token punctuation">:</span> <span class="token string">'common.[chunkhash].css'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="新的npm脚本"><a href="#新的npm脚本" class="headerlink" title="新的npm脚本"></a>新的npm脚本</h3><p>1.安装包：</p>
+<pre class=" language-powershell"><code class="language-powershell">npm i <span class="token operator">-</span>D rimraf</code></pre>
+<p>2.为客户端bundle和服务器bundle各添加一个build脚本：</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token string">"build:client"</span><span class="token punctuation">:</span> <span class="token string">"cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack/client.js"</span><span class="token punctuation">,</span>
+  <span class="token string">"build:server"</span><span class="token punctuation">:</span> <span class="token string">"cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack/server.js"</span>
+<span class="token punctuation">}</span></code></pre>
+<p>3.新建一个build脚本，用来清空dist文件夹并运行build:client和build:server这两个脚本：</p>
+<pre class=" language-powershell"><code class="language-powershell"><span class="token string">"build"</span>: <span class="token string">"rimraf dist &amp;&amp; npm run build:client &amp;&amp; npm run build:server"</span></code></pre>
+<p>4.添加最后一个名为start的脚本，它会以生产模式运行express服务器：</p>
+<pre class=" language-powershell"><code class="language-powershell"><span class="token string">"start"</span>: <span class="token string">"cross-env NODE_ENV=production node server"</span></code></pre>
+<p>5.运行构建：</p>
+<pre class=" language-powershell"><code class="language-powershell">npm run build</code></pre>
+<p>6.启动express服务器：</p>
+<pre class=" language-powershell"><code class="language-powershell">npm <span class="token function">start</span></code></pre>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/extract-text-webpack-plugin/" title="extract-text-webpack-plugin">extract-text-webpack-plugin</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2019/08/08/Vue插件/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Vue插件</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
+        
+        
+            <a class="next" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">
+                <span class="nav-default">Vue入门笔记六(全局组件 过滤器 插件 变量)</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2019
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>
