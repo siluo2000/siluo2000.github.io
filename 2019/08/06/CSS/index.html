@@ -80,7 +80,7 @@
         </div>
         <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#offsetTop"><span class="toc-text">offsetTop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nth-child-amp-nth-of-type"><span class="toc-text">nth-child &amp; nth-of-type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手机屏幕分辨率-amp-手机浏览器分辨率"><span class="toc-text">手机屏幕分辨率 &amp; 手机浏览器分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负边距"><span class="toc-text">负边距</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清浮动"><span class="toc-text">清浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两端对齐"><span class="toc-text">两端对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式系统匹配规则"><span class="toc-text">样式系统匹配规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS选择器"><span class="toc-text">CSS选择器</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#offsetTop"><span class="toc-text">offsetTop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nth-child-amp-nth-of-type"><span class="toc-text">nth-child &amp; nth-of-type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手机屏幕分辨率-amp-手机浏览器分辨率"><span class="toc-text">手机屏幕分辨率 &amp; 手机浏览器分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#负边距"><span class="toc-text">负边距</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清浮动"><span class="toc-text">清浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两端对齐"><span class="toc-text">两端对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样式系统匹配规则"><span class="toc-text">样式系统匹配规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS选择器"><span class="toc-text">CSS选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#inline-block兼容"><span class="toc-text">inline-block兼容</span></a></li></ol>
     <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
@@ -161,6 +161,22 @@ document<span class="token punctuation">.</span><span class="token function">wri
 <h3 id="样式系统匹配规则"><a href="#样式系统匹配规则" class="headerlink" title="样式系统匹配规则"></a>样式系统匹配规则</h3><p>样式系统匹配规则是从key selector开始的，然后往左移动（根据选择器寻找任何的祖先元素）。</p>
 <h3 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h3><p>比较难记的：</p>
 <iframe id="cp_embed_xvzvjp" src="//codepen.io/siluo2000/embed/xvzvjp?height=500&theme-id=dark&slug-hash=xvzvjp&default-tab=[html,result]&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+<h3 id="inline-block兼容"><a href="#inline-block兼容" class="headerlink" title="inline-block兼容"></a>inline-block兼容</h3><ul>
+<li><p>兼容问题：</p>
+<ol>
+<li>IE6、IE7不识别inline-block</li>
+<li>IE8  resize-bug</li>
+</ol>
+</li>
+<li><p>兼容写法：</p>
+</li>
+</ul>
+<pre class=" language-css"><code class="language-css"><span class="token selector">selector</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span>inline-block<span class="token punctuation">;</span>
+  <span class="token property">zoom</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*IE 下触发 hasLayout*/</span>
+  *<span class="token property">display</span><span class="token punctuation">:</span>inline<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*一旦IE下触发了hasLayout，设置 block 元素为 inline 会使 display:inline 效果与 display:inline-block 相似*/</span>
+<span class="token punctuation">}</span></code></pre>
 
         </div>
         
