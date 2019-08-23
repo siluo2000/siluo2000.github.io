@@ -23,7 +23,12 @@
                 if (scrollTop < minScrollTop) {
                     $toc.css({'position': 'absolute', 'top': minScrollTop - 70});
                 } else {
-                    $toc.css({'position': 'fixed', 'top': HEADER_OFFSET + 'px'});
+                    $toc.css({ 
+                        'position': 'fixed', 
+                        'top': HEADER_OFFSET + 'px', 
+                        'bottom': HEADER_OFFSET + 'px', 
+                        'overflow-y': 'auto'
+                    });
                 }
             });
         }

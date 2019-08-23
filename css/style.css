@@ -228,7 +228,7 @@ h6 {
       word-break: break-all; }
       .post-abstract .post-content a:hover, .post-whole .post-content a:hover {
         text-decoration: underline; }
-    .post-abstract .post-content ul, .post-whole .post-content ul {
+    .post-abstract .post-content > ul, .post-whole .post-content > ul {
       padding-left: 0; }
 
 .post-abstract {
