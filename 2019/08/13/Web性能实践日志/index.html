@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>图难于其易</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                首页
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                归档
+            </a>
+            
+
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">首页</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">归档</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">标签</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">关于</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Web性能实践日志笔记</h2>
+            <div class="post-meta">
+                <span class="post-time">2019-08-13</span>
+                
+                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage-读取性能"><span class="toc-text">localStorage 读取性能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优化策略"><span class="toc-text">优化策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跟进"><span class="toc-text">跟进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联不是万能的"><span class="toc-text">内联不是万能的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#没有浏览器缓存"><span class="toc-text">没有浏览器缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#没有边缘缓存"><span class="toc-text">没有边缘缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#没有按需加载"><span class="toc-text">没有按需加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器预加载失效"><span class="toc-text">浏览器预加载失效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不完美的解决方案：只在第一次访问时采用内联方式"><span class="toc-text">不完美的解决方案：只在第一次访问时采用内联方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结和建议"><span class="toc-text">总结和建议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载异步脚本的艺术"><span class="toc-text">加载异步脚本的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Facebook插件JS-SDK"><span class="toc-text">Facebook插件JS SDK</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动化网站性能优化"><span class="toc-text">自动化网站性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端单点故障-frontend-SPOF"><span class="toc-text">前端单点故障 frontend SPOF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引起前端单点故障的原因"><span class="toc-text">引起前端单点故障的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#避免前端单点故障"><span class="toc-text">避免前端单点故障</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字体文件"><span class="toc-text">字体文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高性能原生移动应用"><span class="toc-text">高性能原生移动应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注意你的瀑布流"><span class="toc-text">注意你的瀑布流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#压缩这些资源"><span class="toc-text">压缩这些资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不要重复下载"><span class="toc-text">不要重复下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#太多图片会减慢你的速度么"><span class="toc-text">太多图片会减慢你的速度么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#纯CSS3图片"><span class="toc-text">纯CSS3图片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基准测试"><span class="toc-text">基准测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加载成本"><span class="toc-text">加载成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渲染"><span class="toc-text">渲染</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#达到我们的目标了么"><span class="toc-text">达到我们的目标了么</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-2-x设备中下载无用背景图片"><span class="toc-text">Android 2.x设备中下载无用背景图片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无法解决"><span class="toc-text">无法解决</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络计时"><span class="toc-text">网络计时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导航计时-API实践"><span class="toc-text">导航计时 API实践</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要关心这些"><span class="toc-text">为什么要关心这些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收集导航计时时间戳并将它们转为有用的度量值"><span class="toc-text">收集导航计时时间戳并将它们转为有用的度量值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Google分析作为性能数据仓库"><span class="toc-text">使用Google分析作为性能数据仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限制"><span class="toc-text">限制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考虑移动界面的性能"><span class="toc-text">考虑移动界面的性能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电池寿命"><span class="toc-text">电池寿命</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#延迟"><span class="toc-text">延迟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#嵌入CSS和JS：最佳实践"><span class="toc-text">嵌入CSS和JS：最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存"><span class="toc-text">内存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#优化图片"><span class="toc-text">优化图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权衡CSS的好处"><span class="toc-text">权衡CSS的好处</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GPU的好处及陷阱"><span class="toc-text">GPU的好处及陷阱</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#视口"><span class="toc-text">视口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#最小化DOM"><span class="toc-text">最小化DOM</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UI响应"><span class="toc-text">UI响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超越Web开发者工具：Strace"><span class="toc-text">超越Web开发者工具：Strace</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开始"><span class="toc-text">开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校正"><span class="toc-text">校正</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例：本地存储"><span class="toc-text">示例：本地存储</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mod-spdy"><span class="toc-text">mod_spdy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CommonJS模块的惰性求值"><span class="toc-text">CommonJS模块的惰性求值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#深入理解Text-JavaScript类型"><span class="toc-text">深入理解Text/JavaScript类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#懒加载"><span class="toc-text">懒加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用延迟执行来挽救"><span class="toc-text">用延迟执行来挽救</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在CommonJS模块中创建懒执行"><span class="toc-text">在CommonJS模块中创建懒执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于接受建议的建议"><span class="toc-text">关于接受建议的建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）"><span class="toc-text">为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有损图像压缩"><span class="toc-text">有损图像压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于Selenium和JavaScript的性能测试"><span class="toc-text">基于Selenium和JavaScript的性能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超越带宽：UI性能"><span class="toc-text">超越带宽：UI性能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对速度的感知-速度感"><span class="toc-text">对速度的感知/速度感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#花絮"><span class="toc-text">花絮</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-Selector性能改变了（变得更好了）"><span class="toc-text">CSS Selector性能改变了（变得更好了）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PhantomJS和confess-js"><span class="toc-text">PhantomJS和confess.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两次测量一次优化"><span class="toc-text">两次测量一次优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#识别需要优化的页面-部分"><span class="toc-text">识别需要优化的页面/部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#识别需要优化的功能"><span class="toc-text">识别需要优化的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优化"><span class="toc-text">优化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后端问题检测"><span class="toc-text">后端问题检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#适当的后端时间该是多少"><span class="toc-text">适当的后端时间该是多少</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搞清楚是怎么回事"><span class="toc-text">搞清楚是怎么回事</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web字体性能：-font-face及其他解决方案间的权衡"><span class="toc-text">Web字体性能：@font-face及其他解决方案间的权衡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字体托管服务与自主开发"><span class="toc-text">字体托管服务与自主开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FOUT是什么"><span class="toc-text">FOUT是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移除多余的字体字形"><span class="toc-text">移除多余的字体字形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript字体加载器"><span class="toc-text">JavaScript字体加载器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Boot-getFont介绍：一种快速、小巧的Web字体加载器"><span class="toc-text">Boot.getFont介绍：一种快速、小巧的Web字体加载器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gentlefonts，启动你的引擎"><span class="toc-text">Gentlefonts，启动你的引擎</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <blockquote>
+<p>《Web性能实践日志》</p>
+</blockquote>
+<h3 id="localStorage-读取性能"><a href="#localStorage-读取性能" class="headerlink" title="localStorage 读取性能"></a>localStorage 读取性能</h3><p>localStorage技术应用：</p>
+<ul>
+<li>使用localStorage来实时保存您正在输入的评论</li>
+<li>谷歌和Bing用localStorage存储JavaScript和CSS，来改善他们的移动网站的性能</li>
+</ul>
+<p>为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器上读取这些字节。<br>读写硬盘的开销高昂，特别是相对于读写内存来说。</p>
+<p>更有趣的是，localStorage按源存储数据，这意味着，在同一时间内，浏览器中的多个标签页可以访问相同的localStorage数据。</p>
+<p>当需要从localStorage中读取数据时，浏览器首先需要停下来看看是否有其他标签页正在访问同一数据区域。如果是的话，浏览器必须等到之前的访问操作完成，才可以读取该值。</p>
+<p>因此，与从localStorage读取数据相关的延迟是不定的，它在很大程度上取决于在那个时间点上浏览器还在进行的其他操作。</p>
+<h4 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h4><p><a href="https://jsperf.com/localstorage-string-size" target="_blank" rel="noopener">基准测试</a>从单一localStorage键值中读取的数据量对速度没有影响。<br><a href="https://jsperf.com/localstorage-string-size-retrieval" target="_blank" rel="noopener">基准测试</a>在大多数浏览器中，读取100个字符10次比一次读取10000字符慢90%左右。<br>鉴于此，从localStorage读取数据的最佳策略是使用尽可能少的键值，存储尽可能多的数据。</p>
+<a id="more"></a>
+
+<h4 id="跟进"><a href="#跟进" class="headerlink" title="跟进"></a>跟进</h4><p>localStorage是一个同步API，这本身使浏览器实现这个API时捉襟见肘。<br>所有的localStorage数据都存储在磁盘文件上。这意味着，为了让您可以用JavaScript访问这些数据，浏览器必须先将该文件读取到内存中。<br>当第一次访问localStorage就可能产生性能问题，但在随后的读取操作中浏览器有可能会冻结。在处理少量数据时，这可能不是一个大问题，但如果你已经达到5MB限制时，就会有明显的影响。</p>
+<h3 id="内联不是万能的"><a href="#内联不是万能的" class="headerlink" title="内联不是万能的"></a>内联不是万能的</h3><h4 id="没有浏览器缓存"><a href="#没有浏览器缓存" class="headerlink" title="没有浏览器缓存"></a>没有浏览器缓存</h4><p>将所有内容内联起来最明显的问题就是缓存损失。如果HTML承载了所有资源，HTML自身是不可以缓存的，所有资源每次都要下载一遍。<br>即使HTML是可缓存的，但它的缓存时间也是页面中所有资源缓存时间中最短的。假如你的HTML可以缓存10分钟，页面中另有一个资源可以缓存1天，显然你还是将资源缓存时间缩短到10分钟了。</p>
+<h4 id="没有边缘缓存"><a href="#没有边缘缓存" class="headerlink" title="没有边缘缓存"></a>没有边缘缓存</h4><p>CDN的传统价值被称作边缘缓存。直接从CDN获取缓存资源远比从源服务器获取更加快速。</p>
+<p><em>CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</em><br><em>——<a href="http://www.cnki.com.cn/Article/CJFDTotal-JSYW201714052.htm" target="_blank" rel="noopener">企业防御DDoS攻击需要多管齐下</a></em></p>
+<p>即使是首次访问的用户，内联资源的方式也要比引用资源的方式体验更差。当客户浏览器位置离你的服务器很远的时候，效果尤其明显。</p>
+<h4 id="没有按需加载"><a href="#没有按需加载" class="headerlink" title="没有按需加载"></a>没有按需加载</h4><p>所谓按需加载即只加载需要的资源。虽然资源被引用了，但并没有真的被下载，直到条件满足才会被下载。</p>
+<p>浏览器提供了一个内置的按需加载CSS图像的机制。如果一个CSS规则引用了一张背景图片，即使页面中有多个元素匹配了这个规则，浏览器也只会下载一次这张图片。另一个按需加载图像的例子，只加载滚动到的可见区域的图片。</p>
+<p>因为内联资源是在服务端已经决定的，所以按需加载不会对它产生效果。<br>这就意味着不管客户端是否需要，所有图片和CSS都会被嵌入到页面中返回回来。</p>
+<h4 id="浏览器预加载失效"><a href="#浏览器预加载失效" class="headerlink" title="浏览器预加载失效"></a>浏览器预加载失效</h4><p>如果你的网站在HTML的底部引用了<code>http://www.3rdparty.com/code.js</code>，浏览器可能会解析<code>www.3rdparty.com</code>的DNS，甚至需要执行这个文件之前就开始下载它。</p>
+<p>如果你大量地使用内联，HTML就会变大，有可能超过0.5MB。下载的时候，浏览器就不能预加载那些你无法内联的第三方工具资源。</p>
+<h4 id="不完美的解决方案：只在第一次访问时采用内联方式"><a href="#不完美的解决方案：只在第一次访问时采用内联方式" class="headerlink" title="不完美的解决方案：只在第一次访问时采用内联方式"></a>不完美的解决方案：只在第一次访问时采用内联方式</h4><ul>
+<li>用户首次访问你的网站时，把所有的资源内联起来并且为用户设置一个cookie，页面加载时，将所有资源以单独的文件下载，或者将数据存储到脚本缓存中。</li>
+<li>当用户再次访问页面时发现存在cookie，服务器就意识到客户端已经存在缓存，数据就不需要内联到页面中返回。</li>
+<li>缺陷：在现实中，网站的缓存状态是非常不稳定的，用户的缓存最多不会缓存超过一天</li>
+</ul>
+<p>另一方面，Cookies通常存活到你设定的失效时间为止。</p>
+<p>另一个明显的问题就是并不是所有的CDN都支持通过cookie辨别不同的缓存。</p>
+<h4 id="总结和建议"><a href="#总结和建议" class="headerlink" title="总结和建议"></a>总结和建议</h4><p>事实上，减少页面请求数是提高网站速度的绝佳方法，但不是唯一的方法。如果过度实施，将适得其反，它将拖慢网站的速度，而不是提高速度。</p>
+<p>下面是使用内联方式的几个建议：</p>
+<ol>
+<li>非常小的文件需要内联起来（不应该内联超过4KB的文件）</li>
+<li>页面中的图片（如从页面中引用的图片，而非CSS引用的图片）应该尽量不要内联</li>
+<li>如果不是首屏至关重要的内容都不应该被内联起来</li>
+<li>小心内联CSS图片</li>
+<li>不要仅仅依靠综合测试——使用RUM（真实用户监控）</li>
+</ol>
+<h3 id="加载异步脚本的艺术"><a href="#加载异步脚本的艺术" class="headerlink" title="加载异步脚本的艺术"></a>加载异步脚本的艺术</h3><p>参考资料：<br><a href="https://yuiblog.com/blog/2008/07/22/non-blocking-scripts/" target="_blank" rel="noopener">Non-blocking JavaScript Downloads 非阻塞JavaScript加载</a><br><a href="https://calendar.perfplanet.com/2010/the-truth-about-non-blocking-javascript/" target="_blank" rel="noopener">The truth about non-blocking JavaScript 关于非阻塞JavaScript的事实</a></p>
+<h4 id="Facebook插件JS-SDK"><a href="#Facebook插件JS-SDK" class="headerlink" title="Facebook插件JS SDK"></a>Facebook插件JS SDK</h4><p>从第三方代码提供者的角度考虑：<br>插件配置实例：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 立即执行函数，不会污染到全局的命名空间 <span class="token operator">--</span><span class="token operator">></span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 第一行，函数接受<span class="token number">3</span>个参数，在代码最后一行函数被调用。 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 将多次使用的document对象赋值给d，使整个代码片段更短， <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 同时，由于变量d是局部变量，查找起来比全局变量更快，还轻微提升了代码性能 <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> s<span class="token punctuation">,</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">// 声明js变量，并在页面上查找第一个可用的script标签元素赋给fjs</span>
+  <span class="token keyword">var</span> js<span class="token punctuation">,</span> fjs <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 检查脚本是否已经加载到页面中，防止重复加载</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 创建script标签并给其ID赋值</span>
+  js <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> js<span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 设置script标签的地址，这里的URL缺少协议类型，意味着这个脚本将采用当前页面使用的协议加载</span>
+  <span class="token comment" spellcheck="true">// 如果当前页面使用http://，这个脚本文件的加载会相对快一些</span>
+  <span class="token comment" spellcheck="true">// 如果当前页面使用https://，你将不会受到关于混合内容的安全提示</span>
+  js<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"//content.facebook.net/en_US/all.js#xfbml=1"</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 将新创建的js元素添加到当前页面的DOM中，新创建的js被插入到body元素和fjs元素之间</span>
+  <span class="token comment" spellcheck="true">// parentNode.insertBefore兼容性最好，相对于</span>
+  <span class="token comment" spellcheck="true">// (document.head || document.getElementsByTagName('head')[0]).appendChild(js)</span>
+  <span class="token comment" spellcheck="true">// document.body.appendChild(js)</span>
+  <span class="token comment" spellcheck="true">// document.documentElement.firstChild.appendChild(js)</span>
+  fjs<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>js<span class="token punctuation">,</span> fjs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span>document<span class="token punctuation">,</span> <span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'facebook-jssdk'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>如果我是代码片段的使用者，拥有页面标记的控制权：</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> js <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  js<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://example.org/my.js'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">(</span>d<span class="token punctuation">.</span>head <span class="token operator">||</span> d<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'head'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>默认设置：</p>
+<pre class=" language-js"><code class="language-js">js<span class="token punctuation">.</span><span class="token keyword">async</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+js<span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token string">'text/javascript'</span><span class="token punctuation">;</span>
+js<span class="token punctuation">.</span>language <span class="token operator">=</span> <span class="token string">'JavaScript'</span><span class="token punctuation">;</span></code></pre>
+<p>这意味着，新创建的script标签已经是异步非阻塞的了。</p>
+<h3 id="自动化网站性能优化"><a href="#自动化网站性能优化" class="headerlink" title="自动化网站性能优化"></a>自动化网站性能优化</h3><p>压缩合并CSS出现的问题：<br>大多数浏览器在碰到语法错误时，会立即停止解析当前CSS文件。当你盲目地合并CSS文件时，那些之前位于文件底部的错误，现在就处于合并之后的大文件的中间位置。这样，之前一个无关紧要的小问题，现在就可能是破坏站点整体布局的罪魁祸首。</p>
+<h3 id="前端单点故障-frontend-SPOF"><a href="#前端单点故障-frontend-SPOF" class="headerlink" title="前端单点故障 frontend SPOF"></a>前端单点故障 frontend SPOF</h3><p><a href="http://www.stevesouders.com/blog/2010/06/01/frontend-spof/" target="_blank" rel="noopener">前端SPOF</a></p>
+<p>例子：<br>浏览器花了很长时间下载anywhere.js，原因是这个脚本的来源域<code>platform.twitter.com</code>被屏蔽了。由于脚本会阻塞后续DOM元素的加载，我们猜测anywhere.js是在HEAD中以阻塞模式加载的。查看源码证实确实如此。<br>解决：使用异步方式加载</p>
+<h4 id="引起前端单点故障的原因"><a href="#引起前端单点故障的原因" class="headerlink" title="引起前端单点故障的原因"></a>引起前端单点故障的原因</h4><p>任何需要很长时间返回的脚本、样式文件和字体文件都会引起前端单点故障。单点故障通常是由中断或其他类型的失败引发的，比如服务器超载，HTTP请求在服务器队列中一直没有得到响应，造成浏览器响应超时。<br>引起前端单点故障的真正原因是以阻塞的方式加载脚本、样式文件和字体文件。</p>
+<h4 id="避免前端单点故障"><a href="#避免前端单点故障" class="headerlink" title="避免前端单点故障"></a>避免前端单点故障</h4><p>避免前端单点故障的最好方法就是异步加载脚本文件。许多流行的第三方组件默认采用异步的加载方式。</p>
+<p>另一种解决办法就是将你的组件用iframe包裹起来。</p>
+<h4 id="字体文件"><a href="#字体文件" class="headerlink" title="字体文件"></a>字体文件</h4><blockquote>
+<p><a href="http://www.phpied.com/gzip-your-font-face-files/" target="_blank" rel="noopener">Gzip your @font-face files 压缩你的字体文件</a></p>
+</blockquote>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'gzipper'</span><span class="token punctuation">;</span>                     <span class="token comment" spellcheck="true">/* 给字体取个名字 */</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url">url(yanone.eot)</span><span class="token punctuation">;</span>                       <span class="token comment" spellcheck="true">/* 适配IE */</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token function">local</span><span class="token punctuation">(</span><span class="token string">'gzipper'</span><span class="token punctuation">)</span>,
+        <span class="token url">url(yanone.ttf)</span> <span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'truetype'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">/* 使用ttf字体文件，几乎适配所有浏览器 */</span>
+
+  <span class="token comment" spellcheck="true">/* 如果需要otf字体文件，otf是ttf向后兼容 */</span>
+  <span class="token comment" spellcheck="true">/* src: local('gzipper'),
+        url(yanone.otf) format('opentype'); */</span>
+
+  <span class="token comment" spellcheck="true">/* 如果需要svg字体文件，svg字体文件适用于Chrome，也可以替代或补充ttf */</span>
+  <span class="token comment" spellcheck="true">/* src: local('gzipper'),
+        url(yanone.svg) format('svg'); */</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">body </span><span class="token punctuation">{</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> gzipper<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>必要字体文件格式：<ul>
+<li>svg</li>
+<li>ttf (FF 3.5，Opera 10，Safari 4，Chrome)</li>
+<li>otf</li>
+<li>eot (IE)</li>
+</ul>
+</li>
+<li>总是发送gzip字体文件，平均节省40%的文件大小，甚至可能节省高达70%的大小</li>
+<li>深入了解WEFT以确保您创建压缩的EOT（创建EOT的另一个选择是使用免费的开源工具ttf2eot并将TTF转换为EOT。）</li>
+<li>请密切关注您即将使用的字体文件大小，它们可能非常庞大。如果您有选择，请选择10K字体文件，而不是1.5M字体文件</li>
+</ul>
+<blockquote>
+<p>关于字体引起故障的解决方案：<a href="http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/" target="_blank" rel="noopener">@font-face and performance</a></p>
+</blockquote>
+<p><strong>@font-face 性能建议</strong><br>我的第一条建议是避免使用@font-face，除非它对页面至关重要。</p>
+<p>这个建议的主要原因是如果在@font-face声明上面有一个<code>&lt;script&gt;</code>标记，那么字体文件将阻止IE中整个页面的呈现，直到它们完成下载。<br>样式表也存在阻止渲染问题。<br>但样式表为整个页面的所有方面提供样式，而字体文件只添加一个东西——自定义字体。</p>
+<p>如果您没有被FOUT和中断问题所阻止，并希望继续使用@font-face，我建议<strong>推迟字体文件下载</strong>，直到页面呈现后再下载。<br>这解决了IE中的问题——页面渲染，然后在后台下载字体并在程式化文本到达时增强它们。这种技术在其他浏览器中也有好处。通过延迟加载字体文件，不会触发大多数浏览器忙指示符。<br>延迟加载代码如下所示：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">lazyload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> sRule1 <span class="token operator">=</span>
+    <span class="token string">"@font-face {"</span> <span class="token operator">+</span>
+    <span class="token string">"  font-family: 'Yanone';"</span> <span class="token operator">+</span>
+    <span class="token string">"  src: url('/bin/resource.cgi?type=font&amp;sleep=6');"</span> <span class="token operator">+</span>
+    <span class="token string">"  src: local('Yanone'), "</span> <span class="token operator">+</span>
+                <span class="token string">"url('/bin/resource.cgi?type=font&amp;sleep=6') "</span> <span class="token operator">+</span>
+                <span class="token string">"format('truetype');"</span> <span class="token operator">+</span>
+    <span class="token string">"}"</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">var</span> style1 <span class="token operator">=</span> document<span class="token punctuation">.</span>styleSheets<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string">"function"</span> <span class="token operator">===</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>style1<span class="token punctuation">.</span>insertRule<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Firefox, Safari, Chrome</span>
+    style1<span class="token punctuation">.</span><span class="token function">insertRule</span><span class="token punctuation">(</span>sRule1<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string">"string"</span> <span class="token operator">===</span> <span class="token keyword">typeof</span><span class="token punctuation">(</span>style1<span class="token punctuation">.</span>cssText<span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// IE</span>
+    style1<span class="token punctuation">.</span>cssText <span class="token operator">=</span> sRule1<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这是一个原型，而不是一个强化的解决方案。</p>
+<h3 id="高性能原生移动应用"><a href="#高性能原生移动应用" class="headerlink" title="高性能原生移动应用"></a>高性能原生移动应用</h3><p>为了分析移动app的网络流量，首先在电脑上建立一个点对点的Wi-Fi网络，把你的移动设备连接到这个网络并在电脑抓包。<br>然后使用Wireshark类似的应用检查你的应用产生的网络流量，或者把得到的抓包载入到类似PcapPerf的工具。<br>还有一种方法，即使用代理，类似Charles Proxy和Fiddler，但是请注意这样有可能会影响你的app的网络行为，比如限制并发连接数。</p>
+<h4 id="注意你的瀑布流"><a href="#注意你的瀑布流" class="headerlink" title="注意你的瀑布流"></a>注意你的瀑布流</h4><p>通过检查HTTP瀑布流发现问题。比如：</p>
+<ul>
+<li>问题：图片阻塞并行下载<br>Web开发者通过简单的调整就可以期待浏览器厂商实现并行下载，而原生app开发者需要自己做出最佳并行下载方案。我们经过调查发现，即使在移动网络上，你也可以通过使用4个并行下载提升性能，高级用户还可以切换到HTTP管线化从而再次提速。</li>
+</ul>
+<h4 id="压缩这些资源"><a href="#压缩这些资源" class="headerlink" title="压缩这些资源"></a>压缩这些资源</h4><ul>
+<li>问题：servies.xml大小为81KB，花费一秒钟从网络上获取（阻塞任何其后的资源）<br>光下载这一文件就花了812毫秒，查看响应头就知道这一文件发送前未压缩。假设经过压缩，这一文件只有6KB大小，可以节省至少半秒的响应时间。</li>
+</ul>
+<h4 id="不要重复下载"><a href="#不要重复下载" class="headerlink" title="不要重复下载"></a>不要重复下载</h4><ul>
+<li>问题：图片重复下载<br>当实现一个原生app时，实现一套基本的缓存机制的责任就落到了开发者身上。仅仅设置http响应的缓存头部通常是不够的。创建一个缓存层来在应用运行期间将元素缓存到内存中，能极大提升性能。</li>
+</ul>
+<h4 id="太多图片会减慢你的速度么"><a href="#太多图片会减慢你的速度么" class="headerlink" title="太多图片会减慢你的速度么"></a>太多图片会减慢你的速度么</h4><p>Hipmunk，一款流行的航班搜索应用，使用时会下载一个巨大数据文件，压缩后文件大小为650KB，包含了整个搜索结果。<br>更好的做法是把这个文件分割成好几个小文件，其中一部分可以异步加载。<br>其他应用下载许多非常小的文件，而这些文件本来可以轻易合并成几个稍大文件，从而避免由于移动网络的高延迟导致的性能危机。</p>
+<h4 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h4><p>这些例子说明了性能良好的原生移动app和网站遵循的原则并没有想象中那么不同。<br>去除不必要的下载（无论是字节数还是请求数），剩下的就是借助并行和异步加载更好地利用网络。<br>如果有一个重要的结论，它就是：总是尽早测试你的app，别想碰运气。</p>
+<h3 id="纯CSS3图片"><a href="#纯CSS3图片" class="headerlink" title="纯CSS3图片"></a>纯CSS3图片</h3><h4 id="基准测试"><a href="#基准测试" class="headerlink" title="基准测试"></a>基准测试</h4><p>为了对比真正的图片文件和CSS3生成的图片，我做了几张页面，每一张都只包含一张图片，真正图片URL和dataURI或者纯CSS3图片。</p>
+<h4 id="加载成本"><a href="#加载成本" class="headerlink" title="加载成本"></a>加载成本</h4><p>由于这些页面存储在我本地Apache服务器上，我能通过curl获取它们的压缩和未压缩版本（设置Accept-Encoding为gzip，deflate），得到未压缩的CSS3，data URI和真正图片URL页面内容的长度。</p>
+<ul>
+<li><em>curl：一个利用URL语法在命令行下工作的文件传输工具，1997年首次发行。它支持文件上传和下载，所以是综合传输工具，但按传统，习惯称cURL为下载工具</em></li>
+</ul>
+<h4 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h4><p>在这些页面底部添加一小段脚本，这段脚本会以1秒的间隔重复加载这个页面100次，利用sessionStorage计数，并配合Chrome开发者工具的时间轴面板记录页面活动信息，我可以导出这些日志数据。然后借助NodeJS脚本，我提取和过滤出只与渲染活动相关的时间数据，去掉上下各5%的噪音数据样本，就得到了毫秒单位的平均值。</p>
+<p>CSS3生成的图片相比无论普通的图片URL还是data URI，加载成本更小。在YSlow logo例子中，遵循W3C标准的CSS3几乎比PNG24图片小34倍。<br>同一图片，压缩后的data URI版的加载成本大致一样，高出只有几字节大小。</p>
+<p>另一方面，CSS3生成的图片的渲染时间比普通图片更长，大约是PNG24版本的6.5倍。遵循W3C标准的CSS3版本的渲染比带有-webkit-或者所有浏览器厂商前缀版本快2.5倍。<br>行内版的渲染时间是对应普通图片版的两倍还多。</p>
+<h4 id="达到我们的目标了么"><a href="#达到我们的目标了么" class="headerlink" title="达到我们的目标了么"></a>达到我们的目标了么</h4><p>事实上，我们并没有真正达到目的。因为首先要解决特定浏览器前缀问题，能在所有浏览器通用，然后要手工利用DOM元素和样式画图，相当耗时——SVG是为此设计的。<br>这类任务迫切需要一个画图工具辅助，这样，人们就可以拖动<a href="https://pomax.github.io/bezierinfo/zh-CN/" target="_blank" rel="noopener">贝塞尔曲线</a>并调整控制点来得到相应的正确的CSS3边框圆角形状的几何线条。</p>
+<h3 id="Android-2-x设备中下载无用背景图片"><a href="#Android-2-x设备中下载无用背景图片" class="headerlink" title="Android 2.x设备中下载无用背景图片"></a>Android 2.x设备中下载无用背景图片</h3><h4 id="无法解决"><a href="#无法解决" class="headerlink" title="无法解决"></a>无法解决</h4><p>没有避免的方法，所以有如下两条指导准则。</p>
+<ul>
+<li>在CSS中，只给id选择器添加背景图片</li>
+<li>避免给同一元素使用多个设置了背景图片的选择器，也就是说不层叠的样式表</li>
+</ul>
+<h3 id="网络计时"><a href="#网络计时" class="headerlink" title="网络计时"></a>网络计时</h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigation_timing_API" target="_blank" rel="noopener">Navigation Timing 导航计时</a><br><a href="https://www.w3.org/TR/navigation-timing/" target="_blank" rel="noopener">规范</a></p>
+<ul>
+<li>使用Navigation Timing来测量页面加载时间：</li>
+</ul>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    <span class="token keyword">function</span> <span class="token function">onLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">var</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> page_load_time <span class="token operator">=</span> now <span class="token operator">-</span> performance<span class="token punctuation">.</span>timing<span class="token punctuation">.</span>navigationStart<span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"User-perceived page loading time: "</span> <span class="token operator">+</span> page_load_time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span> <span class="token attr-name">onload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onLoad()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>浏览器兼容性：</p>
+<ul>
+<li>桌面</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Chrome</th>
+<th>Firefox (Gecko)</th>
+<th>Internet Explorer</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Basic support</td>
+<td>6.0</td>
+<td>7 (7)</td>
+<td>9</td>
+<td>15.0</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<ul>
+<li>移动端</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Android</th>
+<th>Firefox Mobile (Gecko)</th>
+<th>IE Mobile</th>
+<th>Opera Mobile</th>
+<th>Safari Mobile</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Basic support</td>
+<td>4.0</td>
+<td>15 (15)</td>
+<td>9</td>
+<td>15.0</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API" target="_blank" rel="noopener">User Timing 用户计时</a><br><a href="http://www.chinaw3c.org/archives/357/" target="_blank" rel="noopener">W3C发布性能时间基线(Performance Timeline)和用户定时(User Timing)的正式推荐标准</a></p>
+<p>user Timing例子:</p>
+<iframe id="cp_embed_oKMKPq" src="//codepen.io/siluo2000/embed/oKMKPq?height=500&theme-id=dark&slug-hash=oKMKPq&default-tab=js,result&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+<h3 id="导航计时-API实践"><a href="#导航计时-API实践" class="headerlink" title="导航计时 API实践"></a>导航计时 API实践</h3><h4 id="为什么要关心这些"><a href="#为什么要关心这些" class="headerlink" title="为什么要关心这些"></a>为什么要关心这些</h4><p>监控真实用户很关键，因为它能通过浏览器、地址以及网络得到真实用户体验的最精准的信息。这是唯一真正能度量缓存策略对用户体验的影响的方法。</p>
+<h4 id="收集导航计时时间戳并将它们转为有用的度量值"><a href="#收集导航计时时间戳并将它们转为有用的度量值" class="headerlink" title="收集导航计时时间戳并将它们转为有用的度量值"></a>收集导航计时时间戳并将它们转为有用的度量值</h4><p>例子：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">getPerfStats</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> timing <span class="token operator">=</span> window<span class="token punctuation">.</span>performance<span class="token punctuation">.</span>timing<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    dns<span class="token punctuation">:</span> timing<span class="token punctuation">.</span>domainLookupEnd <span class="token operator">-</span> timing<span class="token punctuation">.</span>domainLookupStart<span class="token punctuation">,</span>
+    connect<span class="token punctuation">:</span> timing<span class="token punctuation">.</span>connectEnd <span class="token operator">-</span> timing<span class="token punctuation">.</span>connectStart<span class="token punctuation">,</span>
+    ttfb<span class="token punctuation">:</span> timing<span class="token punctuation">.</span>responseStart <span class="token operator">-</span> timing<span class="token punctuation">.</span>connectEnd<span class="token punctuation">,</span>
+    basePage<span class="token punctuation">:</span> timing<span class="token punctuation">.</span>responseEnd <span class="token operator">-</span> timing<span class="token punctuation">.</span>responseStart<span class="token punctuation">,</span>
+    frontEnd<span class="token punctuation">:</span> timing<span class="token punctuation">.</span>loadEventStart <span class="token operator">-</span> timing<span class="token punctuation">.</span>responseEnd
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="使用Google分析作为性能数据仓库"><a href="#使用Google分析作为性能数据仓库" class="headerlink" title="使用Google分析作为性能数据仓库"></a>使用Google分析作为性能数据仓库</h4><p><a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">Google Analytics</a>是互联网上最流行的免费网站分析系统。简称GA。</p>
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><p>1.缺少浏览器覆盖范围<br>有些浏览器中不支持Navigation Timing特性，而缺乏特定浏览器数据的影响很大。</p>
+<p>2.缺少对象级别的数据<br>在写书时（2011年）没有主流浏览器支持Resource Timing。</p>
+<p>3.受Google分析报告系统能力的限制</p>
+<h3 id="考虑移动界面的性能"><a href="#考虑移动界面的性能" class="headerlink" title="考虑移动界面的性能"></a>考虑移动界面的性能</h3><h4 id="电池寿命"><a href="#电池寿命" class="headerlink" title="电池寿命"></a>电池寿命</h4><p>大多数用户都知道打电话以及使用GPS会消耗电量，但很少有人知道有些网站比其他网站更耗电。<br>管理CPU使用量，避免重绘，最小化JavaScript的尺寸和活动，制作动画时总是使用CSS而不是JavaScript，最后，即使设备支持也永远不要在移动设备上使用WebGL。</p>
+<h4 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h4><p>关于延迟必须知道的是，与那些固定设备或使用WiFi访问互联网的设备相比，延迟对移动设备上的下载速度影响巨大。真实的速度与丢包和延迟有很大关系。空气——包从移动设备传到手机基站的介质是延迟的主因。<br>由于延迟的影响，在移动领域，减少DNS查询以及HTTP请求是非常重要的。这就带来了第一个性能优化反模式：嵌入样式表以及脚本。</p>
+<h4 id="嵌入CSS和JS：最佳实践"><a href="#嵌入CSS和JS：最佳实践" class="headerlink" title="嵌入CSS和JS：最佳实践"></a>嵌入CSS和JS：最佳实践</h4><p>为了减少延迟对移动站点的负面影响，可以让Web应用只用一个单独的HTTP请求就得到所有HTML、CSS、JS以及图片，实现步骤如下所示：</p>
+<ul>
+<li>在首次加载时嵌入CSS及JS</li>
+<li>将上面的资源解压保存在localStorage中</li>
+<li>将解压后的文件的文件名保存在cookie中</li>
+<li>后续请求中，服务器检查对应的cookie</li>
+<li>根据cookie的值，只嵌入新的或丢失的脚本</li>
+<li>加载时，从localStorage资源中载入文件</li>
+</ul>
+<p>从localStorage中提取数据是性能的一个重大提升。不过在移动端，与延迟相比它作用有限，尤其当延迟是由宽带受限造成的。</p>
+<h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>在移动世界，只关注花了多少时间才完成是不够的。<br>设备上跑着的程序越多，你的Web应用可以使用的内存就越少。高内存占用会导致UI变慢，一旦浏览器内存不足，那应用也就内存不足了，这时，移动浏览器通常会关闭或崩溃以便释放内存。</p>
+<h5 id="优化图片"><a href="#优化图片" class="headerlink" title="优化图片"></a>优化图片</h5><p>在内存有限的情况下，你还必须考虑图片文件解压后有多大。所有的图片都会消耗内存。<br>合成图像使用GPU内存而不是CPU内存，虽然这可能是一种释放些许内存的技巧，但合成图片所需的内存是对应的非合成图片的4倍，因此，不要常用这种技巧。</p>
+<p>我建议你的Web应用中同时使用的文件（当前显示的JS、CSS、HTML以及图片）不要超过80MB。</p>
+<h5 id="权衡CSS的好处"><a href="#权衡CSS的好处" class="headerlink" title="权衡CSS的好处"></a>权衡CSS的好处</h5><p>使用渐变、圆角、盒阴影及文字阴影，以及图片边框，可以大大地减少HTTP的请求数。CSS的好处有：</p>
+<ul>
+<li>更少的HTTP请求</li>
+<li>可更新</li>
+<li>可扩展</li>
+<li>可使用过渡效果</li>
+<li>可使用动画</li>
+</ul>
+<p>不过，在屏幕上展示这些效果也是有成本的，有时候，使用png、gif或jpeg可以比CSS渲染得更快并且占用的内存更少。<br>带过渡特性的CSS一般会在每次重排或重绘时重新计算，这会耗尽内存。png、gif或jpeg以位图的方式渲染并过渡，使用的内存通常更少（但会有更多的HTTP请求）。</p>
+<p>对径向渐变及内阴影来说，就需要评估下它们的性能与下载对应图片的成本对比了。<br>要注意有些CSS特性在内存使用及渲染速度方面会有隐性的成本。</p>
+<h5 id="GPU的好处及陷阱"><a href="#GPU的好处及陷阱" class="headerlink" title="GPU的好处及陷阱"></a>GPU的好处及陷阱</h5><p>在一些设备上，将一个元素过渡或转换到3维空间时，这个元素会使用硬件加速。通过将元素渲染从CPU转移到GPU的方式，可以大幅提升性能，尤其在动画中。<br>不过，硬件加速元素是复合性的，而这种元素会占用4倍的内存。使用GPU代替CPU能提升性能，但也有上限。</p>
+<p>使用硬件加速的元素虽然使用的内存（RAM）较少，但它们会用尽显存，因此，使用<code>transform: translateZ(0)</code>技巧要谨慎。</p>
+<h5 id="视口"><a href="#视口" class="headerlink" title="视口"></a>视口</h5><p>移动设备的视口就是屏幕的可见区域。<br>绘制到页面上的内容，即使现在不在视口内，也仍然会占用内存。</p>
+<h5 id="最小化DOM"><a href="#最小化DOM" class="headerlink" title="最小化DOM"></a>最小化DOM</h5><p>读写DOM操作的成本是昂贵的，因此请将它们缓存起来，保存到变量中。<br>同样的，批量DOM查询及操作时应分开操作，可以先在外部更新好DOM的内容，再更新对应的节点，以便将DOM的操作减至最少。</p>
+<h4 id="UI响应"><a href="#UI响应" class="headerlink" title="UI响应"></a>UI响应</h4><p>在用户做了某个操作后，很重要的一点是在200毫秒内给用户一个反馈。如果是显示或隐藏一个元素，就不需要提供反馈了，因为应用本身会响应。</p>
+<p>另外，由于移动设备是一种触摸设备，“双触摸”是一种可能的用户操作，事实上在第一次触摸之后，移动设备会等待可能的第二次触摸，然后才响应用户的操作。<br>在IOS设备上，在触摸事件真正生效之前大约有300毫秒的等待时间。考虑到这一点，你可能希望处理默认事件，比如添加一个监听触摸结束事件（touchend）的函数来处理轻击（tap）操作，以便让你的应用响应更快。</p>
+<h3 id="超越Web开发者工具：Strace"><a href="#超越Web开发者工具：Strace" class="headerlink" title="超越Web开发者工具：Strace"></a>超越Web开发者工具：Strace</h3><h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h4><p>下面的调用将打印出用Google Chrome访问google.com时产生的所有系统调用：</p>
+<pre class=" language-powershell"><code class="language-powershell">strace <span class="token operator">-</span>f <span class="token operator">-</span>ttt <span class="token operator">-</span>T google<span class="token operator">-</span>chrome http:<span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>google<span class="token punctuation">.</span>com<span class="token operator">/</span></code></pre>
+<ul>
+<li>-f 用于跟踪子进程（fork）</li>
+<li>-ttt 用于打印出每个调用的时间戳</li>
+<li>-T 用于打印出每个调用的耗时</li>
+</ul>
+<h4 id="校正"><a href="#校正" class="headerlink" title="校正"></a>校正</h4><p>运行上面的命令时，你可能会被现代Web浏览器所产生的潮水般的调用信息淹没。要过滤出感兴趣的内容，可以用-e参数。<br>例如只想看文件或网络访问，则可以使用-e trace=file或-e trace=network。</p>
+<h4 id="示例：本地存储"><a href="#示例：本地存储" class="headerlink" title="示例：本地存储"></a>示例：本地存储</h4><pre class=" language-powershell"><code class="language-powershell">strace <span class="token operator">-</span>f <span class="token operator">-</span>T <span class="token operator">-</span>p _&lt;<span class="token keyword">process</span> id>_ <span class="token operator">-</span>e trace=open<span class="token punctuation">,</span>read<span class="token punctuation">,</span>white</code></pre>
+<h3 id="mod-spdy"><a href="#mod-spdy" class="headerlink" title="mod_spdy"></a>mod_spdy</h3><p>SPDY协议能让网站更高效地传送到浏览器上，这能让页面加载时间有高达55%的提升。<br>mod_spdy是一个Apache HTTP Server的开源模块，为Apache HTTP服务提供了SPDY支持。<br>SPDY与性能相关的一个重要特性是<strong>多路复用</strong>，允许在一个单独的SPDY会话中发起多个并发请求，对应的响应将交错下载。</p>
+<h3 id="CommonJS模块的惰性求值"><a href="#CommonJS模块的惰性求值" class="headerlink" title="CommonJS模块的惰性求值"></a>CommonJS模块的惰性求值</h3><h4 id="深入理解Text-JavaScript类型"><a href="#深入理解Text-JavaScript类型" class="headerlink" title="深入理解Text/JavaScript类型"></a>深入理解Text/JavaScript类型</h4><p>本地未缓存的JavaScript资源的获取、解析及执行：</p>
+<pre class="mermaid">graph TD;
+  Latency-->Download;
+  Download-->Parsing;
+  Parsing-->Evaluation;</pre>
+
+<p>已缓存的JavaScript资源的获取、解析及执行：</p>
+<pre class="mermaid">graph TD;
+  HTTP-cache-hit-->Parsing;
+  Parsing-->Evaluation;</pre>
+
+<p>这儿值得注意的不是缓存显著的收益，而是无论存不存在缓存，每次页面加载时JavaScript文件都需要解析与执行。</p>
+<h4 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h4><p>解决初始化延迟的常用推荐方案是按需加载脚本。<br>不过，这个方法也有很多不足。首先，无法保证代码能正常加载——网络或服务器此时可能会不可用了。<br>其次，代码传输的速度取决于网络质量，差异可能非常大。<br>最后，代码是异步加载的。<br>这些不足迫使开发者需要同时考虑到防御性及异步性，实现与分发机制也不得不绑定在一起。</p>
+<h4 id="用延迟执行来挽救"><a href="#用延迟执行来挽救" class="headerlink" title="用延迟执行来挽救"></a>用延迟执行来挽救</h4><p>延迟执行只专注于推迟解析与执行的步骤，从而避免了这些问题。<br>为了避免它在页面初始化时执行，可以将它注释掉，或者将它转为一个字符串。<br>与字符串形式的代码相比，注释的代码性能稍微好一点。不过，如果不是以内联方式嵌入，注释的代码提取起来会很复杂。另外，它也比较容易出错，已知有一些手机浏览器会去掉JavaScript注释。更推荐使用字符串形式。</p>
+<h4 id="在CommonJS模块中创建懒执行"><a href="#在CommonJS模块中创建懒执行" class="headerlink" title="在CommonJS模块中创建懒执行"></a>在CommonJS模块中创建懒执行</h4><p>就实现而言，要在CommonJS模块中开启懒执行，需要修改运行时，以便它可以正确地执行并包装那些字符串化形式的模块。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> fn <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  fn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token string">'require'</span><span class="token punctuation">,</span> <span class="token string">'exports'</span><span class="token punctuation">,</span> <span class="token string">'module'</span><span class="token punctuation">,</span> fn<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这意味着懒执行的模块在服务端创建之时、传送之前就已经被转码。</p>
+<h3 id="关于接受建议的建议"><a href="#关于接受建议的建议" class="headerlink" title="关于接受建议的建议"></a>关于接受建议的建议</h3><ul>
+<li>使用第三方内容意味着你不再能控制所有可能影响页面加载时间的因素。即使是一个井然有序的、设置良好并且优化过的站点，也有可能因为第三方内容的问题而产生糟糕的用户体验。</li>
+<li>当一个HTTPS页面引用了HTTP内容时，就会出现混合内容警告。</li>
+<li>SSL很棒，但是也有成本。若无必要请勿使用。<ul>
+<li><strong>创建HTTPS连接比常规HTTP连接花费的时间更多</strong>。在SSL连接开始之前，可能需要发送额外的请求到其他服务器，以便验证X.509证书链，这会阻塞后面所有的向这个服务器的连接。</li>
+<li><strong>建立HTTPS连接需要更多的计算</strong>。在SSL握手期间，浏览器及服务器都必须做大量的工作，发送时还有更多的编码和解码的工作。</li>
+<li>由于HTTPS和HTTP运行在不同的TCP/IP端口上，因此浏览器不能将现有的HTTP连接用于HTTPS连接，即使正在访问的是同一个主机。</li>
+<li>使用SSL意味着共享缓存服务器等内联设备将看不到相应的通信，也无法用于提升性能。</li>
+<li><strong>浏览器缓存SSL的内容比缓存HTTP的内容复杂很多</strong>。取决于浏览器及其配置，内容可能只会在内存中缓存并很快被丢弃，或者要启用通常不需要的条件请求。</li>
+</ul>
+</li>
+</ul>
+<p>这个问题的解决方案是使用相对协议URL。相对协议URL是一种不指定检索协议来引用不同主机上的资源的方法。也就是使用<code>//xx.js</code>代替<code>https://xx.js</code>或<code>http://xx.js</code>。</p>
+<h3 id="为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）"><a href="#为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）" class="headerlink" title="为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）"></a>为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）</h3><p>我们的思维很自然地把重点聚焦在数据上，而不是数据来源的可靠性上。更让我惊讶地是，我们忽视了样本量的重要性。我们是失败的凭直觉分析问题的统计学家。我们对样本的大小或如何衡量测试结果不够敏感。</p>
+<ol>
+<li>我们需要工具来提醒我们的样本数量太小。</li>
+<li>均值是一种错误的衡量RUM结果的方法。</li>
+<li>直方图是最好的图像化数据分析工具。</li>
+</ol>
+<h3 id="有损图像压缩"><a href="#有损图像压缩" class="headerlink" title="有损图像压缩"></a>有损图像压缩</h3><p>有很多种优化图片的方法，如压缩、拼接（Spriting）、选择合适的格式、缩放等。当然还有其他方法，如延迟加载、缓存、区分URL版本、CDN等。</p>
+<p>图像品质值的范围从1到100，75通常对所有图片都比较适合。<br>得到的图片很大程度取决于原始图像和图像的视觉功能，有时甚至可以节省80%的空间，并且无明显的视觉损失。<br>图片压缩工具：<br><a href="https://tinypng.com/" target="_blank" rel="noopener">tinypng</a><br><a href="https://www.jpegmini.com/" target="_blank" rel="noopener">JPEGmini</a><br><a href="https://zhitu.isux.us/" target="_blank" rel="noopener">腾讯智图</a></p>
+<h3 id="基于Selenium和JavaScript的性能测试"><a href="#基于Selenium和JavaScript的性能测试" class="headerlink" title="基于Selenium和JavaScript的性能测试"></a>基于Selenium和JavaScript的性能测试</h3><p>现在很多网站都采用了真实用户监控工具来评测应用程序的性能，如<a href="https://newrelic.com/" target="_blank" rel="noopener">New Relic</a>或<a href="https://www.compuware.com/" target="_blank" rel="noopener">Compuware</a>。这些工具非常实用，能够获取实时的性能参数，让工程师能够识别并最终解决性能瓶颈。</p>
+<p>这非常适合已经部署到互联网上的应用程序，但对预发测试环境中的应用程序又如何呢？<br>再者，对于运行于防火墙环境内的应用程序又如何呢？</p>
+<p>也许我们应该考虑用托管Selenium的解决方案？</p>
+<h3 id="超越带宽：UI性能"><a href="#超越带宽：UI性能" class="headerlink" title="超越带宽：UI性能"></a>超越带宽：UI性能</h3><ul>
+<li>页面加载后：UI层——鲜有人关心CSS选择器的高昂开销，或是当用户滚动页面时由CSS导致的页面严重滞后。UI性能不被重视的原因之一也许是因为无法量化。</li>
+<li>UI性能分析工具：比如Chrome的开发者工具和Opera的调试器Dragonfly已经加入了CSS性能分析工具。</li>
+<li>CSS压力测试：<a href="https://css-tricks.com" target="_blank" rel="noopener">CSS Stress Test</a></li>
+<li>CSS性能分析器：已经应用于浏览器中，可以让我们更深入了解CSS实际执行速度</li>
+<li><a href="http://csslint.net/" target="_blank" rel="noopener">CSS Lint</a></li>
+<li><a href="http://mir.aculo.us/dom-monster/" target="_blank" rel="noopener">DOM Monster</a></li>
+</ul>
+<h4 id="对速度的感知-速度感"><a href="#对速度的感知-速度感" class="headerlink" title="对速度的感知/速度感"></a>对速度的感知/速度感</h4><p>我们多数时候致力于真实性能的提升，但是有时也必须认识到其中的局限性，明白我们并不总能控制带宽，网络延迟或者用户的浏览器性能。我们竭尽所能，但有时不得不造假。“造假直到你能真正提高性能”。</p>
+<p>造假是什么意思？<br>一类情况可能是指预加载内容，例如：移动版Gmail就是在用户单击“显示更多信息……”按钮前就提前加载。用户单击时，内容实际上早已经加载完成。<br>造假也可能是指以简单的方式快速响应用户操作，例如提供一个视觉反馈。</p>
+<p>另一个更聪明的<a href="https://www.youtube.com/watch?v=05C0GQPKA4g" target="_blank" rel="noopener">例子</a>：在页面中加载一个很小的类库，用来捕获页面上所有的事件，将其添加到队列中，并在随后重新执行。最重要的是，这个小类库还提供UI（表示加载进行中的旋转图标），作为用户操作后给出用户反馈，尽管其实什么也没有发生，直到JavaScript准备好后重新执行队列中的事件。</p>
+<h4 id="花絮"><a href="#花絮" class="headerlink" title="花絮"></a>花絮</h4><ul>
+<li>雪碧图减少了HTTP请求，但大的雪碧图会占用过多内存</li>
+<li>纯CSS3图片？虽然减少了带宽，却是以降低了渲染速度为代价。事实证明，图片渲染更快。</li>
+<li>微软的FishIE Tank是一个测试Canvas渲染速度的不错的基准工具，以每秒帧数来衡量。</li>
+<li>CSS渐变比SVG背景渲染速度更快。</li>
+<li>旧版本Webkit浏览器大量使用box shadow在滚动和渲染页面时有延迟问题。有时使用图片虽然会下载更多的数据，却可以换来更好的UI性能。</li>
+<li>CSS径向渐变很不错，而且减少了图片请求，但在某些浏览器中会有渲染问题，特别是Android。</li>
+<li>避免使用IE CSS 滤镜，因为会遇到性能问题。</li>
+<li>尽可能使用硬件加速CSS动画替代JavaScript动画，但注意一些限制（Webkit有1024像素x1024像素的最大尺寸限制）。如果仍然需要使用JavaScript动画，尽可能使用<code>requestAnimationFrame</code>代替<code>setTimeout</code>和<code>setInterval</code>。</li>
+</ul>
+<h3 id="CSS-Selector性能改变了（变得更好了）"><a href="#CSS-Selector性能改变了（变得更好了）" class="headerlink" title="CSS Selector性能改变了（变得更好了）"></a>CSS Selector性能改变了（变得更好了）</h3><ul>
+<li>样式共享</li>
+</ul>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>foo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>bar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>假如浏览器引擎已经计算出了第一个段落的样式，那么它就不再需要为第二个段落做同样的计算。</p>
+<ul>
+<li>规则哈希</li>
+</ul>
+<pre class=" language-css"><code class="language-css"><span class="token selector">a </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">div p </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector">div p<span class="token class">.legal</span> </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token id">#sidebar</span> a </span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token id">#sidebar</span> p </span><span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<p>上方的样式表被分成了3组：</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>p</th>
+<th>p.legal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a {}</td>
+<td>div p {}</td>
+<td>div p.legal {}</td>
+</tr>
+<tr>
+<td>#sidebar a {}</td>
+<td>#sidebar p {}</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>当浏览器使用规则哈希时，它不再需要检测整个样式表中的所有选择器，而是检测真正有可能匹配的更小范围的几组选择器。<br>它免去了对页面内每一个HTML元素都进行匹配的不必要工作。</p>
+<ul>
+<li>父过滤器</li>
+<li>快速路径</li>
+</ul>
+<h3 id="PhantomJS和confess-js"><a href="#PhantomJS和confess-js" class="headerlink" title="PhantomJS和confess.js"></a>PhantomJS和confess.js</h3><p>我们渴望有一套强大且可靠的方法来评估Web应用程序的性能和用户体验。<br>PhantomJS提供一个无界面的、功能齐全的Webkit浏览器，可以方便地使用命令行来启动，然后可以用JavaScript编写脚本进行操作。<br><a href="https://github.com/jamesgpearce/confess" target="_blank" rel="noopener">confess.js</a>是一个可以让你很容易地根据不同目的分析网页和应用程序的微型库。目前，它有两个主要功能：提供简单的页面性能概况和生成应用程序缓存清单。<br><strong>PhantomJS在2018年4月已经暂停开发</strong></p>
+<h3 id="两次测量一次优化"><a href="#两次测量一次优化" class="headerlink" title="两次测量一次优化"></a>两次测量一次优化</h3><p>测量的关键是工具。从宏观层面开始，你的网站最重要的部分是什么？可能是那个用得最多的部分，或者对业务影响最大的部分（如结算流程）。真正了解网站上哪些页面比较重要的唯一方法是查看统计数据，或者和网站负责人讨论优先级。</p>
+<h4 id="识别需要优化的页面-部分"><a href="#识别需要优化的页面-部分" class="headerlink" title="识别需要优化的页面/部分"></a>识别需要优化的页面/部分</h4><p>先查看哪些网页访问次数最多。这可以让你得到一个明确目标的清单。<br>现在，你应该得到了网站中最热门或对业务最重要的页面或部分内容的列表。这就是你的目标列表。保持这个列表定期更新。直到优化完目标列表而没有产生新的性能问题。</p>
+<h4 id="识别需要优化的功能"><a href="#识别需要优化的功能" class="headerlink" title="识别需要优化的功能"></a>识别需要优化的功能</h4><p>一般来说，我们的目标是找出用户最可能需要哪些东西。作为一种非正式的经验法则，考虑按以下顺序优化加载的项目：</p>
+<ul>
+<li>一屏显示的内容</li>
+<li>导航组件（菜单、搜索栏）</li>
+<li>提供信息的内容（产品介绍、新闻报道）</li>
+<li>操作选项（添加到购物车等）</li>
+<li>一屏之后的内容</li>
+</ul>
+<p>你可以用WebPageTest的电影胶片功能来检查各种内容加载的速度。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>如果那些使用率高达90%的功能还没有被优化，那就不要把你所有时间都花费在已经优化了的东西上。<br>优化的目标应该是根据你的测量，然后最合理地利用你的时间来优化用户体验。</p>
+<h3 id="后端问题检测"><a href="#后端问题检测" class="headerlink" title="后端问题检测"></a>后端问题检测</h3><p>抛开顶级互联网发布商，我们转而关注那些使用现成内容管理系统（Drupal、WordPress或Joomal等）来管理的网站。网站拥有者很少或根本没有检查他们的网站所在的系统的实际性能。<br>几乎所有的CMS系统都会有8~20秒的后端时间。</p>
+<h4 id="适当的后端时间该是多少"><a href="#适当的后端时间该是多少" class="headerlink" title="适当的后端时间该是多少"></a>适当的后端时间该是多少</h4><p>对于仅处理后端请求来说，较好的目标时间是100ms。这并不意味着你应该期望TTFB（Time To First Byte，最初的网络请求被发起到从浏览器接收到第一个字节这段时间）为100ms，而是尽量使后端处理时间不宜长于该时间。<br>在使用WebPagetest这样的前端工具来计算后端时间时，你需要记住这个时间还包含网络延迟。因此，我通常采用服务器的套接字连接时间作为RTT（Round-Trip Time，往返时延），并将其作为其他一切评测的基准。<br>在本例中，后端时间 = Time To First Byte - Initial Connection</p>
+<h4 id="搞清楚是怎么回事"><a href="#搞清楚是怎么回事" class="headerlink" title="搞清楚是怎么回事"></a>搞清楚是怎么回事</h4><p>后端问题几乎肯定是由以下因素之一引起的：</p>
+<ul>
+<li>Web服务器配置问题，没有可用资源来处理请求</li>
+<li>低效的数据库查询</li>
+<li>后端调用外部服务</li>
+</ul>
+<h3 id="Web字体性能：-font-face及其他解决方案间的权衡"><a href="#Web字体性能：-font-face及其他解决方案间的权衡" class="headerlink" title="Web字体性能：@font-face及其他解决方案间的权衡"></a>Web字体性能：@font-face及其他解决方案间的权衡</h3><h4 id="字体托管服务与自主开发"><a href="#字体托管服务与自主开发" class="headerlink" title="字体托管服务与自主开发"></a>字体托管服务与自主开发</h4><p>1.字体托管服务<br>Typekit、Fonts.com、Fontdeck等服务为设计师提供一个简单的接口来管理已购买的字体，并产生一个指向用于加载字体的动态CSS或JavaScript文件的链接。谷歌甚至还提供了类似的免费服务。</p>
+<p>2.DIY方式<br>这种方式涉及购买字体的网络使用授权，以及使用类似FontSquirrel这样的工具来优化字体文件大小。</p>
+<h4 id="FOUT是什么"><a href="#FOUT是什么" class="headerlink" title="FOUT是什么"></a>FOUT是什么</h4><p>FOUT（Flash of Unstyled Text），即无样式文本的闪烁，指Web字体下载并渲染之前短暂显示无样式文本的情况。<br>FOUT以某种形式存在于Internet Explorer所有版本和Firefox 3.6及更低级版本中。<br>为避免FOUT，我的建议是：</p>
+<ul>
+<li>将字体托管在一个CDN上</li>
+<li>GZIP压缩所有字体文件，.woff文件除外（已压缩）</li>
+<li>通过增加缓存过期头来缓存字体文件30天</li>
+<li>从字体文件移除多余的字形</li>
+<li>确保@font-face是页面中第一个样式表的第一条规则（IE）</li>
+</ul>
+<h4 id="移除多余的字体字形"><a href="#移除多余的字体字形" class="headerlink" title="移除多余的字体字形"></a>移除多余的字体字形</h4><p><a href="https://www.fontsquirrel.com/" target="_blank" rel="noopener">Font Squirrel</a>提供一个很棒的工具，可以帮助你将桌面版本的字体文件转换成网络版本。</p>
+<h4 id="JavaScript字体加载器"><a href="#JavaScript字体加载器" class="headerlink" title="JavaScript字体加载器"></a>JavaScript字体加载器</h4><p><a href="https://github.com/typekit/webfontloader" target="_blank" rel="noopener">WebFont Loader</a>可以在字体下载过程中，用CSS和JavaScript钩子机制表明字体的状态。<br>它所追踪的状态有3种：加载中（loading/wf-loading）、活跃（active/wf-active）和非活跃（超时 inactive/wf-inactive）。相应的CSS类可以通过先隐藏标题，下载完成后再显示的方式来解决FOUT问题。</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector">h1 </span><span class="token punctuation">{</span>
+  <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.wf-active</span> h1 </span><span class="token punctuation">{</span>
+  <span class="token property">visibility</span><span class="token punctuation">:</span> visible<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>这些相同事件的JavaScript钩子也可以从配置对象的回调函数中获得。</p>
+<pre class=" language-js"><code class="language-js">WebFontConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  google<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    families<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'Tangerine'</span><span class="token punctuation">,</span> <span class="token string">'Cantarell'</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">// example</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  typekit<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    id<span class="token punctuation">:</span> <span class="token string">'myKitId'</span>                         <span class="token comment" spellcheck="true">// example</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  loading<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  active<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  inactive<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h4 id="Boot-getFont介绍：一种快速、小巧的Web字体加载器"><a href="#Boot-getFont介绍：一种快速、小巧的Web字体加载器" class="headerlink" title="Boot.getFont介绍：一种快速、小巧的Web字体加载器"></a>Boot.getFont介绍：一种快速、小巧的Web字体加载器</h4><p><a href="https://raw.githubusercontent.com/artzstudio/Boot/master/src/standalone/boot.getfont.js" target="_blank" rel="noopener">boot.getfont.js 开发版本</a><br>你可以非常简单地改变文件结尾处的“Boot”字符串来更改其命名空间，例如：jQuery。<br>通过一个JavaScript函数就可以加载字体，并在字体完成渲染后，执行提供的回调方法。</p>
+<pre class=" language-js"><code class="language-js">Boot<span class="token punctuation">.</span><span class="token function">getFont</span><span class="token punctuation">(</span><span class="token string">'opensans'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// when font is active</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>通过加载一个配置对象，你可以很轻松地配置它来抓取基于你的目录结构的字体。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Global</span>
+Boot<span class="token punctuation">.</span>getFont<span class="token punctuation">.</span><span class="token function">option</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  path<span class="token punctuation">:</span> <span class="token string">'/fonts/{f}/{f}-webfont'</span> <span class="token comment" spellcheck="true">// {f} is replaced with the font name</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// Font-specific</span>
+Boot<span class="token punctuation">.</span><span class="token function">getFont</span><span class="token punctuation">(</span><span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">'http://mycdn.com/fonts/{f}/{f}-wf'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">'futura'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>CSS类：</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.wf-opensans-loading</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.wf-opensans-active</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.wf-opensans-inactive</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<h4 id="Gentlefonts，启动你的引擎"><a href="#Gentlefonts，启动你的引擎" class="headerlink" title="Gentlefonts，启动你的引擎"></a>Gentlefonts，启动你的引擎</h4><ul>
+<li>B1      -&gt;  Boot.getFont</li>
+<li>B2      -&gt;  Boot.getFont(CDN)</li>
+<li>FS1     -&gt;  FontSquirrel Optimal</li>
+<li>FS2     -&gt;  FontSquirrel Expert</li>
+<li>FS3     -&gt;  FontSquirrel Expert(CDN)</li>
+<li>GWF1    -&gt;  Google Web Fonts Standard</li>
+<li>GWF2    -&gt;  Google Web Fonts JavaScript<br>(时间越少越好)</li>
+</ul>
+
+      <div id="yp017kefq9h" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
+
+      <script type="text/javascript">
+        var chart = echarts.init(document.getElementById('yp017kefq9h'));
+        chart.setOption({"title":{"text":"字体实现基准测试"},"animation":true,"tooltip":{"trigger":"axis"},"xAxis":{"data":["GWF1","GWF2","FS1","Typekit","FS2","B1","FS3","B2","System"]},"yAxis":{},"series":[{"name":"IE 9","type":"bar","data":["896","1096","997","798","822","812","710","692","373"]},{"name":"IE 8","type":"bar","data":["850","1097","800","999","704","698","697","697","358"]},{"name":"IE 7","type":"bar","data":["870","1126","803","959","784","798","681","696","370"]},{"name":"Firefox","type":"bar","data":["1003","1254","933","795","802","693","667","652","506"]},{"name":"Chrome","type":"bar","data":["899","801","925","815","792","704","681","680","398"]}],"legend":{"data":["IE 9","IE 8","IE 7","Firefox","Chrome"]}});
+      </script>
+    
+
+
+      <div id="4bzjs0ym6nh" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
+
+      <script type="text/javascript">
+        var chart = echarts.init(document.getElementById('4bzjs0ym6nh'));
+        chart.setOption({"title":{"text":"字体实现的最快速度"},"animation":true,"tooltip":{"trigger":"axis"},"xAxis":{"data":["GWF1","GWF2","FS1","Typekit","FS2","B1","FS3","B2","System"]},"yAxis":{},"series":[{"name":"Value","type":"bar","data":["850","801","800","795","704","693","667","652","358"]}]});
+      </script>
+    
+
+<p>资料：</p>
+<ul>
+<li><a href="https://www.filamentgroup.com/lab/font-loading.html" target="_blank" rel="noopener">How we use web fonts responsibly, or, avoiding a @font-face-palm 我们如何负责任地使用网络字体，或​​避免使用@ font-face-palm</a></li>
+<li><a href="https://www.filamentgroup.com/lab/font-events.html" target="_blank" rel="noopener">How We Load Web Fonts Progressively 我们如何逐步加载Web字体</a></li>
+<li><a href="https://filamentgroup.github.io/font-loading/data-uris-cookie.html" target="_blank" rel="noopener">cookie加载字体demo</a></li>
+</ul>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/Web性能实践日志-性能/" title="Web性能实践日志 性能">Web性能实践日志 性能</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+        
+            <a class="next" href="/2019/08/10/A-table-of-two-viewports/">
+                <span class="nav-default">A tale of two viewports 笔记</span>
+                <span class="nav-mobile">下一篇</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2019
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+
+  <script src='https://cdn.bootcss.com/mermaid/8.2.1/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+</html>
