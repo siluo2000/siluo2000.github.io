@@ -4,10 +4,10 @@
     <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/zhanym/css/style.css">
+    <link rel="stylesheet" href="/zhanym/css/gitment.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/zhanym/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 <body>
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
     <div class="header-inner">
@@ -16,19 +16,27 @@
         </div>
         <nav class="header-nav">
             
-            <a href="/" class="header-nav-link" >
+            <a href="/zhanym/" class="header-nav-link" >
                 首页
             </a>
             
 
             
-            <a href="/archives" class="header-nav-link">
+            <a href="/zhanym/archives" class="header-nav-link">
                 归档
             </a>
             
 
             
+            <a href="/zhanym/tags" class="header-nav-link">
+                标签
+            </a>
+            
 
+            
+            <a href="/zhanym/about/" class="header-nav-link">
+                关于
+            </a>
             
         </nav>
     </div>
@@ -41,7 +49,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+            <a href="/zhanym/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
         </div>
 
     </div>
@@ -49,19 +57,19 @@
         <ul class="mobile-menu-list">
             <li class="mobile-menu-item">
                 <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
+                <a href="/zhanym/" class="mobile-nav-link">首页</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
+                <a href="/zhanym/archives" class="mobile-nav-link">归档</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
+                <a href="/zhanym/tags" class="mobile-nav-link">标签</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
+                <a href="/zhanym/about/" class="mobile-nav-link">关于</a>
             </li>
         </ul>
     </nav>
@@ -95,6 +103,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></code></pre>
+<a id="more"></a>
 <p>2.在main.js旁边创建一个global-components.js，然后使用<code>Vue.component()</code>方法全局地注册Loading组件：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">"vue"</span>
 <span class="token keyword">import</span> Loading <span class="token keyword">from</span> <span class="token string">"./components/Loading"</span>
@@ -103,8 +112,6 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <p>3.然后，在main.js中导入global-components.js：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'./global-components'</span></code></pre>
 <p>现在可以全局使用<code>&lt;Loading /&gt;</code>了！</p>
-<a id="more"></a>
-
 <h3 id="全局过滤器"><a href="#全局过滤器" class="headerlink" title="全局过滤器"></a>全局过滤器</h3><p>1.以momentjs为例，首先安装moment：</p>
 <pre class=" language-powershell"><code class="language-powershell">npm install <span class="token operator">-</span>S moment</code></pre>
 <p>2.在main.js文件旁边创建一个新的filters.js，它包含date过滤器：</p>
@@ -334,7 +341,15 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
         
         <div class="post-tag">
             
-            <a class="tag" href="/tags/Vue-components-filters-plugins-vars/" title="Vue components filters plugins vars">Vue components filters plugins vars</a>
+            <a class="tag" href="/zhanym/tags/Vue/" title="Vue">Vue</a>
+            
+            <a class="tag" href="/zhanym/tags/components/" title="components">components</a>
+            
+            <a class="tag" href="/zhanym/tags/filters/" title="filters">filters</a>
+            
+            <a class="tag" href="/zhanym/tags/plugins/" title="plugins">plugins</a>
+            
+            <a class="tag" href="/zhanym/tags/vars/" title="vars">vars</a>
             
         </div>
         
@@ -343,14 +358,14 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <div class="paginator">
     
         
-            <a class="prev" href="/2019/08/07/Vue入门笔记七-生产环境构建/">
+            <a class="prev" href="/zhanym/2019/08/07/Vue入门笔记七-生产环境构建/">
                 <i class="iconfont icon-prev"></i>
                 <span class="nav-default">Vue入门笔记七(生产环境构建)</span>
                 <span class="nav-mobile">上一篇</span>
             </a>
         
         
-            <a class="next" href="/2019/08/07/Vue入门笔记五-常用插件/">
+            <a class="next" href="/zhanym/2019/08/07/Vue入门笔记五-常用插件/">
                 <span class="nav-default">Vue入门笔记五(常用插件)</span>
                 <span class="nav-mobile">下一篇</span>
                 <i class="iconfont icon-next"></i>
@@ -375,7 +390,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
             
             2019
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+            Yunmian Zhan
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
@@ -385,7 +400,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/zhanym/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>

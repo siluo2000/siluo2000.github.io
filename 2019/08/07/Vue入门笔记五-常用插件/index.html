@@ -4,10 +4,10 @@
     <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/zhanym/css/style.css">
+    <link rel="stylesheet" href="/zhanym/css/gitment.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/zhanym/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 <body>
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
     <div class="header-inner">
@@ -16,19 +16,27 @@
         </div>
         <nav class="header-nav">
             
-            <a href="/" class="header-nav-link" >
+            <a href="/zhanym/" class="header-nav-link" >
                 首页
             </a>
             
 
             
-            <a href="/archives" class="header-nav-link">
+            <a href="/zhanym/archives" class="header-nav-link">
                 归档
             </a>
             
 
             
+            <a href="/zhanym/tags" class="header-nav-link">
+                标签
+            </a>
+            
 
+            
+            <a href="/zhanym/about/" class="header-nav-link">
+                关于
+            </a>
             
         </nav>
     </div>
@@ -41,7 +49,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+            <a href="/zhanym/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
         </div>
 
     </div>
@@ -49,19 +57,19 @@
         <ul class="mobile-menu-list">
             <li class="mobile-menu-item">
                 <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
+                <a href="/zhanym/" class="mobile-nav-link">首页</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
+                <a href="/zhanym/archives" class="mobile-nav-link">归档</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
+                <a href="/zhanym/tags" class="mobile-nav-link">标签</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
+                <a href="/zhanym/about/" class="mobile-nav-link">关于</a>
             </li>
         </ul>
     </nav>
@@ -92,6 +100,8 @@
 <h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><p>1.安装包：</p>
 <pre class=" language-powershell"><code class="language-powershell">npm install axios <span class="token operator">-</span>S</code></pre>
 <p>2.在src/utils文件夹中创建http.js：</p>
+<a id="more"></a>
+
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
 
 <span class="token keyword">const</span> http <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -106,7 +116,7 @@
 <ul>
 <li>在src/plugins.js中导入和注册http：</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Http <span class="token keyword">from</span> <span class="token string">'./utils/http'</span>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Http <span class="token keyword">from</span> <span class="token string">'./utils/http'</span>
 
 Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Http<span class="token punctuation">)</span></code></pre>
 <p>3.在vuexStore中使用：</p>
@@ -117,8 +127,6 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token keyword">await</span> http<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'comments'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span></code></pre>
 <p>在组件中使用：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$http<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'comments'</span><span class="token punctuation">,</span> params<span class="token punctuation">)</span></code></pre>
-<a id="more"></a>
-
 <h3 id="json-server-生成快速开发API"><a href="#json-server-生成快速开发API" class="headerlink" title="json-server 生成快速开发API"></a>json-server 生成快速开发API</h3><p>创建本地API。</p>
 <p>1.安装包</p>
 <pre class=" language-powershell"><code class="language-powershell">npm i <span class="token operator">-</span>D json<span class="token operator">-</span>server</code></pre>
@@ -572,7 +580,23 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
         
         <div class="post-tag">
             
-            <a class="tag" href="/tags/Vue-vue-plugin-axios-json-server-autoprefixer-ESLint-Jest-i18n-moment/" title="Vue vue-plugin axios json-server autoprefixer ESLint Jest i18n moment">Vue vue-plugin axios json-server autoprefixer ESLint Jest i18n moment</a>
+            <a class="tag" href="/zhanym/tags/Vue/" title="Vue">Vue</a>
+            
+            <a class="tag" href="/zhanym/tags/vue-plugin/" title="vue-plugin">vue-plugin</a>
+            
+            <a class="tag" href="/zhanym/tags/axios/" title="axios">axios</a>
+            
+            <a class="tag" href="/zhanym/tags/json-server/" title="json-server">json-server</a>
+            
+            <a class="tag" href="/zhanym/tags/autoprefixer/" title="autoprefixer">autoprefixer</a>
+            
+            <a class="tag" href="/zhanym/tags/ESLint/" title="ESLint">ESLint</a>
+            
+            <a class="tag" href="/zhanym/tags/Jest/" title="Jest">Jest</a>
+            
+            <a class="tag" href="/zhanym/tags/i18n/" title="i18n">i18n</a>
+            
+            <a class="tag" href="/zhanym/tags/moment/" title="moment">moment</a>
             
         </div>
         
@@ -581,14 +605,14 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <div class="paginator">
     
         
-            <a class="prev" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">
+            <a class="prev" href="/zhanym/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">
                 <i class="iconfont icon-prev"></i>
                 <span class="nav-default">Vue入门笔记六(全局组件 过滤器 插件 变量)</span>
                 <span class="nav-mobile">上一篇</span>
             </a>
         
         
-            <a class="next" href="/2019/08/06/JavaScript/">
+            <a class="next" href="/zhanym/2019/08/06/JavaScript/">
                 <span class="nav-default">JavaScript</span>
                 <span class="nav-mobile">下一篇</span>
                 <i class="iconfont icon-next"></i>
@@ -613,7 +637,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
             
             2019
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+            Yunmian Zhan
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
@@ -623,7 +647,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/zhanym/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>

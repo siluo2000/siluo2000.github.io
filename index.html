@@ -4,10 +4,10 @@
     <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/zhanym/css/style.css">
+    <link rel="stylesheet" href="/zhanym/css/gitment.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/zhanym/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 <body>
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
     <div class="header-inner">
@@ -16,19 +16,27 @@
         </div>
         <nav class="header-nav">
             
-            <a href="/" class="header-nav-link" >
+            <a href="/zhanym/" class="header-nav-link" >
                 首页
             </a>
             
 
             
-            <a href="/archives" class="header-nav-link">
+            <a href="/zhanym/archives" class="header-nav-link">
                 归档
             </a>
             
 
             
+            <a href="/zhanym/tags" class="header-nav-link">
+                标签
+            </a>
+            
 
+            
+            <a href="/zhanym/about/" class="header-nav-link">
+                关于
+            </a>
             
         </nav>
     </div>
@@ -41,7 +49,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+            <a href="/zhanym/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
         </div>
 
     </div>
@@ -49,19 +57,19 @@
         <ul class="mobile-menu-list">
             <li class="mobile-menu-item">
                 <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
+                <a href="/zhanym/" class="mobile-nav-link">首页</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
+                <a href="/zhanym/archives" class="mobile-nav-link">归档</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
+                <a href="/zhanym/tags" class="mobile-nav-link">标签</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
+                <a href="/zhanym/about/" class="mobile-nav-link">关于</a>
             </li>
         </ul>
     </nav>
@@ -72,7 +80,53 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/13/Web性能实践日志/">Web性能实践日志笔记</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/10/19/写个博客/">写个博客</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2019-10-19</span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h3 id="博客框架hexo"><a href="#博客框架hexo" class="headerlink" title="博客框架hexo"></a>博客框架hexo</h3><p><a href="https://hexo.io/zh-cn/index.html" target="_blank" rel="noopener">hexo官网</a><br>需要安装:</p>
+<ul>
+<li>Node</li>
+<li>Git</li>
+</ul>
+                    <div class="read-more">
+                        <a href="/zhanym/2019/10/19/写个博客/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/zhanym/2019/10/19/vue-config-js-配置/">vue.config.js 配置</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2019-10-19</span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h2 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h2><p>如果需要build之后输出<code>./</code>路径的话，需要设置publicPath为<code>././</code>：</p>
+<pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  publicPath<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">===</span> <span class="token string">'production'</span>
+  <span class="token operator">?</span> <span class="token string">'././'</span>
+  <span class="token punctuation">:</span> <span class="token string">'/'</span>
+<span class="token punctuation">}</span></code></pre>
+
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/zhanym/2019/08/13/Web性能实践日志/">Web性能实践日志笔记</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-13</span>
@@ -89,12 +143,8 @@
 <li>谷歌和Bing用localStorage存储JavaScript和CSS，来改善他们的移动网站的性能</li>
 </ul>
 <p>为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器上读取这些字节。<br>读写硬盘的开销高昂，特别是相对于读写内存来说。</p>
-<p>更有趣的是，localStorage按源存储数据，这意味着，在同一时间内，浏览器中的多个标签页可以访问相同的localStorage数据。</p>
-<p>当需要从localStorage中读取数据时，浏览器首先需要停下来看看是否有其他标签页正在访问同一数据区域。如果是的话，浏览器必须等到之前的访问操作完成，才可以读取该值。</p>
-<p>因此，与从localStorage读取数据相关的延迟是不定的，它在很大程度上取决于在那个时间点上浏览器还在进行的其他操作。</p>
-<h4 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h4><p><a href="https://jsperf.com/localstorage-string-size" target="_blank" rel="noopener">基准测试</a>从单一localStorage键值中读取的数据量对速度没有影响。<br><a href="https://jsperf.com/localstorage-string-size-retrieval" target="_blank" rel="noopener">基准测试</a>在大多数浏览器中，读取100个字符10次比一次读取10000字符慢90%左右。<br>鉴于此，从localStorage读取数据的最佳策略是使用尽可能少的键值，存储尽可能多的数据。</p>
                     <div class="read-more">
-                        <a href="/2019/08/13/Web性能实践日志/" class="read-more-link">
+                        <a href="/zhanym/2019/08/13/Web性能实践日志/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -105,7 +155,7 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/10/A-table-of-two-viewports/">A tale of two viewports 笔记</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/08/10/A-table-of-two-viewports/">A tale of two viewports 笔记</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-10</span>
@@ -120,7 +170,7 @@
 <h2 id="Part-one"><a href="#Part-one" class="headerlink" title="Part one"></a>Part one</h2><p><strong>在这个小系列中，我将解释视口和各种重要元素的宽度如何工作，例如<code>&lt;html&gt;</code>元素，以及窗口和屏幕。</strong></p>
 <p>此页面是关于桌面浏览器的，其唯一目的是为移动浏览器的类似讨论设置阶段。 大多数Web开发人员已经直观地理解了大多数桌面概念。 在移动设备上，我们会发现相同的概念，但更复杂。<br>因此，事先讨论每个人已经知道的术语将极大地帮助您理解移动浏览器。</p>
                     <div class="read-more">
-                        <a href="/2019/08/10/A-table-of-two-viewports/" class="read-more-link">
+                        <a href="/zhanym/2019/08/10/A-table-of-two-viewports/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -131,7 +181,7 @@
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/10/NODE安装笔记/">NODE安装笔记</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/08/10/NODE安装笔记/">NODE安装笔记</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-10</span>
@@ -141,128 +191,8 @@
                 
                     <h3 id="卸载node和npm"><a href="#卸载node和npm" class="headerlink" title="卸载node和npm"></a>卸载node和npm</h3><p>在安装nvm前要先卸载已经安装的node和npm。</p>
 <p>命令行卸载的方法没看懂。可以找到自带的卸载程序卸载node。</p>
-<h3 id="安装nvm"><a href="#安装nvm" class="headerlink" title="安装nvm"></a>安装nvm</h3><p>1.<a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">NVM下载</a><br>2.下载完成后，将内容解压到C:\dev\nvm （需为全英文路径）<br>3.新建settings.txt文件：</p>
-<pre class=" language-js"><code class="language-js">root<span class="token punctuation">:</span> C<span class="token punctuation">:</span>\dev\nvm
-path<span class="token punctuation">:</span> C<span class="token punctuation">:</span>\dev\nodejs
-arch<span class="token punctuation">:</span> <span class="token number">64</span>
-proxy<span class="token punctuation">:</span> none
-node_mirror<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>mirrors<span class="token regex">/node/</span>
-npm_mirror<span class="token punctuation">:</span> https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>mirrors<span class="token regex">/npm/</span></code></pre>
-<p>4.配置环境变量</p>
-<ul>
-<li>window + r 打开运行面板，然后输入 : sysdm.cpl，打开系统属性面板</li>
-<li>在系统属性面板中切换到高级面板，点击下方的环境变量按钮，打开环境变量面板</li>
-<li>新建系统变量如下：</li>
-</ul>
-<pre class=" language-js"><code class="language-js">NVM_HOME<span class="token punctuation">:</span> C<span class="token punctuation">:</span>\dev\nvm
-NVM_SYMLINK<span class="token punctuation">:</span> C<span class="token punctuation">:</span>\dev\nodejs</code></pre>
-<ul>
-<li>在系统变量PATH中新增 <code>%NVM_HOME%;%NVM_SYMLINK%;</code></li>
-</ul>
-<p>5.打开cmd，检查是否配置成功</p>
-<pre class=" language-powershell"><code class="language-powershell"><span class="token function">set</span> NVM_HOME
-<span class="token function">set</span> NVM_SYMLINK
-nvm <span class="token operator">-</span>v</code></pre>
-<h3 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h3><p>命令：</p>
-<pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 查看所有版本</span>
-nvm <span class="token function">ls</span>
-
-<span class="token comment" spellcheck="true"># 查看可安装版本</span>
-nvm <span class="token function">ls</span><span class="token operator">-</span>remote
-
-<span class="token comment" spellcheck="true"># 安装最新版本</span>
-nvm install latest
-
-<span class="token comment" spellcheck="true"># 安装随意版本</span>
-nvm install 4<span class="token punctuation">.</span>6<span class="token punctuation">.</span>0
-
-<span class="token comment" spellcheck="true"># 切换node版本</span>
-nvm use 4<span class="token punctuation">.</span>6<span class="token punctuation">.</span>0
-
-<span class="token comment" spellcheck="true"># 安装稳定版本</span>
-nvm install stable
-
-<span class="token comment" spellcheck="true"># 查看当前版本</span>
-nvm current</code></pre>
-<h3 id="配置node全局模块路径"><a href="#配置node全局模块路径" class="headerlink" title="配置node全局模块路径"></a>配置node全局模块路径</h3><ul>
-<li>方法一：<br>设置到自己想要放的位置：</li>
-</ul>
-<p>打开：nodejs安装目录/node_modules/npm/.npmrc这个文件，修改里面的路径</p>
-<pre class=" language-powershell"><code class="language-powershell">prefix = E:\nodejs\node_global_modules</code></pre>
-<ul>
-<li>方法二：</li>
-</ul>
-<p>进入cmd，输入如下代码：</p>
-<pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true"># 查看npm配置</span>
-npm config <span class="token function">ls</span>  
-
-<span class="token comment" spellcheck="true"># 配置prefix修改node的全局模块安装路径</span>
-npm config <span class="token function">set</span> prefix E:\nodejs\node_global_modules</code></pre>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://blog.csdn.net/qwdafedv/article/details/55802747" target="_blank" rel="noopener">NVM，Windows下环境配置</a><br><a href="https://www.jianshu.com/p/28bca6529150" target="_blank" rel="noopener">在windows下用nvm 安装node</a><br><a href="https://www.jianshu.com/p/e21e3783304f" target="_blank" rel="noopener">nvm 使用攻略</a><br><a href="https://www.cnblogs.com/kongxianghai/p/5660101.html" target="_blank" rel="noopener">使用nvm利器，管理node版本</a><br><a href="https://www.cnblogs.com/niuxiaoling/p/7993032.html" target="_blank" rel="noopener">nodejs全局安装路径的位置</a></p>
-
-                
-            </div>
-        </article>
-    
-        <article class="post-abstract">
-            <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/10/Git/">Git</a></h2>
-            </div>
-            <div class="post-meta">
-                <span class="post-time">2019-08-10</span>
-                
-            </div>
-            <div class="post-content">
-                
-                    <h3 id="Git-Error"><a href="#Git-Error" class="headerlink" title="Git Error"></a>Git Error</h3><h4 id="failed-to-push-some-refs-to"><a href="#failed-to-push-some-refs-to" class="headerlink" title="failed to push some refs to"></a><code>failed to push some refs to</code></h4><pre class=" language-powershell"><code class="language-powershell">git pull <span class="token operator">--</span>rebase origin master
-git push origin master</code></pre>
-
-                
-            </div>
-        </article>
-    
-        <article class="post-abstract">
-            <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/08/Vue插件/">Vue插件</a></h2>
-            </div>
-            <div class="post-meta">
-                <span class="post-time">2019-08-08</span>
-                
-            </div>
-            <div class="post-content">
-                
-                    <h3 id="预渲染-Prerendering"><a href="#预渲染-Prerendering" class="headerlink" title="预渲染 Prerendering"></a>预渲染 Prerendering</h3><p><a href="https://github.com/chrisvfritz/prerender-spa-plugin" target="_blank" rel="noopener">prerender-spa-plugin</a></p>
-<pre><code class="powershell">npm i -D prerender-spa-plugin</code></pre>
-<p>在webpack.config.js中：</p>
-<pre><code class="js">// Base Usage
-const path = require(&#39;path&#39;)
-const PrerenderSPAPlugin = require(&#39;prerender-spa-plugin&#39;)
-const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
-
-module.exports = {
-  plugins: [
-    // ...
-    new PrerenderSPAPlugin({
-      staticDir: path.join(__dirname, &#39;dist&#39;), //你要存放的静态资源目录
-      routes: [&#39;/&#39;, &#39;/faq&#39;], //设置要对哪个文件进行SEO
-      //如果没有这个配置不会进行预编译
-      renderer: new Renderer({
-        inject: {
-          foo: &#39;bar&#39;,
-        },
-        headless: true,
-        //在项目的入口中使用document.dispatchEvent(new Event(&#39;render-event&#39;))
-        //这个是你生命的事件名
-        rendererAfterDocumentEvent: &#39;render-event&#39;
-      })
-    })
-  ]
-}</code></pre>
-<ul>
-<li>应该要在生产环境下使用，然后输出预渲染的HTML，方便搜索引擎爬虫抓取工具可以直接查看预渲染的内容。</li>
-</ul>
                     <div class="read-more">
-                        <a href="/2019/08/08/Vue插件/" class="read-more-link">
+                        <a href="/zhanym/2019/08/10/NODE安装笔记/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -273,7 +203,29 @@ module.exports = {
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/07/Vue入门笔记七-生产环境构建/">Vue入门笔记七(生产环境构建)</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/08/10/Git/">Git</a></h2>
+            </div>
+            <div class="post-meta">
+                <span class="post-time">2019-08-10</span>
+                
+            </div>
+            <div class="post-content">
+                
+                    <h3 id="Git-Error"><a href="#Git-Error" class="headerlink" title="Git Error"></a>Git Error</h3><h4 id="failed-to-push-some-refs-to"><a href="#failed-to-push-some-refs-to" class="headerlink" title="failed to push some refs to"></a><code>failed to push some refs to</code></h4><pre><code class="powershell">git pull --rebase origin master
+git push origin master</code></pre>
+                    <div class="read-more">
+                        <a href="/zhanym/2019/08/10/Git/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
+                
+            </div>
+        </article>
+    
+        <article class="post-abstract">
+            <div class="post-title">
+                <h2><a class="post-title-link" href="/zhanym/2019/08/07/Vue入门笔记七-生产环境构建/">Vue入门笔记七(生产环境构建)</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-07</span>
@@ -285,43 +237,20 @@ module.exports = {
 <p>《Vue.js项目实战》</p>
 </blockquote>
 <h3 id="将样式提取到CSS文件"><a href="#将样式提取到CSS文件" class="headerlink" title="将样式提取到CSS文件"></a>将样式提取到CSS文件</h3><p>安装包：</p>
-<pre class=" language-powershell"><code class="language-powershell">npm i <span class="token operator">-</span>D extract<span class="token operator">-</span>text<span class="token operator">-</span>webpack<span class="token operator">-</span>plugin</code></pre>
-<p>在webpack.config.js导入并配置：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> ExtractTextPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'extract-text-webpack-plugin'</span><span class="token punctuation">)</span>
-
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// ...</span>
-  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-    <span class="token comment" spellcheck="true">// ...</span>
-    <span class="token keyword">new</span> <span class="token class-name">ExtractTextPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      filename<span class="token punctuation">:</span> <span class="token string">'common.[chunkhash].css'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
-<h3 id="新的npm脚本"><a href="#新的npm脚本" class="headerlink" title="新的npm脚本"></a>新的npm脚本</h3><p>1.安装包：</p>
-<pre class=" language-powershell"><code class="language-powershell">npm i <span class="token operator">-</span>D rimraf</code></pre>
-<p>2.为客户端bundle和服务器bundle各添加一个build脚本：</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// ...</span>
-  <span class="token string">"build:client"</span><span class="token punctuation">:</span> <span class="token string">"cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack/client.js"</span><span class="token punctuation">,</span>
-  <span class="token string">"build:server"</span><span class="token punctuation">:</span> <span class="token string">"cross-env NODE_ENV=production webpack --progress --hide-modules --config webpack/server.js"</span>
-<span class="token punctuation">}</span></code></pre>
-<p>3.新建一个build脚本，用来清空dist文件夹并运行build:client和build:server这两个脚本：</p>
-<pre class=" language-powershell"><code class="language-powershell"><span class="token string">"build"</span>: <span class="token string">"rimraf dist &amp;&amp; npm run build:client &amp;&amp; npm run build:server"</span></code></pre>
-<p>4.添加最后一个名为start的脚本，它会以生产模式运行express服务器：</p>
-<pre class=" language-powershell"><code class="language-powershell"><span class="token string">"start"</span>: <span class="token string">"cross-env NODE_ENV=production node server"</span></code></pre>
-<p>5.运行构建：</p>
-<pre class=" language-powershell"><code class="language-powershell">npm run build</code></pre>
-<p>6.启动express服务器：</p>
-<pre class=" language-powershell"><code class="language-powershell">npm <span class="token function">start</span></code></pre>
-
+<pre><code class="powershell">npm i -D extract-text-webpack-plugin</code></pre>
+                    <div class="read-more">
+                        <a href="/zhanym/2019/08/07/Vue入门笔记七-生产环境构建/" class="read-more-link">
+                            阅读全文
+                            <i class="iconfont icon-readmore"></i>
+                        </a>
+                    </div>
                 
             </div>
         </article>
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-07</span>
@@ -338,16 +267,8 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     &lt;div&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;</code></pre>
-<p>2.在main.js旁边创建一个global-components.js，然后使用<code>Vue.component()</code>方法全局地注册Loading组件：</p>
-<pre><code class="js">import Vue from &quot;vue&quot;
-import Loading from &quot;./components/Loading&quot;
-
-Vue.component(&quot;Loading&quot;, Loading)</code></pre>
-<p>3.然后，在main.js中导入global-components.js：</p>
-<pre><code class="js">import &#39;./global-components&#39;</code></pre>
-<p>现在可以全局使用<code>&lt;Loading /&gt;</code>了！</p>
                     <div class="read-more">
-                        <a href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/" class="read-more-link">
+                        <a href="/zhanym/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -358,7 +279,7 @@ Vue.component(&quot;Loading&quot;, Loading)</code></pre>
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-07</span>
@@ -372,33 +293,8 @@ Vue.component(&quot;Loading&quot;, Loading)</code></pre>
 <h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3><p>1.安装包：</p>
 <pre><code class="powershell">npm install axios -S</code></pre>
 <p>2.在src/utils文件夹中创建http.js：</p>
-<pre><code class="js">import axios from &#39;axios&#39;
-
-const http = axios.create({
-  baseURL: &#39;http://localhost:3000/&#39;,
-})
-
-export function install (Vue) {
-  Vue.prototype.$http = http
-}
-
-export default http</code></pre>
-<ul>
-<li>在src/plugins.js中导入和注册http：</li>
-</ul>
-<pre><code class="js">import Http from &#39;./utils/http&#39;
-
-Vue.use(Http)</code></pre>
-<p>3.在vuexStore中使用：</p>
-<pre><code class="js">import http from &#39;../utils/http&#39;
-
-let result = await http.get(`items/${id}`)
-let result = await http.get(`comments?itemId=${id}`)
-let result = await http.post(&#39;comments&#39;, data)</code></pre>
-<p>在组件中使用：</p>
-<pre><code class="js">const result = await this.$http.post(&#39;comments&#39;, params)</code></pre>
                     <div class="read-more">
-                        <a href="/2019/08/07/Vue入门笔记五-常用插件/" class="read-more-link">
+                        <a href="/zhanym/2019/08/07/Vue入门笔记五-常用插件/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -409,7 +305,7 @@ let result = await http.post(&#39;comments&#39;, data)</code></pre>
     
         <article class="post-abstract">
             <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/06/JavaScript/">JavaScript</a></h2>
+                <h2><a class="post-title-link" href="/zhanym/2019/08/06/JavaScript/">JavaScript</a></h2>
             </div>
             <div class="post-meta">
                 <span class="post-time">2019-08-06</span>
@@ -418,40 +314,8 @@ let result = await http.post(&#39;comments&#39;, data)</code></pre>
             <div class="post-content">
                 
                     <h3 id><a href="#" class="headerlink" title="!!"></a><code>!!</code></h3><p>类型转换：将对应的类型转换为boolean型<br><strong>!!b指的是将b转换为boolean值</strong>，<em>取两次非是因为将b转换位boolean值后取了一次非，所以得到的值正好相反，再取一次反回来</em></p>
-<h3 id="计算运行时间（性能）"><a href="#计算运行时间（性能）" class="headerlink" title="计算运行时间（性能）"></a>计算运行时间（性能）</h3><iframe id="cp_embed_pMpZpe" src="//codepen.io/siluo2000/embed/pMpZpe?height=500&theme-id=dark&slug-hash=pMpZpe&default-tab=[js,result]&embed-version=2" scrolling="no" frameborder="no" height="500" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
-
-<p>总结:</p>
-<ol>
-<li>有开有关</li>
-<li>参数一致</li>
-<li>ie不支持,要使用Date计算</li>
-</ol>
                     <div class="read-more">
-                        <a href="/2019/08/06/JavaScript/" class="read-more-link">
-                            阅读全文
-                            <i class="iconfont icon-readmore"></i>
-                        </a>
-                    </div>
-                
-            </div>
-        </article>
-    
-        <article class="post-abstract">
-            <div class="post-title">
-                <h2><a class="post-title-link" href="/2019/08/06/CSS/">CSS</a></h2>
-            </div>
-            <div class="post-meta">
-                <span class="post-time">2019-08-06</span>
-                
-            </div>
-            <div class="post-content">
-                
-                    <h3 id="offsetTop"><a href="#offsetTop" class="headerlink" title="offsetTop"></a>offsetTop</h3><ol>
-<li>父级边框不算</li>
-<li>offsetTop是相对 relative 的定位</li>
-</ol>
-                    <div class="read-more">
-                        <a href="/2019/08/06/CSS/" class="read-more-link">
+                        <a href="/zhanym/2019/08/06/JavaScript/" class="read-more-link">
                             阅读全文
                             <i class="iconfont icon-readmore"></i>
                         </a>
@@ -465,7 +329,7 @@ let result = await http.post(&#39;comments&#39;, data)</code></pre>
     
         
         
-        <a class="next" href="/page/2/">
+        <a class="next" href="/zhanym/page/2/">
             下一页
             <i class="iconfont icon-next"></i>
         </a>
@@ -489,7 +353,7 @@ let result = await http.post(&#39;comments&#39;, data)</code></pre>
             
             2019
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+            Yunmian Zhan
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
@@ -499,7 +363,7 @@ let result = await http.post(&#39;comments&#39;, data)</code></pre>
 </footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/zhanym/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>

@@ -4,10 +4,10 @@
     <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/zhanym/css/style.css">
+    <link rel="stylesheet" href="/zhanym/css/gitment.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/zhanym/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 <body>
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
     <div class="header-inner">
@@ -16,19 +16,27 @@
         </div>
         <nav class="header-nav">
             
-            <a href="/" class="header-nav-link" >
+            <a href="/zhanym/" class="header-nav-link" >
                 首页
             </a>
             
 
             
-            <a href="/archives" class="header-nav-link">
+            <a href="/zhanym/archives" class="header-nav-link">
                 归档
             </a>
             
 
             
+            <a href="/zhanym/tags" class="header-nav-link">
+                标签
+            </a>
+            
 
+            
+            <a href="/zhanym/about/" class="header-nav-link">
+                关于
+            </a>
             
         </nav>
     </div>
@@ -41,7 +49,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+            <a href="/zhanym/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
         </div>
 
     </div>
@@ -49,19 +57,19 @@
         <ul class="mobile-menu-list">
             <li class="mobile-menu-item">
                 <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
+                <a href="/zhanym/" class="mobile-nav-link">首页</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
+                <a href="/zhanym/archives" class="mobile-nav-link">归档</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
+                <a href="/zhanym/tags" class="mobile-nav-link">标签</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
+                <a href="/zhanym/about/" class="mobile-nav-link">关于</a>
             </li>
         </ul>
     </nav>
@@ -95,12 +103,12 @@
 <li>谷歌和Bing用localStorage存储JavaScript和CSS，来改善他们的移动网站的性能</li>
 </ul>
 <p>为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器上读取这些字节。<br>读写硬盘的开销高昂，特别是相对于读写内存来说。</p>
+<a id="more"></a>
+
 <p>更有趣的是，localStorage按源存储数据，这意味着，在同一时间内，浏览器中的多个标签页可以访问相同的localStorage数据。</p>
 <p>当需要从localStorage中读取数据时，浏览器首先需要停下来看看是否有其他标签页正在访问同一数据区域。如果是的话，浏览器必须等到之前的访问操作完成，才可以读取该值。</p>
 <p>因此，与从localStorage读取数据相关的延迟是不定的，它在很大程度上取决于在那个时间点上浏览器还在进行的其他操作。</p>
 <h4 id="优化策略"><a href="#优化策略" class="headerlink" title="优化策略"></a>优化策略</h4><p><a href="https://jsperf.com/localstorage-string-size" target="_blank" rel="noopener">基准测试</a>从单一localStorage键值中读取的数据量对速度没有影响。<br><a href="https://jsperf.com/localstorage-string-size-retrieval" target="_blank" rel="noopener">基准测试</a>在大多数浏览器中，读取100个字符10次比一次读取10000字符慢90%左右。<br>鉴于此，从localStorage读取数据的最佳策略是使用尽可能少的键值，存储尽可能多的数据。</p>
-<a id="more"></a>
-
 <h4 id="跟进"><a href="#跟进" class="headerlink" title="跟进"></a>跟进</h4><p>localStorage是一个同步API，这本身使浏览器实现这个API时捉襟见肘。<br>所有的localStorage数据都存储在磁盘文件上。这意味着，为了让您可以用JavaScript访问这些数据，浏览器必须先将该文件读取到内存中。<br>当第一次访问localStorage就可能产生性能问题，但在随后的读取操作中浏览器有可能会冻结。在处理少量数据时，这可能不是一个大问题，但如果你已经达到5MB限制时，就会有明显的影响。</p>
 <h3 id="内联不是万能的"><a href="#内联不是万能的" class="headerlink" title="内联不是万能的"></a>内联不是万能的</h3><h4 id="没有浏览器缓存"><a href="#没有浏览器缓存" class="headerlink" title="没有浏览器缓存"></a>没有浏览器缓存</h4><p>将所有内容内联起来最明显的问题就是缓存损失。如果HTML承载了所有资源，HTML自身是不可以缓存的，所有资源每次都要下载一遍。<br>即使HTML是可缓存的，但它的缓存时间也是页面中所有资源缓存时间中最短的。假如你的HTML可以缓存10分钟，页面中另有一个资源可以缓存1天，显然你还是将资源缓存时间缩短到10分钟了。</p>
 <h4 id="没有边缘缓存"><a href="#没有边缘缓存" class="headerlink" title="没有边缘缓存"></a>没有边缘缓存</h4><p>CDN的传统价值被称作边缘缓存。直接从CDN获取缓存资源远比从源服务器获取更加快速。</p>
@@ -564,19 +572,19 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
 <li>GWF2    -&gt;  Google Web Fonts JavaScript<br>(时间越少越好)</li>
 </ul>
 
-      <div id="44kw914y5j9" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
+      <div id="vvejtbbtw3" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
 
       <script type="text/javascript">
-        var chart = echarts.init(document.getElementById('44kw914y5j9'));
+        var chart = echarts.init(document.getElementById('vvejtbbtw3'));
         chart.setOption({"title":{"text":"字体实现基准测试"},"animation":true,"tooltip":{"trigger":"axis"},"xAxis":{"data":["GWF1","GWF2","FS1","Typekit","FS2","B1","FS3","B2","System"]},"yAxis":{},"series":[{"name":"IE 9","type":"bar","data":["896","1096","997","798","822","812","710","692","373"]},{"name":"IE 8","type":"bar","data":["850","1097","800","999","704","698","697","697","358"]},{"name":"IE 7","type":"bar","data":["870","1126","803","959","784","798","681","696","370"]},{"name":"Firefox","type":"bar","data":["1003","1254","933","795","802","693","667","652","506"]},{"name":"Chrome","type":"bar","data":["899","801","925","815","792","704","681","680","398"]}],"legend":{"data":["IE 9","IE 8","IE 7","Firefox","Chrome"]}});
       </script>
     
 
 
-      <div id="ew0komts6j" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
+      <div id="m6uwy7mwpc" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
 
       <script type="text/javascript">
-        var chart = echarts.init(document.getElementById('ew0komts6j'));
+        var chart = echarts.init(document.getElementById('m6uwy7mwpc'));
         chart.setOption({"title":{"text":"字体实现的最快速度"},"animation":true,"tooltip":{"trigger":"axis"},"xAxis":{"data":["GWF1","GWF2","FS1","Typekit","FS2","B1","FS3","B2","System"]},"yAxis":{},"series":[{"name":"Value","type":"bar","data":["850","801","800","795","704","693","667","652","358"]}]});
       </script>
     
@@ -592,7 +600,9 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
         
         <div class="post-tag">
             
-            <a class="tag" href="/tags/Web性能实践日志-性能/" title="Web性能实践日志 性能">Web性能实践日志 性能</a>
+            <a class="tag" href="/zhanym/tags/Web性能实践日志/" title="Web性能实践日志">Web性能实践日志</a>
+            
+            <a class="tag" href="/zhanym/tags/性能/" title="性能">性能</a>
             
         </div>
         
@@ -601,8 +611,14 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
 <div class="paginator">
     
         
+            <a class="prev" href="/zhanym/2019/10/19/vue-config-js-配置/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">vue.config.js 配置</span>
+                <span class="nav-mobile">上一篇</span>
+            </a>
         
-            <a class="next" href="/2019/08/10/A-table-of-two-viewports/">
+        
+            <a class="next" href="/zhanym/2019/08/10/A-table-of-two-viewports/">
                 <span class="nav-default">A tale of two viewports 笔记</span>
                 <span class="nav-mobile">下一篇</span>
                 <i class="iconfont icon-next"></i>
@@ -627,7 +643,7 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
             
             2019
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+            Yunmian Zhan
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
@@ -637,7 +653,7 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
 </footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/zhanym/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>

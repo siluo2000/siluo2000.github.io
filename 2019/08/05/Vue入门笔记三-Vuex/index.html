@@ -4,10 +4,10 @@
     <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/zhanym/css/style.css">
+    <link rel="stylesheet" href="/zhanym/css/gitment.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<link rel="stylesheet" href="/zhanym/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 <body>
 <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
     <div class="header-inner">
@@ -16,19 +16,27 @@
         </div>
         <nav class="header-nav">
             
-            <a href="/" class="header-nav-link" >
+            <a href="/zhanym/" class="header-nav-link" >
                 首页
             </a>
             
 
             
-            <a href="/archives" class="header-nav-link">
+            <a href="/zhanym/archives" class="header-nav-link">
                 归档
             </a>
             
 
             
+            <a href="/zhanym/tags" class="header-nav-link">
+                标签
+            </a>
+            
 
+            
+            <a href="/zhanym/about/" class="header-nav-link">
+                关于
+            </a>
             
         </nav>
     </div>
@@ -41,7 +49,7 @@
             <span></span>
         </div>
         <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
+            <a href="/zhanym/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
         </div>
 
     </div>
@@ -49,19 +57,19 @@
         <ul class="mobile-menu-list">
             <li class="mobile-menu-item">
                 <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
+                <a href="/zhanym/" class="mobile-nav-link">首页</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
+                <a href="/zhanym/archives" class="mobile-nav-link">归档</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
+                <a href="/zhanym/tags" class="mobile-nav-link">标签</a>
             </li>
             <li class="mobile-menu-item">
                 <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
+                <a href="/zhanym/about/" class="mobile-nav-link">关于</a>
             </li>
         </ul>
     </nav>
@@ -152,7 +160,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
-<p>（2）表明调用mutation的用词是submit，在组件中：</p>
+<p>（2）表明调用mutation的用词是commit，在组件中：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> userData<span class="token punctuation">)</span></code></pre>
 <h4 id="使用getter计算和返回数据"><a href="#使用getter计算和返回数据" class="headerlink" title="使用getter计算和返回数据"></a>使用getter计算和返回数据</h4><p>（1）创建一个getter：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -284,7 +292,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
         
         <div class="post-tag">
             
-            <a class="tag" href="/tags/Vue/" title="Vue">Vue</a>
+            <a class="tag" href="/zhanym/tags/Vue/" title="Vue">Vue</a>
             
         </div>
         
@@ -293,14 +301,14 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
 <div class="paginator">
     
         
-            <a class="prev" href="/2019/08/05/Vue入门笔记四-vue-router/">
+            <a class="prev" href="/zhanym/2019/08/05/Vue入门笔记四-vue-router/">
                 <i class="iconfont icon-prev"></i>
                 <span class="nav-default">Vue入门笔记四(vue-router)</span>
                 <span class="nav-mobile">上一篇</span>
             </a>
         
         
-            <a class="next" href="/2019/08/05/Vue入门笔记二/">
+            <a class="next" href="/zhanym/2019/08/05/Vue入门笔记二/">
                 <span class="nav-default">Vue入门笔记二</span>
                 <span class="nav-mobile">下一篇</span>
                 <i class="iconfont icon-next"></i>
@@ -325,7 +333,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
             
             2019
             &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Yunmian Zhan</a>
+            Yunmian Zhan
         </p>
         <p class="theme-info">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
@@ -335,7 +343,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
 </footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/zhanym/js/index.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
