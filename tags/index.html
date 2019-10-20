@@ -1,532 +1,732 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
-<body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
-    <div class="header-inner">
-        <div class="header-title">
+  <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
-        </div>
-        <nav class="header-nav">
-            
-            <a href="/" class="header-nav-link" >
-                首页
-            </a>
-            
 
-            
-            <a href="/archives" class="header-nav-link">
-                归档
-            </a>
-            
 
-            
-            <a href="/tags" class="header-nav-link">
-                标签
-            </a>
-            
 
-            
-            <a href="/about/" class="header-nav-link">
-                关于
-            </a>
-            
-        </nav>
-    </div>
-</header>
-<header class="mobile-header">
-    <div class="mobile-nav">
-        <div class="mobile-nav-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
-        </div>
 
-    </div>
-    <nav class="mobile-menu">
-        <ul class="mobile-menu-list">
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<div class="main">
-    <div class="content-inner">
-        <div class="tags">
-    <div class="tags-list">
-        
-            <a class="tags-list-item" href="#JQuery" title="JQuery">JQuery</a>
-        
-            <a class="tags-list-item" href="#AJAX" title="AJAX">AJAX</a>
-        
-            <a class="tags-list-item" href="#Vue" title="Vue">Vue</a>
-        
-            <a class="tags-list-item" href="#vue-plugin" title="vue-plugin">vue-plugin</a>
-        
-            <a class="tags-list-item" href="#深入理解ES6" title="深入理解ES6">深入理解ES6</a>
-        
-            <a class="tags-list-item" href="#ES6" title="ES6">ES6</a>
-        
-            <a class="tags-list-item" href="#viewports" title="viewports">viewports</a>
-        
-            <a class="tags-list-item" href="#CSS" title="CSS">CSS</a>
-        
-            <a class="tags-list-item" href="#Git" title="Git">Git</a>
-        
-            <a class="tags-list-item" href="#JavaScript" title="JavaScript">JavaScript</a>
-        
-            <a class="tags-list-item" href="#HTML" title="HTML">HTML</a>
-        
-            <a class="tags-list-item" href="#node" title="node">node</a>
-        
-            <a class="tags-list-item" href="#nvm" title="nvm">nvm</a>
-        
-            <a class="tags-list-item" href="#global_modules" title="global_modules">global_modules</a>
-        
-            <a class="tags-list-item" href="#extract-text-webpack-plugin" title="extract-text-webpack-plugin">extract-text-webpack-plugin</a>
-        
-            <a class="tags-list-item" href="#axios" title="axios">axios</a>
-        
-            <a class="tags-list-item" href="#json-server" title="json-server">json-server</a>
-        
-            <a class="tags-list-item" href="#autoprefixer" title="autoprefixer">autoprefixer</a>
-        
-            <a class="tags-list-item" href="#ESLint" title="ESLint">ESLint</a>
-        
-            <a class="tags-list-item" href="#Jest" title="Jest">Jest</a>
-        
-            <a class="tags-list-item" href="#i18n" title="i18n">i18n</a>
-        
-            <a class="tags-list-item" href="#moment" title="moment">moment</a>
-        
-            <a class="tags-list-item" href="#components" title="components">components</a>
-        
-            <a class="tags-list-item" href="#filters" title="filters">filters</a>
-        
-            <a class="tags-list-item" href="#plugins" title="plugins">plugins</a>
-        
-            <a class="tags-list-item" href="#vars" title="vars">vars</a>
-        
-            <a class="tags-list-item" href="#vue-router" title="vue-router">vue-router</a>
-        
-            <a class="tags-list-item" href="#vue.config.js" title="vue.config.js">vue.config.js</a>
-        
-            <a class="tags-list-item" href="#vue" title="vue">vue</a>
-        
-            <a class="tags-list-item" href="#Web性能实践日志" title="Web性能实践日志">Web性能实践日志</a>
-        
-            <a class="tags-list-item" href="#性能" title="性能">性能</a>
-        
-            <a class="tags-list-item" href="#blog" title="blog">blog</a>
-        
-            <a class="tags-list-item" href="#NPM" title="NPM">NPM</a>
-        
-    </div>
-    <div class="tags-archives">
-        
-            <span class="tag-text">JQuery</span>
-            
-        
-            <span class="tag-text">AJAX</span>
-            
-        
-            <span class="tag-text">Vue</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-05</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/05/Vue入门笔记一/">Vue入门笔记一</a>
-                    </span>
-                </div>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记七-生产环境构建/">Vue入门笔记七(生产环境构建)</a>
-                    </span>
-                </div>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-05</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/05/Vue入门笔记二/">Vue入门笔记二</a>
-                    </span>
-                </div>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-05</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/05/Vue入门笔记三-Vuex/">Vue入门笔记三(Vuex)</a>
-                    </span>
-                </div>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a>
-                    </span>
-                </div>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-05</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/05/Vue入门笔记四-vue-router/">Vue入门笔记四(vue-router)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">vue-plugin</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">深入理解ES6</span>
-            
-        
-            <span class="tag-text">ES6</span>
-            
-        
-            <span class="tag-text">viewports</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-10</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/10/A-table-of-two-viewports/">A tale of two viewports 笔记</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">CSS</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-06</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/06/CSS/">CSS</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">Git</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-10</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/10/Git/">Git</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">JavaScript</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-06</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/06/JavaScript/">JavaScript</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">HTML</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-06</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/06/HTML/">HTML</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">node</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-10</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/10/NODE安装笔记/">NODE安装笔记</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">nvm</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-10</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/10/NODE安装笔记/">NODE安装笔记</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">global_modules</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-10</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/10/NODE安装笔记/">NODE安装笔记</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">extract-text-webpack-plugin</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记七-生产环境构建/">Vue入门笔记七(生产环境构建)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">axios</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">json-server</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">autoprefixer</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">ESLint</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">Jest</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">i18n</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">moment</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记五-常用插件/">Vue入门笔记五(常用插件)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">components</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">filters</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">plugins</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">vars</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-07</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/07/Vue入门笔记六-全局组件-过滤器-插件/">Vue入门笔记六(全局组件 过滤器 插件 变量)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">vue-router</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-05</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/05/Vue入门笔记四-vue-router/">Vue入门笔记四(vue-router)</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">vue.config.js</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-10-19</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/10/19/vue-config-js-配置/">vue.config.js 配置</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">vue</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-10-19</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/10/19/vue-config-js-配置/">vue.config.js 配置</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">Web性能实践日志</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-13</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/13/Web性能实践日志/">Web性能实践日志笔记</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">性能</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-08-13</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/08/13/Web性能实践日志/">Web性能实践日志笔记</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">blog</span>
-            
-                <div class="tags-post">
-                    <span class="tags-post-time">2019-10-19</span>
-                    <span class="tags-post-title">
-                        <a class="tags-post-link" href="/2019/10/19/写个博客/">写个博客</a>
-                    </span>
-                </div>
-            
-        
-            <span class="tag-text">NPM</span>
-            
-        
-    </div>
-</div>
 
-    </div>
-</div>
-<footer class="footer-social">
-    
 
-    
 
-    
 
-    <div class="footer-copyright">
-        <p class="time-line">
-            &copy;
-            
-            
-            2019
-            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            Yunmian Zhan
-        </p>
-        <p class="theme-info">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
-            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
-        </p>
-    </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="图难于其易" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="hello tags">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://zhanyunmian.coding.me/tags/index.html">
+<meta property="og:site_name" content="图难于其易">
+<meta property="og:description" content="hello tags">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-19T12:55:05.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="hello tags">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
 </script>
 
-  <script src='https://cdn.bootcss.com/mermaid/8.2.1/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
 
+
+  <link rel="canonical" href="http://zhanyunmian.coding.me/tags/">
+
+
+
+
+
+  <title>tags | 图难于其易</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ceeab4e50da401c694264c755a1e3222";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">图难于其易</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">tags</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <div class="tag-cloud">
+            <div class="tag-cloud-title">
+                目前共计 33 个标签
+            </div>
+            <div class="tag-cloud-tags">
+              <a href="/tags/CSS/" style="font-size: 12px; color: #ccc">CSS</a> <a href="/tags/ESLint/" style="font-size: 12px; color: #ccc">ESLint</a> <a href="/tags/Git/" style="font-size: 12px; color: #ccc">Git</a> <a href="/tags/HTML/" style="font-size: 12px; color: #ccc">HTML</a> <a href="/tags/JavaScript/" style="font-size: 12px; color: #ccc">JavaScript</a> <a href="/tags/Jest/" style="font-size: 12px; color: #ccc">Jest</a> <a href="/tags/Vue/" style="font-size: 30px; color: #111">Vue</a> <a href="/tags/Web性能实践日志/" style="font-size: 12px; color: #ccc">Web性能实践日志</a> <a href="/tags/autoprefixer/" style="font-size: 12px; color: #ccc">autoprefixer</a> <a href="/tags/axios/" style="font-size: 12px; color: #ccc">axios</a> <a href="/tags/blog/" style="font-size: 12px; color: #ccc">blog</a> <a href="/tags/components/" style="font-size: 12px; color: #ccc">components</a> <a href="/tags/extract-text-webpack-plugin/" style="font-size: 12px; color: #ccc">extract-text-webpack-plugin</a> <a href="/tags/filters/" style="font-size: 12px; color: #ccc">filters</a> <a href="/tags/global-modules/" style="font-size: 12px; color: #ccc">global_modules</a> <a href="/tags/i18n/" style="font-size: 12px; color: #ccc">i18n</a> <a href="/tags/json-server/" style="font-size: 12px; color: #ccc">json-server</a> <a href="/tags/moment/" style="font-size: 12px; color: #ccc">moment</a> <a href="/tags/node/" style="font-size: 12px; color: #ccc">node</a> <a href="/tags/nvm/" style="font-size: 12px; color: #ccc">nvm</a> <a href="/tags/plugins/" style="font-size: 12px; color: #ccc">plugins</a> <a href="/tags/vars/" style="font-size: 12px; color: #ccc">vars</a> <a href="/tags/viewports/" style="font-size: 12px; color: #ccc">viewports</a> <a href="/tags/vue/" style="font-size: 12px; color: #ccc">vue</a> <a href="/tags/vue-plugin/" style="font-size: 12px; color: #ccc">vue-plugin</a> <a href="/tags/vue-router/" style="font-size: 12px; color: #ccc">vue-router</a> <a href="/tags/vue-config-js/" style="font-size: 12px; color: #ccc">vue.config.js</a> <a href="/tags/性能/" style="font-size: 12px; color: #ccc">性能</a>
+            </div>
+          </div>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yunmian Zhan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-tags"><span class="nav-number">1.</span> <span class="nav-text">hello tags</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yunmian Zhan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("UPy41cC4QBeVJh3qz6kMbQ6u-gzGzoHsz", "w8bU3VTl5H4DtpbibaCVf0tw");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

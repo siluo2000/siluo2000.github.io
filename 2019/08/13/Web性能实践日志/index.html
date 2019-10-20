@@ -1,100 +1,349 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>图难于其易</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/gitment.css">
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
-<body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
-    <div class="header-inner">
-        <div class="header-title">
+  <!-- hexo-inject:begin --><script src='https://unpkg.com/echarts@3.3.2/dist/echarts.min.js'></script><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
 
-        </div>
-        <nav class="header-nav">
-            
-            <a href="/" class="header-nav-link" >
-                首页
-            </a>
-            
 
-            
-            <a href="/archives" class="header-nav-link">
-                归档
-            </a>
-            
 
-            
-            <a href="/tags" class="header-nav-link">
-                标签
-            </a>
-            
 
-            
-            <a href="/about/" class="header-nav-link">
-                关于
-            </a>
-            
-        </nav>
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Web性能实践日志,性能,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="图难于其易" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="《Web性能实践日志》  localStorage 读取性能localStorage技术应用：  使用localStorage来实时保存您正在输入的评论 谷歌和Bing用localStorage存储JavaScript和CSS，来改善他们的移动网站的性能  为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器">
+<meta name="keywords" content="Web性能实践日志,性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web性能实践日志笔记">
+<meta property="og:url" content="http://zhanyunmian.coding.me/2019/08/13/Web性能实践日志/index.html">
+<meta property="og:site_name" content="图难于其易">
+<meta property="og:description" content="《Web性能实践日志》  localStorage 读取性能localStorage技术应用：  使用localStorage来实时保存您正在输入的评论 谷歌和Bing用localStorage存储JavaScript和CSS，来改善他们的移动网站的性能  为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-19T13:16:06.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web性能实践日志笔记">
+<meta name="twitter:description" content="《Web性能实践日志》  localStorage 读取性能localStorage技术应用：  使用localStorage来实时保存您正在输入的评论 谷歌和Bing用localStorage存储JavaScript和CSS，来改善他们的移动网站的性能  为了保持跨浏览器会话，localStorage的数据被写入磁盘中。这意味着当你从localStorage中读取数据时，你实际上是从硬盘驱动器">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhanyunmian.coding.me/2019/08/13/Web性能实践日志/">
+
+
+
+
+
+  <title>Web性能实践日志笔记 | 图难于其易</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ceeab4e50da401c694264c755a1e3222";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">图难于其易</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-</header>
-<header class="mobile-header">
-    <div class="mobile-nav">
-        <div class="mobile-nav-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Yunmian Zhan's Blog</a>
-        </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
 
-    </div>
-    <nav class="mobile-menu">
-        <ul class="mobile-menu-list">
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">首页</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">归档</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">标签</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">关于</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<div class="main">
-    <div class="content-inner">
-        <div class="posts">
-    <article class="post-whole">
-        <div class="post-title">
-            <h2 class="title">Web性能实践日志笔记</h2>
-            <div class="post-meta">
-                <span class="post-time">2019-08-13</span>
-                
-                <span class="post-visit"> 阅读次数：<span id="busuanzi_value_page_pv"></span></span>
-            </div>
-        </div>
-        <div class="post-toc" id="post-toc">
-    <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage-读取性能"><span class="toc-text">localStorage 读取性能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优化策略"><span class="toc-text">优化策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跟进"><span class="toc-text">跟进</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内联不是万能的"><span class="toc-text">内联不是万能的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#没有浏览器缓存"><span class="toc-text">没有浏览器缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#没有边缘缓存"><span class="toc-text">没有边缘缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#没有按需加载"><span class="toc-text">没有按需加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器预加载失效"><span class="toc-text">浏览器预加载失效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不完美的解决方案：只在第一次访问时采用内联方式"><span class="toc-text">不完美的解决方案：只在第一次访问时采用内联方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结和建议"><span class="toc-text">总结和建议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载异步脚本的艺术"><span class="toc-text">加载异步脚本的艺术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Facebook插件JS-SDK"><span class="toc-text">Facebook插件JS SDK</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动化网站性能优化"><span class="toc-text">自动化网站性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端单点故障-frontend-SPOF"><span class="toc-text">前端单点故障 frontend SPOF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引起前端单点故障的原因"><span class="toc-text">引起前端单点故障的原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#避免前端单点故障"><span class="toc-text">避免前端单点故障</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字体文件"><span class="toc-text">字体文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高性能原生移动应用"><span class="toc-text">高性能原生移动应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注意你的瀑布流"><span class="toc-text">注意你的瀑布流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#压缩这些资源"><span class="toc-text">压缩这些资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不要重复下载"><span class="toc-text">不要重复下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#太多图片会减慢你的速度么"><span class="toc-text">太多图片会减慢你的速度么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#纯CSS3图片"><span class="toc-text">纯CSS3图片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基准测试"><span class="toc-text">基准测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加载成本"><span class="toc-text">加载成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#渲染"><span class="toc-text">渲染</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#达到我们的目标了么"><span class="toc-text">达到我们的目标了么</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-2-x设备中下载无用背景图片"><span class="toc-text">Android 2.x设备中下载无用背景图片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无法解决"><span class="toc-text">无法解决</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络计时"><span class="toc-text">网络计时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导航计时-API实践"><span class="toc-text">导航计时 API实践</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要关心这些"><span class="toc-text">为什么要关心这些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#收集导航计时时间戳并将它们转为有用的度量值"><span class="toc-text">收集导航计时时间戳并将它们转为有用的度量值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用Google分析作为性能数据仓库"><span class="toc-text">使用Google分析作为性能数据仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限制"><span class="toc-text">限制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考虑移动界面的性能"><span class="toc-text">考虑移动界面的性能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电池寿命"><span class="toc-text">电池寿命</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#延迟"><span class="toc-text">延迟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#嵌入CSS和JS：最佳实践"><span class="toc-text">嵌入CSS和JS：最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内存"><span class="toc-text">内存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#优化图片"><span class="toc-text">优化图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#权衡CSS的好处"><span class="toc-text">权衡CSS的好处</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GPU的好处及陷阱"><span class="toc-text">GPU的好处及陷阱</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#视口"><span class="toc-text">视口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#最小化DOM"><span class="toc-text">最小化DOM</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UI响应"><span class="toc-text">UI响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超越Web开发者工具：Strace"><span class="toc-text">超越Web开发者工具：Strace</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开始"><span class="toc-text">开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#校正"><span class="toc-text">校正</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例：本地存储"><span class="toc-text">示例：本地存储</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mod-spdy"><span class="toc-text">mod_spdy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CommonJS模块的惰性求值"><span class="toc-text">CommonJS模块的惰性求值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#深入理解Text-JavaScript类型"><span class="toc-text">深入理解Text/JavaScript类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#懒加载"><span class="toc-text">懒加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用延迟执行来挽救"><span class="toc-text">用延迟执行来挽救</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在CommonJS模块中创建懒执行"><span class="toc-text">在CommonJS模块中创建懒执行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于接受建议的建议"><span class="toc-text">关于接受建议的建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）"><span class="toc-text">为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有损图像压缩"><span class="toc-text">有损图像压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于Selenium和JavaScript的性能测试"><span class="toc-text">基于Selenium和JavaScript的性能测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超越带宽：UI性能"><span class="toc-text">超越带宽：UI性能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对速度的感知-速度感"><span class="toc-text">对速度的感知/速度感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#花絮"><span class="toc-text">花絮</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-Selector性能改变了（变得更好了）"><span class="toc-text">CSS Selector性能改变了（变得更好了）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PhantomJS和confess-js"><span class="toc-text">PhantomJS和confess.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两次测量一次优化"><span class="toc-text">两次测量一次优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#识别需要优化的页面-部分"><span class="toc-text">识别需要优化的页面/部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#识别需要优化的功能"><span class="toc-text">识别需要优化的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优化"><span class="toc-text">优化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后端问题检测"><span class="toc-text">后端问题检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#适当的后端时间该是多少"><span class="toc-text">适当的后端时间该是多少</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搞清楚是怎么回事"><span class="toc-text">搞清楚是怎么回事</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web字体性能：-font-face及其他解决方案间的权衡"><span class="toc-text">Web字体性能：@font-face及其他解决方案间的权衡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字体托管服务与自主开发"><span class="toc-text">字体托管服务与自主开发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FOUT是什么"><span class="toc-text">FOUT是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移除多余的字体字形"><span class="toc-text">移除多余的字体字形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript字体加载器"><span class="toc-text">JavaScript字体加载器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Boot-getFont介绍：一种快速、小巧的Web字体加载器"><span class="toc-text">Boot.getFont介绍：一种快速、小巧的Web字体加载器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gentlefonts，启动你的引擎"><span class="toc-text">Gentlefonts，启动你的引擎</span></a></li></ol></li></ol>
-    <div class="back-to-top" id="back-to-top">
-        <a href="javascript:void(0);">回到顶部</a>
-    </div>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-        <div class="post-content">
-            <blockquote>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhanyunmian.coding.me/2019/08/13/Web性能实践日志/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yunmian Zhan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="图难于其易">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Web性能实践日志笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T21:05:24+08:00">
+                2019-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/13/Web性能实践日志/" class="leancloud_visitors" data-flag-title="Web性能实践日志笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
 <p>《Web性能实践日志》</p>
 </blockquote>
 <h3 id="localStorage-读取性能"><a href="#localStorage-读取性能" class="headerlink" title="localStorage 读取性能"></a>localStorage 读取性能</h3><p>localStorage技术应用：</p>
@@ -572,19 +821,19 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
 <li>GWF2    -&gt;  Google Web Fonts JavaScript<br>(时间越少越好)</li>
 </ul>
 
-      <div id="py45fk52uh" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
+      <div id="1tqjydx6rxbj" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
 
       <script type="text/javascript">
-        var chart = echarts.init(document.getElementById('py45fk52uh'));
+        var chart = echarts.init(document.getElementById('1tqjydx6rxbj'));
         chart.setOption({"title":{"text":"字体实现基准测试"},"animation":true,"tooltip":{"trigger":"axis"},"xAxis":{"data":["GWF1","GWF2","FS1","Typekit","FS2","B1","FS3","B2","System"]},"yAxis":{},"series":[{"name":"IE 9","type":"bar","data":["896","1096","997","798","822","812","710","692","373"]},{"name":"IE 8","type":"bar","data":["850","1097","800","999","704","698","697","697","358"]},{"name":"IE 7","type":"bar","data":["870","1126","803","959","784","798","681","696","370"]},{"name":"Firefox","type":"bar","data":["1003","1254","933","795","802","693","667","652","506"]},{"name":"Chrome","type":"bar","data":["899","801","925","815","792","704","681","680","398"]}],"legend":{"data":["IE 9","IE 8","IE 7","Firefox","Chrome"]}});
       </script>
     
 
 
-      <div id="zm4q4tth6ip" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
+      <div id="idjuses4oik" class="hexo-tag-easy-charts" style="width: 100%; height: 480px;"></div>
 
       <script type="text/javascript">
-        var chart = echarts.init(document.getElementById('zm4q4tth6ip'));
+        var chart = echarts.init(document.getElementById('idjuses4oik'));
         chart.setOption({"title":{"text":"字体实现的最快速度"},"animation":true,"tooltip":{"trigger":"axis"},"xAxis":{"data":["GWF1","GWF2","FS1","Typekit","FS2","B1","FS3","B2","System"]},"yAxis":{},"series":[{"name":"Value","type":"bar","data":["850","801","800","795","704","693","667","652","358"]}]});
       </script>
     
@@ -596,76 +845,545 @@ Boot<span class="token punctuation">.</span><span class="token function">getFont
 <li><a href="https://filamentgroup.github.io/font-loading/data-uris-cookie.html" target="_blank" rel="noopener">cookie加载字体demo</a></li>
 </ul>
 
-        </div>
-        
-        <div class="post-tag">
-            
-            <a class="tag" href="/tags/Web性能实践日志/" title="Web性能实践日志">Web性能实践日志</a>
-            
-            <a class="tag" href="/tags/性能/" title="性能">性能</a>
-            
-        </div>
-        
-    </article>
-</div>
-<div class="paginator">
-    
-        
-            <a class="prev" href="/2019/10/19/vue-config-js-配置/">
-                <i class="iconfont icon-prev"></i>
-                <span class="nav-default">vue.config.js 配置</span>
-                <span class="nav-mobile">上一篇</span>
-            </a>
-        
-        
-            <a class="next" href="/2019/08/10/A-table-of-two-viewports/">
-                <span class="nav-default">A tale of two viewports 笔记</span>
-                <span class="nav-mobile">下一篇</span>
-                <i class="iconfont icon-next"></i>
-            </a>
-        
-    
-</div>
-<div id="comment-container"></div>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Buy me a coffee</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Yunmian Zhan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Yunmian Zhan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
 </div>
-<footer class="footer-social">
+
+      </div>
     
 
     
 
-    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web性能实践日志/" rel="tag"># Web性能实践日志</a>
+          
+            <a href="/tags/性能/" rel="tag"># 性能</a>
+          
+        </div>
+      
 
-    <div class="footer-copyright">
-        <p class="time-line">
-            &copy;
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/10/A-table-of-two-viewports/" rel="next" title="A tale of two viewports 笔记">
+                <i class="fa fa-chevron-left"></i> A tale of two viewports 笔记
+              </a>
             
-            2019
-            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            Yunmian Zhan
-        </p>
-        <p class="theme-info">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
-            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
-        </p>
-    </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/19/vue-config-js-配置/" rel="prev" title="vue.config.js 配置">
+                vue.config.js 配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
 <script>
-    
-
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 
-  <script src='https://cdn.bootcss.com/mermaid/8.2.1/mermaid.min.js'></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({theme: 'forest'});
-    }
-  </script>
+      
+    </div>
+  </div>
 
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yunmian Zhan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage-读取性能"><span class="nav-number">1.</span> <span class="nav-text">localStorage 读取性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优化策略"><span class="nav-number">1.1.</span> <span class="nav-text">优化策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跟进"><span class="nav-number">1.2.</span> <span class="nav-text">跟进</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内联不是万能的"><span class="nav-number">2.</span> <span class="nav-text">内联不是万能的</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#没有浏览器缓存"><span class="nav-number">2.1.</span> <span class="nav-text">没有浏览器缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没有边缘缓存"><span class="nav-number">2.2.</span> <span class="nav-text">没有边缘缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没有按需加载"><span class="nav-number">2.3.</span> <span class="nav-text">没有按需加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器预加载失效"><span class="nav-number">2.4.</span> <span class="nav-text">浏览器预加载失效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不完美的解决方案：只在第一次访问时采用内联方式"><span class="nav-number">2.5.</span> <span class="nav-text">不完美的解决方案：只在第一次访问时采用内联方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结和建议"><span class="nav-number">2.6.</span> <span class="nav-text">总结和建议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载异步脚本的艺术"><span class="nav-number">3.</span> <span class="nav-text">加载异步脚本的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Facebook插件JS-SDK"><span class="nav-number">3.1.</span> <span class="nav-text">Facebook插件JS SDK</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动化网站性能优化"><span class="nav-number">4.</span> <span class="nav-text">自动化网站性能优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端单点故障-frontend-SPOF"><span class="nav-number">5.</span> <span class="nav-text">前端单点故障 frontend SPOF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引起前端单点故障的原因"><span class="nav-number">5.1.</span> <span class="nav-text">引起前端单点故障的原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免前端单点故障"><span class="nav-number">5.2.</span> <span class="nav-text">避免前端单点故障</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字体文件"><span class="nav-number">5.3.</span> <span class="nav-text">字体文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能原生移动应用"><span class="nav-number">6.</span> <span class="nav-text">高性能原生移动应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意你的瀑布流"><span class="nav-number">6.1.</span> <span class="nav-text">注意你的瀑布流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩这些资源"><span class="nav-number">6.2.</span> <span class="nav-text">压缩这些资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不要重复下载"><span class="nav-number">6.3.</span> <span class="nav-text">不要重复下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#太多图片会减慢你的速度么"><span class="nav-number">6.4.</span> <span class="nav-text">太多图片会减慢你的速度么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后记"><span class="nav-number">6.5.</span> <span class="nav-text">后记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯CSS3图片"><span class="nav-number">7.</span> <span class="nav-text">纯CSS3图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基准测试"><span class="nav-number">7.1.</span> <span class="nav-text">基准测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载成本"><span class="nav-number">7.2.</span> <span class="nav-text">加载成本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染"><span class="nav-number">7.3.</span> <span class="nav-text">渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#达到我们的目标了么"><span class="nav-number">7.4.</span> <span class="nav-text">达到我们的目标了么</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-2-x设备中下载无用背景图片"><span class="nav-number">8.</span> <span class="nav-text">Android 2.x设备中下载无用背景图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无法解决"><span class="nav-number">8.1.</span> <span class="nav-text">无法解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络计时"><span class="nav-number">9.</span> <span class="nav-text">网络计时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导航计时-API实践"><span class="nav-number">10.</span> <span class="nav-text">导航计时 API实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要关心这些"><span class="nav-number">10.1.</span> <span class="nav-text">为什么要关心这些</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收集导航计时时间戳并将它们转为有用的度量值"><span class="nav-number">10.2.</span> <span class="nav-text">收集导航计时时间戳并将它们转为有用的度量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Google分析作为性能数据仓库"><span class="nav-number">10.3.</span> <span class="nav-text">使用Google分析作为性能数据仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制"><span class="nav-number">10.4.</span> <span class="nav-text">限制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考虑移动界面的性能"><span class="nav-number">11.</span> <span class="nav-text">考虑移动界面的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电池寿命"><span class="nav-number">11.1.</span> <span class="nav-text">电池寿命</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延迟"><span class="nav-number">11.2.</span> <span class="nav-text">延迟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入CSS和JS：最佳实践"><span class="nav-number">11.3.</span> <span class="nav-text">嵌入CSS和JS：最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存"><span class="nav-number">11.4.</span> <span class="nav-text">内存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优化图片"><span class="nav-number">11.4.1.</span> <span class="nav-text">优化图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#权衡CSS的好处"><span class="nav-number">11.4.2.</span> <span class="nav-text">权衡CSS的好处</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GPU的好处及陷阱"><span class="nav-number">11.4.3.</span> <span class="nav-text">GPU的好处及陷阱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#视口"><span class="nav-number">11.4.4.</span> <span class="nav-text">视口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最小化DOM"><span class="nav-number">11.4.5.</span> <span class="nav-text">最小化DOM</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UI响应"><span class="nav-number">11.5.</span> <span class="nav-text">UI响应</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超越Web开发者工具：Strace"><span class="nav-number">12.</span> <span class="nav-text">超越Web开发者工具：Strace</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#开始"><span class="nav-number">12.1.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#校正"><span class="nav-number">12.2.</span> <span class="nav-text">校正</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例：本地存储"><span class="nav-number">12.3.</span> <span class="nav-text">示例：本地存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mod-spdy"><span class="nav-number">13.</span> <span class="nav-text">mod_spdy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS模块的惰性求值"><span class="nav-number">14.</span> <span class="nav-text">CommonJS模块的惰性求值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深入理解Text-JavaScript类型"><span class="nav-number">14.1.</span> <span class="nav-text">深入理解Text/JavaScript类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒加载"><span class="nav-number">14.2.</span> <span class="nav-text">懒加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用延迟执行来挽救"><span class="nav-number">14.3.</span> <span class="nav-text">用延迟执行来挽救</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在CommonJS模块中创建懒执行"><span class="nav-number">14.4.</span> <span class="nav-text">在CommonJS模块中创建懒执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于接受建议的建议"><span class="nav-number">15.</span> <span class="nav-text">关于接受建议的建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）"><span class="nav-number">16.</span> <span class="nav-text">为什么你对性能测试结果的解读可能是错误的（至少你在大公司里工作）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有损图像压缩"><span class="nav-number">17.</span> <span class="nav-text">有损图像压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于Selenium和JavaScript的性能测试"><span class="nav-number">18.</span> <span class="nav-text">基于Selenium和JavaScript的性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超越带宽：UI性能"><span class="nav-number">19.</span> <span class="nav-text">超越带宽：UI性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对速度的感知-速度感"><span class="nav-number">19.1.</span> <span class="nav-text">对速度的感知/速度感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#花絮"><span class="nav-number">19.2.</span> <span class="nav-text">花絮</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-Selector性能改变了（变得更好了）"><span class="nav-number">20.</span> <span class="nav-text">CSS Selector性能改变了（变得更好了）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PhantomJS和confess-js"><span class="nav-number">21.</span> <span class="nav-text">PhantomJS和confess.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两次测量一次优化"><span class="nav-number">22.</span> <span class="nav-text">两次测量一次优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#识别需要优化的页面-部分"><span class="nav-number">22.1.</span> <span class="nav-text">识别需要优化的页面/部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#识别需要优化的功能"><span class="nav-number">22.2.</span> <span class="nav-text">识别需要优化的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化"><span class="nav-number">22.3.</span> <span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端问题检测"><span class="nav-number">23.</span> <span class="nav-text">后端问题检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#适当的后端时间该是多少"><span class="nav-number">23.1.</span> <span class="nav-text">适当的后端时间该是多少</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搞清楚是怎么回事"><span class="nav-number">23.2.</span> <span class="nav-text">搞清楚是怎么回事</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web字体性能：-font-face及其他解决方案间的权衡"><span class="nav-number">24.</span> <span class="nav-text">Web字体性能：@font-face及其他解决方案间的权衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字体托管服务与自主开发"><span class="nav-number">24.1.</span> <span class="nav-text">字体托管服务与自主开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FOUT是什么"><span class="nav-number">24.2.</span> <span class="nav-text">FOUT是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除多余的字体字形"><span class="nav-number">24.3.</span> <span class="nav-text">移除多余的字体字形</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript字体加载器"><span class="nav-number">24.4.</span> <span class="nav-text">JavaScript字体加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boot-getFont介绍：一种快速、小巧的Web字体加载器"><span class="nav-number">24.5.</span> <span class="nav-text">Boot.getFont介绍：一种快速、小巧的Web字体加载器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gentlefonts，启动你的引擎"><span class="nav-number">24.6.</span> <span class="nav-text">Gentlefonts，启动你的引擎</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yunmian Zhan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("UPy41cC4QBeVJh3qz6kMbQ6u-gzGzoHsz", "w8bU3VTl5H4DtpbibaCVf0tw");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
