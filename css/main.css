@@ -1063,7 +1063,7 @@ pre .javascript .function {
   right: 30px;
   z-index: 1050;
   padding: 0 6px;
-  width: 24px;
+  width: initial;
   background: #222;
   font-size: 12px;
   opacity: 0.6;
@@ -1943,7 +1943,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4fffde;
+  background: #77ff5e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3110,4 +3110,47 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+.font-linear,
+.menu .menu-item a:hover .fa,
+.menu-item-active a .fa,
+#search-loading-icon .fa,
+.footer .author,
+.posts-expand .post-tags a,
+.local-search-popup #no-result,
+.local-search-popup .search-keyword {
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bg-linear,
+.site-meta,
+.local-search-popup .local-search-header {
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+}
+.local-search-popup .local-search-header {
+  color: #fff;
+}
+.local-search-popup .search-icon,
+.local-search-popup .popup-btn-close {
+  color: #fff;
+}
+.local-search-popup .local-search-input-wrapper input::-webkit-input-placeholder {
+/* Chrome/Opera/Safari */
+  color: #fff;
+}
+.local-search-popup .local-search-input-wrapper input::-moz-placeholder {
+/* Firefox 19+ */
+  color: #fff;
+}
+.local-search-popup .local-search-input-wrapper input:-ms-input-placeholder {
+/* IE 10+ */
+  color: #fff;
+}
+.local-search-popup .local-search-input-wrapper input:-moz-placeholder {
+/* Firefox 18- */
+  color: #fff;
+}
+.local-search-popup .search-keyword {
+  border-color: #21d4fd;
 }
