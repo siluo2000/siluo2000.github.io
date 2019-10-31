@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://zhanyunmian.coding.me/2019/10/26/HTML5-JavaScript%E5%8A%A8%E7%94%BB%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2019-10-31</lastmod>
+  </url>  <url>
     <loc>http://zhanyunmian.coding.me/2019/10/19/%E5%86%99%E4%B8%AA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2019-10-21</lastmod>
   </url>  <url>
@@ -40,10 +43,10 @@
     <loc>http://zhanyunmian.coding.me/2019/08/06/JavaScript/</loc>
     <lastmod>2019-10-19</lastmod>
   </url>  <url>
-    <loc>http://zhanyunmian.coding.me/2019/08/06/HTML/</loc>
+    <loc>http://zhanyunmian.coding.me/2019/08/06/CSS/</loc>
     <lastmod>2019-10-19</lastmod>
   </url>  <url>
-    <loc>http://zhanyunmian.coding.me/2019/08/06/CSS/</loc>
+    <loc>http://zhanyunmian.coding.me/2019/08/06/HTML/</loc>
     <lastmod>2019-10-19</lastmod>
   </url>  <url>
     <loc>http://zhanyunmian.coding.me/2019/08/05/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E9%9B%B6%E7%A2%8E/</loc>
