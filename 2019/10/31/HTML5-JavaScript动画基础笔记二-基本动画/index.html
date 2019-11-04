@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><script src='//cdn.bootcss.com/echarts/3.3.2/echarts.min.js'></script><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="WGjiCvZpdO">
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="4KcOScji61IIGjC51_NmP9pajQVgql_I2GXRWMOtWJ0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="HTML5,JavaScript,canvas,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="《HTML5+JavaScript动画基础》  速度向量和加速度速度向量 velocity速度向量的概念除了速度之外，还包含一个非常重要的因素：方向。通俗一点的说法是：某个方向上的速度。 为了实现物体在运动的假象，还需要为它在每一帧中指定一些具体的x、y轴坐标。 如果你需要开发一些对帧率要求恒定的游戏或仿真时，那么你可以考虑使用基于时间间隔的动画作为代替方案。 向量与速度向量：向量由大小和方向组">
+<meta name="keywords" content="HTML5,JavaScript,canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5+JavaScript动画基础笔记二(基本动画)">
+<meta property="og:url" content="http://zhanyunmian.coding.me/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/index.html">
+<meta property="og:site_name" content="图难于其易">
+<meta property="og:description" content="《HTML5+JavaScript动画基础》  速度向量和加速度速度向量 velocity速度向量的概念除了速度之外，还包含一个非常重要的因素：方向。通俗一点的说法是：某个方向上的速度。 为了实现物体在运动的假象，还需要为它在每一帧中指定一些具体的x、y轴坐标。 如果你需要开发一些对帧率要求恒定的游戏或仿真时，那么你可以考虑使用基于时间间隔的动画作为代替方案。 向量与速度向量：向量由大小和方向组">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://zhanyunmian.coding.me/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/1.png">
+<meta property="og:updated_time" content="2019-11-04T08:26:21.454Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5+JavaScript动画基础笔记二(基本动画)">
+<meta name="twitter:description" content="《HTML5+JavaScript动画基础》  速度向量和加速度速度向量 velocity速度向量的概念除了速度之外，还包含一个非常重要的因素：方向。通俗一点的说法是：某个方向上的速度。 为了实现物体在运动的假象，还需要为它在每一帧中指定一些具体的x、y轴坐标。 如果你需要开发一些对帧率要求恒定的游戏或仿真时，那么你可以考虑使用基于时间间隔的动画作为代替方案。 向量与速度向量：向量由大小和方向组">
+<meta name="twitter:image" content="http://zhanyunmian.coding.me/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhanyunmian.coding.me/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/">
+
+
+
+
+
+  <title>HTML5+JavaScript动画基础笔记二(基本动画) | 图难于其易</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-145951791-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ceeab4e50da401c694264c755a1e3222";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">图难于其易</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhanyunmian.coding.me/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yunmian Zhan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="图难于其易">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">HTML5+JavaScript动画基础笔记二(基本动画)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-31T21:08:36+08:00">
+                2019-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5-JavaScript动画基础/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5+JavaScript动画基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/31/HTML5-JavaScript动画基础笔记二-基本动画/" class="leancloud_visitors" data-flag-title="HTML5+JavaScript动画基础笔记二(基本动画)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>《HTML5+JavaScript动画基础》</p>
+</blockquote>
+<h2 id="速度向量和加速度"><a href="#速度向量和加速度" class="headerlink" title="速度向量和加速度"></a>速度向量和加速度</h2><h3 id="速度向量-velocity"><a href="#速度向量-velocity" class="headerlink" title="速度向量 velocity"></a>速度向量 velocity</h3><p>速度向量的概念除了速度之外，还包含一个非常重要的因素：方向。通俗一点的说法是：某个方向上的速度。</p>
+<p>为了实现物体在运动的假象，还需要为它在每一帧中指定一些具体的x、y轴坐标。</p>
+<p>如果你需要开发一些对帧率要求恒定的游戏或仿真时，那么你可以考虑使用基于时间间隔的动画作为代替方案。</p>
+<p>向量与速度向量：向量由大小和方向组成。在速度向量中，大小就是速度。</p>
+<a id="more"></a>
+<h4 id="单轴上的速度向量"><a href="#单轴上的速度向量" class="headerlink" title="单轴上的速度向量"></a>单轴上的速度向量</h4><p>首先，让我们尝试把问题简化，把速度向量只放在一条轴上：x轴（即水平运动）。</p>
+<p>为了便于理解如“x轴速度向量为-1”这类的概念，你完全可以把负号看做是x轴上的“向左”指示符，y轴上的“向上”指示符。</p>
+<p>在本书中，我们用<strong>vx</strong>表示x轴上的速度向量，用<strong>vy</strong>表示y轴上的速度向量。</p>
+<h4 id="双轴上的速度向量"><a href="#双轴上的速度向量" class="headerlink" title="双轴上的速度向量"></a>双轴上的速度向量</h4><p>让物体沿着两条轴运动也很简单，只须定义vx和vy，并在每一帧中将vx的值加到x属性上，vy的值加到y属性上。</p>
+<h4 id="角速度"><a href="#角速度" class="headerlink" title="角速度"></a>角速度</h4><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 转换为弧度制</span>
+angle <span class="token operator">=</span> angle <span class="token operator">*</span> Math<span class="token punctuation">.</span>PI <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 将角速度分解为x、y轴上的速度向量</span>
+vx <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> speed<span class="token punctuation">;</span>
+vy <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> speed<span class="token punctuation">;</span></code></pre>
+<h4 id="向量加法"><a href="#向量加法" class="headerlink" title="向量加法"></a>向量加法</h4><p>当向量相加时，只须将它们从头到尾依次相连，最终的合成向量就是那条从第一个向量的起点连接到最后一个向量的终点的向量。</p>
+<p><img src="1.png" alt="向量加法"></p>
+<h4 id="鼠标追随"><a href="#鼠标追随" class="headerlink" title="鼠标追随"></a>鼠标追随</h4><p><code>Math.atan2</code></p>
+<h4 id="速度向量扩展"><a href="#速度向量扩展" class="headerlink" title="速度向量扩展"></a>速度向量扩展</h4><p>旋转速度变量<strong>vr</strong>，用于表示旋转速度。</p>
+<h3 id="加速度"><a href="#加速度" class="headerlink" title="加速度"></a>加速度</h3><p>速度向量改变的是物体的位置，而加速度改变的是其速度向量。</p>
+<ul>
+<li><strong>ax</strong></li>
+<li><strong>ay</strong></li>
+<li><strong>gravity</strong></li>
+<li><strong>force</strong></li>
+</ul>
+<h4 id="单轴加速度"><a href="#单轴加速度" class="headerlink" title="单轴加速度"></a>单轴加速度</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> vx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ax <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  vx <span class="token operator">+</span><span class="token operator">=</span> ax<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>开始的速度向量vx为零，加速度<strong>ax</strong>为0.1。</p>
+<h4 id="双轴加速度"><a href="#双轴加速度" class="headerlink" title="双轴加速度"></a>双轴加速度</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> vx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    vy <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ax <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    ay <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token comment" spellcheck="true">// 将加速度加入速度向量</span>
+  vx <span class="token operator">+</span><span class="token operator">=</span> ax<span class="token punctuation">;</span>
+  vy <span class="token operator">+</span><span class="token operator">=</span> ay<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 将速度向量加入位置坐标</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="重力加速度"><a href="#重力加速度" class="headerlink" title="重力加速度"></a>重力加速度</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> gravity <span class="token operator">=</span> <span class="token number">0.02</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  vy <span class="token operator">+</span><span class="token operator">=</span> ay<span class="token punctuation">;</span>
+  vy <span class="token operator">+</span><span class="token operator">=</span> gravity<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="角加速度"><a href="#角加速度" class="headerlink" title="角加速度"></a>角加速度</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> force <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token keyword">var</span> dx <span class="token operator">=</span> mouse<span class="token punctuation">.</span>x <span class="token operator">-</span> arrow<span class="token punctuation">.</span>x<span class="token punctuation">,</span>
+      dy <span class="token operator">=</span> mouse<span class="token punctuation">.</span>y <span class="token operator">-</span> arrow<span class="token punctuation">.</span>y<span class="token punctuation">,</span>
+      angle <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">atan2</span><span class="token punctuation">(</span>dy<span class="token punctuation">,</span> dx<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+      <span class="token comment" spellcheck="true">// 将角加速度（作用域物体上的力）分解为x、y轴上的加速度</span>
+      ax <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> force<span class="token punctuation">,</span>
+      ay <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> force<span class="token punctuation">;</span>
+  arrow<span class="token punctuation">.</span>rotation <span class="token operator">=</span> angle<span class="token punctuation">;</span>
+  vx <span class="token operator">+</span><span class="token operator">=</span> ax<span class="token punctuation">;</span>
+  vy <span class="token operator">+</span><span class="token operator">=</span> ay<span class="token punctuation">;</span>
+  arrow<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  arrow<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="宇宙飞船"><a href="#宇宙飞船" class="headerlink" title="宇宙飞船"></a>宇宙飞船</h4><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> Ship <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token number">25</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>rotation <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>showFlame <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 控制飞船是否显示火焰</span>
+<span class="token punctuation">}</span>
+Ship<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>draw <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>cvsCtx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rotation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span>lineWidth <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span>strokeStyle <span class="token operator">=</span> <span class="token string">'#fff'</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>showFlame<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    cvsCtx<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cvsCtx<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">7.5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cvsCtx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cvsCtx<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">7.5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cvsCtx<span class="token punctuation">.</span><span class="token function">stroke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  cvsCtx<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="飞船控制"><a href="#飞船控制" class="headerlink" title="飞船控制"></a>飞船控制</h4><p>1.首先定义旋转速度向量vr：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> vr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></code></pre>
+<p>2.监听键盘事件：</p>
+<pre class=" language-js"><code class="language-js">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keydown'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>keyCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token number">37</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">// left</span>
+      vr <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token number">39</span><span class="token punctuation">:</span>
+      vr <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  thrust <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span>showFlame <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>3.声明一个<code>thrust</code>变量用于追踪飞船在任意时刻的推力大小。只有在火箭点火后飞船才具有加速度，所以该推力的初始值为零：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> thrust <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></code></pre>
+<p>4.当↑按下：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">case</span> <span class="token number">38</span><span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true">// 设置推力</span>
+  thrust <span class="token operator">=</span> <span class="token number">0.05</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 绘制火焰</span>
+  ship<span class="token punctuation">.</span>showFlame <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token keyword">break</span><span class="token punctuation">;</span></code></pre>
+<p>5.释放按键后，将thrust重置为零，并消除火焰：</p>
+<pre class=" language-js"><code class="language-js">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keyup'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vr <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  thrust <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span>showFlame <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>6.在drawFrame函数内，可以计算出旋转角度和向飞船施加的反推力：</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  ship<span class="token punctuation">.</span>rotation <span class="token operator">+</span><span class="token operator">=</span> vr <span class="token operator">*</span> Math<span class="token punctuation">.</span>PI <span class="token operator">/</span> <span class="token number">180</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">var</span> angle <span class="token operator">=</span> ship<span class="token punctuation">.</span>rotation<span class="token punctuation">,</span>
+
+  <span class="token comment" spellcheck="true">// x、y轴上的加速度</span>
+      ax <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> thrust<span class="token punctuation">,</span>
+      ay <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> thrust<span class="token punctuation">;</span>
+
+  vx <span class="token operator">+</span><span class="token operator">=</span> ax<span class="token punctuation">;</span>
+  vy <span class="token operator">+</span><span class="token operator">=</span> ay<span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="边界与摩擦力"><a href="#边界与摩擦力" class="headerlink" title="边界与摩擦力"></a>边界与摩擦力</h2><p>在真实的物理世界中有一类广泛存在的摩擦力，它会引起物体的速度向量发生改变，比如，来自空气的阻力。</p>
+<h3 id="环境边界"><a href="#环境边界" class="headerlink" title="环境边界"></a>环境边界</h3><p>如果在你关注范围内的一个物体移出了那个空间，你就不得不为它做出一个选择：将该物体移动回空间或者不再关注该物体，抑或是追随那个物体，即移动空间使其继续包含该物体，即便物体仍在移动。在动画编程中，以上几种选择其实并没有太大差别。</p>
+<h4 id="设置边界"><a href="#设置边界" class="headerlink" title="设置边界"></a>设置边界</h4><p>动画边界的左上角坐标为<code>(0,0)</code>，右下角坐标为<code>(canvas.width, canvas.height)</code>。可以将这些值保存在变量中，如下所示：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    right <span class="token operator">=</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span>
+    bottom <span class="token operator">=</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">;</span></code></pre>
+<p>检查你关注的所有移动物体，看看它们是否处在这个空间中：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">></span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// do something</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// do something</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>y <span class="token operator">></span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// do something</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>y <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// do something</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="移除物体"><a href="#移除物体" class="headerlink" title="移除物体"></a>移除物体</h4><p>如果物体会不断产生，那么移除物体的做法将非常有效。</p>
+<p>当多个物体在移动时，应该将它们的引用保存到一个数组中，再通过遍历整个数组来移动它们。<br>使用<code>Array.splice</code>方法移除数组中的某个物体。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> canvas<span class="token punctuation">.</span>width <span class="token operator">||</span> ball<span class="token punctuation">.</span>x <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span>
+   ball<span class="token punctuation">.</span>y <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> canvas<span class="token punctuation">.</span>height <span class="token operator">||</span> ball<span class="token punctuation">.</span>y <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  balls<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>balls<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>ball<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>while循环反向遍历数组，只需要在遍历过程中没有新元素被添加到数组的头部：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> i <span class="token operator">=</span> balls<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">draw</span><span class="token punctuation">(</span>balls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="重置物体"><a href="#重置物体" class="headerlink" title="重置物体"></a>重置物体</h4><p>喷泉动画：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> balls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment" spellcheck="true">// balls数组</span>
+    numBalls <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// ball数量</span>
+    gravity <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">// 重力加速度</span>
+
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> ball<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numBalls<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 设置ball半径为2，颜色随机</span>
+  ball <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Ball</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">0xffffff</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'ball'</span> <span class="token operator">+</span> i<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 设置ball初始位置</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">=</span> canvas<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>y <span class="token operator">=</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 生成ball的x、y轴加速度</span>
+  <span class="token comment" spellcheck="true">// x轴范围[-1, 1]     向左/向右</span>
+  <span class="token comment" spellcheck="true">// y轴范围[-20, -18]  向上</span>
+  ball<span class="token punctuation">.</span>vx <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>vy <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">10</span> <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+  balls<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>ball<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">draw</span><span class="token punctuation">(</span>ball<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// y轴速度向量增加重力加速度，最多40帧后y>0，ball向下运动</span>
+  ball<span class="token punctuation">.</span>vy <span class="token operator">+</span><span class="token operator">=</span> gravity<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 设置ball的x、y轴合成加速度</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> ball<span class="token punctuation">.</span>vx<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> ball<span class="token punctuation">.</span>vy<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 如果超出边界</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> canvas<span class="token punctuation">.</span>width <span class="token operator">||</span> ball<span class="token punctuation">.</span>x <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> canvas<span class="token punctuation">.</span>height <span class="token operator">||</span> ball<span class="token punctuation">.</span>y <span class="token operator">+</span> ball<span class="token punctuation">.</span>y <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 重新定位ball</span>
+    ball<span class="token punctuation">.</span>x <span class="token operator">=</span> canvas<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">=</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 重新生成ball的x、y轴加速度</span>
+    ball<span class="token punctuation">.</span>vx <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>vy <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">10</span> <span class="token operator">-</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  ball<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>drawFrame<span class="token punctuation">,</span> canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  context<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 遍历balls数组中的所有元素，将每个元素作为参数传入draw函数</span>
+  balls<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>draw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="屏幕环绕"><a href="#屏幕环绕" class="headerlink" title="屏幕环绕"></a>屏幕环绕</h4><p>如果一个物体从屏幕左边移出，它就会在屏幕右边再次出现；反之亦然。<br>很容易猜到，当物体从屏幕上方移出时，它又会出现在屏幕下方。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// screen wrapping</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>ship<span class="token punctuation">.</span>x <span class="token operator">-</span> ship<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">></span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ship<span class="token punctuation">.</span>x <span class="token operator">=</span> left <span class="token operator">-</span> ship<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ship<span class="token punctuation">.</span>x <span class="token operator">+</span> ship<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">&lt;</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ship<span class="token punctuation">.</span>x <span class="token operator">=</span> right <span class="token operator">+</span> ship<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>ship<span class="token punctuation">.</span>y <span class="token operator">-</span> ship<span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">></span> bottom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ship<span class="token punctuation">.</span>y <span class="token operator">=</span> top <span class="token operator">-</span> ship<span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ship<span class="token punctuation">.</span>y <span class="token operator">&lt;</span> top <span class="token operator">-</span> ship<span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ship<span class="token punctuation">.</span>y <span class="token operator">=</span> bottom <span class="token operator">+</span> ship<span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ship<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="反弹"><a href="#反弹" class="headerlink" title="反弹"></a>反弹</h4><p>如果物体从屏幕的左边或右边越界，就对它的x轴速度向量取反。<br>同理，如果物体从上方或下方越界，则对它的y轴速度向量取反。<br>对单轴速度向量取反非常简单，只须将对应的值乘以-1即可。</p>
+<pre class=" language-js"><code class="language-js">vx <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+vy <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span></code></pre>
+<p>反弹的步骤：</p>
+<ul>
+<li>检查物体是否越过任意边界；</li>
+<li>如果发生越界，立即将物体置回边界；</li>
+<li>反转物体的速度向量的方向。</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">=</span> right <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+  vx <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">=</span> left <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+  vx <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>反弹系数<code>bounce</code>：</li>
+</ul>
+<p>在反弹的过程中小球损失了一部分能量。重点在于球体在发生反弹后的运动速度比之前要慢一些。换句话讲，它在反弹的坐标轴上的速度向量变小了。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 定义bounce</span>
+<span class="token keyword">var</span> bounce <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">0.7</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>x <span class="token operator">=</span> right <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vx <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>x <span class="token operator">=</span> left <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vx <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>y <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> bottom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">=</span> bottom <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vy <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>y <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> top<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">=</span> top <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vy <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="摩擦力"><a href="#摩擦力" class="headerlink" title="摩擦力"></a>摩擦力</h3><p>摩擦力只会改变速度向量的大小而不会改变它的方向。换句话说，摩擦力只能将物体的速度降至零，但它无法让物体掉头向相反的方向移动。</p>
+<h4 id="摩擦力，正确方法"><a href="#摩擦力，正确方法" class="headerlink" title="摩擦力，正确方法"></a>摩擦力，正确方法</h4><p>1.定义<code>friction</code>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> friction <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span></code></pre>
+<p>2.在<code>drawFrame</code>函数中：</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token comment" spellcheck="true">// 定义速度和角度</span>
+  <span class="token keyword">var</span> speed <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>vx <span class="token operator">*</span> vx <span class="token operator">+</span> vy <span class="token operator">*</span> vy<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      angle <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">atan2</span><span class="token punctuation">(</span>vy<span class="token punctuation">,</span> vx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 如果speed变量大于friction，二者就相减；否则，让speed变为0</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>speed <span class="token operator">></span> friction<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    speed <span class="token operator">-</span><span class="token operator">=</span> friction<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    speed <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 重新计算vx、vy并将它们加到球体的位置上</span>
+  vx <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> speed<span class="token punctuation">;</span>
+  vy <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>angle<span class="token punctuation">)</span> <span class="token operator">*</span> speed<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+
+  ball<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="摩擦力，简便方法"><a href="#摩擦力，简便方法" class="headerlink" title="摩擦力，简便方法"></a>摩擦力，简便方法</h4><p>将x、y轴上的速度向量乘以一个百分数即可，一个接近0.9的系数就能够很好地模拟出摩擦力的效果，当然可以根据你的观察做出相应的调整。</p>
+<p>1.定义<code>friction</code>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> friction <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">;</span></code></pre>
+<p>2.在<code>drawFrame</code>函数中：</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token comment" spellcheck="true">// 比较vx与一个指定的较小的值从而节省一些不必要的计算</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>vx<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.001</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 模拟摩擦力</span>
+    vx <span class="token operator">*</span><span class="token operator">=</span> friction<span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 比较vy与一个指定的较小的值从而节省一些不必要的计算</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>vy<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0.001</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 模拟摩擦力</span>
+    vy <span class="token operator">*</span><span class="token operator">=</span> friction<span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  ball<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h4 id="摩擦力应用"><a href="#摩擦力应用" class="headerlink" title="摩擦力应用"></a>摩擦力应用</h4><p>1.加入一个摩擦力变量：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> friction <span class="token operator">=</span> <span class="token number">0.97</span><span class="token punctuation">;</span></code></pre>
+<p>2.以宇宙飞船为例，将<code>drawFrame</code>函数修改为如下代码：</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token comment" spellcheck="true">// 增加x、y轴上的加速度</span>
+  vx <span class="token operator">+</span><span class="token operator">=</span> ax<span class="token punctuation">;</span>
+  vy <span class="token operator">+</span><span class="token operator">=</span> ay<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 加入摩擦力变量</span>
+  vx <span class="token operator">*</span><span class="token operator">=</span> friction<span class="token punctuation">;</span>
+  vy <span class="token operator">*</span><span class="token operator">=</span> friction<span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  ship<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// screen wrapping</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  ship<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="用户交互：移动物体"><a href="#用户交互：移动物体" class="headerlink" title="用户交互：移动物体"></a>用户交互：移动物体</h2><p>交互动画的一个主要目标是创建出流畅的用户体验，其中大多数的用户交互都是通过鼠标和触摸屏实现的。</p>
+<h3 id="按下及释放物体"><a href="#按下及释放物体" class="headerlink" title="按下及释放物体"></a>按下及释放物体</h3><p>在动画中，鼠标事件只能被HTML DOM树上的canvas元素所捕获。</p>
+<ul>
+<li><code>mousedown</code></li>
+<li><code>mouseup</code></li>
+<li><code>mousemove</code></li>
+</ul>
+<h4 id="使用触摸事件"><a href="#使用触摸事件" class="headerlink" title="使用触摸事件"></a>使用触摸事件</h4><ul>
+<li><code>touchstart</code></li>
+<li><code>touchend</code></li>
+<li><code>touchmove</code></li>
+</ul>
+<h3 id="拖拽对象"><a href="#拖拽对象" class="headerlink" title="拖拽对象"></a>拖拽对象</h3><pre class=" language-js"><code class="language-js">canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousedown'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>utils<span class="token punctuation">.</span><span class="token function">containsPoint</span><span class="token punctuation">(</span>ball<span class="token punctuation">.</span><span class="token function">getBounds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mouse<span class="token punctuation">.</span>x<span class="token punctuation">,</span> mouse<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    offsetX <span class="token operator">=</span> mouse<span class="token punctuation">.</span>x <span class="token operator">-</span> ball<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+    offsetY <span class="token operator">=</span> mouse<span class="token punctuation">.</span>y <span class="token operator">-</span> ball<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseup'</span><span class="token punctuation">,</span> onMouseUp<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousemove'</span><span class="token punctuation">,</span> onMouseMove<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">onMouseUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  canvas<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseup'</span><span class="token punctuation">,</span> onMouseUp<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  canvas<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'mousemove'</span><span class="token punctuation">,</span> onMouseMove<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">onMouseMove</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">=</span> mouse<span class="token punctuation">.</span>x <span class="token operator">-</span> offsetX<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>y <span class="token operator">=</span> mouse<span class="token punctuation">.</span>y <span class="token operator">-</span> offsetY<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h4 id="结合运动代码的拖拽"><a href="#结合运动代码的拖拽" class="headerlink" title="结合运动代码的拖拽"></a>结合运动代码的拖拽</h4><p>我们可以尝试为该动画引入一些速度、加速度以及反弹的内容，使其变得更加有趣。</p>
+<p>1.声明一个<code>isMouseDown</code>变量：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> isMouseDown <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span></code></pre>
+<p>2.在mousedown事件中设置<code>isMouseDown = true</code>：</p>
+<pre class=" language-js"><code class="language-js">canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousedown'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>utils<span class="token punctuation">.</span><span class="token function">containsPoint</span><span class="token punctuation">(</span>ball<span class="token punctuation">.</span><span class="token function">getBounds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mouse<span class="token punctuation">.</span>x<span class="token punctuation">,</span> mouse<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+    isMouseDown <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 开始拖拽时，不应该伴随有其他运动</span>
+    vx <span class="token operator">=</span> vy <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>3.在mouseup事件中设置<code>isMouseDown = false</code>：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> onMouseUp <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  isMouseDown <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span></code></pre>
+<p>4.将有关边界检查的代码都移入<code>checkBoundaries</code>函数：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> checkBoundaries <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      right <span class="token operator">=</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span>
+      top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      bottom <span class="token operator">=</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+
+  vy <span class="token operator">+</span><span class="token operator">=</span> gravity<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> vx<span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> vy<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>x <span class="token operator">=</span> right <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vx <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>x <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>x <span class="token operator">=</span> left <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vx <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>y <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius <span class="token operator">></span> bottom<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">=</span> bottom <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vy <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>y <span class="token operator">-</span> ball<span class="token punctuation">.</span>radius <span class="token operator">&lt;</span> top<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ball<span class="token punctuation">.</span>y <span class="token operator">=</span> top <span class="token operator">+</span> ball<span class="token punctuation">.</span>radius<span class="token punctuation">;</span>
+    vy <span class="token operator">*</span><span class="token operator">=</span> bounce<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>5.在<code>drawFrame</code>函数中：</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+
+  <span class="token comment" spellcheck="true">// 鼠标按下时</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isMouseDown<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 检查边界</span>
+    <span class="token function">checkBoundaries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  ball<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="投掷"><a href="#投掷" class="headerlink" title="投掷"></a>投掷</h3><p>在动画中如何表现投掷呢？用鼠标选中一个物体，拖拽着它向某个方向移动，松开鼠标后物体沿着拖拽的方向继续移动。</p>
+<p><strong>旧的位置+速度向量=新的位置</strong> =&gt; <strong>速度向量=新的位置-旧的位置</strong></p>
+<p>首先，声明变量oldX、oldY为小球旧的x、y坐标位置，在小球开始拖拽时保存；<br>在drawFrame函数中检查鼠标是否按下，如果按下，调用trackVelocity函数更新小球的拖拽速度：</p>
+<pre class=" language-js"><code class="language-js">canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousedown'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>utils<span class="token punctuation">.</span><span class="token function">containsPoint</span><span class="token punctuation">(</span>ball<span class="token punctuation">.</span><span class="token function">getBounds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> mouse<span class="token punctuation">.</span>x<span class="token punctuation">,</span> mouse<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+
+    isMouseDown <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 保存小球的旧坐标位置</span>
+    oldX <span class="token operator">=</span> ball<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+    oldY <span class="token operator">=</span> ball<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+
+    canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseup'</span><span class="token punctuation">,</span> onMouseUp<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousemove'</span><span class="token punctuation">,</span> onMouseMove<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> trackVelocity <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">// 更新小球的速度向量</span>
+  vx <span class="token operator">=</span> ball<span class="token punctuation">.</span>x <span class="token operator">-</span> oldX<span class="token punctuation">;</span>
+  vy <span class="token operator">=</span> ball<span class="token punctuation">.</span>y <span class="token operator">-</span> oldY<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 更新小球的旧坐标位置</span>
+  oldX <span class="token operator">=</span> ball<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+  oldY <span class="token operator">=</span> ball<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">drawFrame</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>drawFrame<span class="token punctuation">,</span> canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  context<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">,</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>isMouseDown<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">// 鼠标按下时更新小球的速度向量和旧坐标位置</span>
+    <span class="token function">trackVelocity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">checkBoundaries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  ball<span class="token punctuation">.</span><span class="token function">draw</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Buy me a coffee</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Yunmian Zhan 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Yunmian Zhan 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/canvas/" rel="tag"># canvas</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/26/HTML5-JavaScript动画基础笔记/" rel="next" title="HTML5+JavaScript动画基础笔记一(JavaScript动画基础)">
+                <i class="fa fa-chevron-left"></i> HTML5+JavaScript动画基础笔记一(JavaScript动画基础)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Yunmian Zhan">
+            
+              <p class="site-author-name" itemprop="name">Yunmian Zhan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度向量和加速度"><span class="nav-number">1.</span> <span class="nav-text">速度向量和加速度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#速度向量-velocity"><span class="nav-number">1.1.</span> <span class="nav-text">速度向量 velocity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单轴上的速度向量"><span class="nav-number">1.1.1.</span> <span class="nav-text">单轴上的速度向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双轴上的速度向量"><span class="nav-number">1.1.2.</span> <span class="nav-text">双轴上的速度向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#角速度"><span class="nav-number">1.1.3.</span> <span class="nav-text">角速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#向量加法"><span class="nav-number">1.1.4.</span> <span class="nav-text">向量加法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鼠标追随"><span class="nav-number">1.1.5.</span> <span class="nav-text">鼠标追随</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#速度向量扩展"><span class="nav-number">1.1.6.</span> <span class="nav-text">速度向量扩展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加速度"><span class="nav-number">1.2.</span> <span class="nav-text">加速度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单轴加速度"><span class="nav-number">1.2.1.</span> <span class="nav-text">单轴加速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双轴加速度"><span class="nav-number">1.2.2.</span> <span class="nav-text">双轴加速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重力加速度"><span class="nav-number">1.2.3.</span> <span class="nav-text">重力加速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#角加速度"><span class="nav-number">1.2.4.</span> <span class="nav-text">角加速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宇宙飞船"><span class="nav-number">1.2.5.</span> <span class="nav-text">宇宙飞船</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#飞船控制"><span class="nav-number">1.2.6.</span> <span class="nav-text">飞船控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边界与摩擦力"><span class="nav-number">2.</span> <span class="nav-text">边界与摩擦力</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境边界"><span class="nav-number">2.1.</span> <span class="nav-text">环境边界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置边界"><span class="nav-number">2.1.1.</span> <span class="nav-text">设置边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除物体"><span class="nav-number">2.1.2.</span> <span class="nav-text">移除物体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重置物体"><span class="nav-number">2.1.3.</span> <span class="nav-text">重置物体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕环绕"><span class="nav-number">2.1.4.</span> <span class="nav-text">屏幕环绕</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反弹"><span class="nav-number">2.1.5.</span> <span class="nav-text">反弹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摩擦力"><span class="nav-number">2.2.</span> <span class="nav-text">摩擦力</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#摩擦力，正确方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">摩擦力，正确方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摩擦力，简便方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">摩擦力，简便方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摩擦力应用"><span class="nav-number">2.2.3.</span> <span class="nav-text">摩擦力应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户交互：移动物体"><span class="nav-number">3.</span> <span class="nav-text">用户交互：移动物体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按下及释放物体"><span class="nav-number">3.1.</span> <span class="nav-text">按下及释放物体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用触摸事件"><span class="nav-number">3.1.1.</span> <span class="nav-text">使用触摸事件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拖拽对象"><span class="nav-number">3.2.</span> <span class="nav-text">拖拽对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结合运动代码的拖拽"><span class="nav-number">3.2.1.</span> <span class="nav-text">结合运动代码的拖拽</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#投掷"><span class="nav-number">3.3.</span> <span class="nav-text">投掷</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yunmian Zhan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+
+  <script src="https://unpkg.com/mermaid@8.2.1/dist/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize("");
+    }
+  </script>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+
+  
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments',
+        verify: false,
+        notify: false,
+        appId: 'UPy41cC4QBeVJh3qz6kMbQ6u-gzGzoHsz',
+        appKey: 'w8bU3VTl5H4DtpbibaCVf0tw',
+        placeholder: '发表评论...',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-cog fa-spin fa-3x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("UPy41cC4QBeVJh3qz6kMbQ6u-gzGzoHsz", "w8bU3VTl5H4DtpbibaCVf0tw");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
