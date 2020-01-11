@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="图难于其易">
 <meta property="og:description" content="《Vue.js项目实战》  Vuex集中式的状态管理 Vuex从Flux（由Facebook开发）的概念中获取得灵感。Flux又一系列指导原则构成，阐明了如何使用集中式store来实现组件之间的单向数据流。 Vuex的核心元素是store，是进行数据存储和数据处理的主要架构。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-21T08:34:46.925Z">
+<meta property="og:updated_time" content="2019-12-15T02:50:50.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue入门笔记三(Vuex)">
 <meta name="twitter:description" content="《Vue.js项目实战》  Vuex集中式的状态管理 Vuex从Flux（由Facebook开发）的概念中获取得灵感。Flux又一系列指导原则构成，阐明了如何使用集中式store来实现组件之间的单向数据流。 Vuex的核心元素是store，是进行数据存储和数据处理的主要架构。">
@@ -475,10 +475,8 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </ul>
 <p>（1）在store选项中添加state函数，该函数返回一个对象：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  state <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      user<span class="token punctuation">:</span> <span class="token keyword">null</span>
-    <span class="token punctuation">}</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    user<span class="token punctuation">:</span> <span class="token keyword">null</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>（2）在组件中读取状态：</p>
@@ -492,7 +490,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 </ul>
 <p>（1）添加一个mutation：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    state <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    state<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
         user<span class="token punctuation">:</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> user<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
             state<span class="token punctuation">.</span>user <span class="token operator">=</span> user
@@ -570,12 +568,10 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 <pre class=" language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
     namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
 
-    state <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">{</span>
-            center<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                lat<span class="token punctuation">:</span> <span class="token number">48.8538302</span><span class="token punctuation">,</span>
-                lng<span class="token punctuation">:</span> <span class="token number">2.2982161</span><span class="token punctuation">,</span>
-            <span class="token punctuation">}</span>
+    state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        center<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            lat<span class="token punctuation">:</span> <span class="token number">48.8538302</span><span class="token punctuation">,</span>
+            lng<span class="token punctuation">:</span> <span class="token number">2.2982161</span><span class="token punctuation">,</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
@@ -608,7 +604,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
 <span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>4.使用createNamespacedHelpers方法生成基于某个命名空间的辅助函数：</p>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createNamespacedHelpers <span class="token punctuation">}</span> <span class="token keyword">from</span> vuex
-<span class="token keyword">import</span> <span class="token punctuation">{</span> mapGetters <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span><span class="token string">'maps'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> mapGetters <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span><span class="token string">'maps'</span><span class="token punctuation">)</span>
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
     computed<span class="token punctuation">:</span> <span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
@@ -785,7 +781,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -796,7 +792,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -860,7 +856,7 @@ getters<span class="token punctuation">:</span> <span class="token punctuation">
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
